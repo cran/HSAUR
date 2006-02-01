@@ -1,0 +1,66 @@
+
+R : Copyright 2005, The R Foundation for Statistical Computing
+Version 2.2.1 beta (2005-12-18 r36792)
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ###################################################
+> ### chunk number 1: setup
+> ###################################################
+> rm(list = ls())
+> if (!file.exists("tables")) dir.create("tables")
+> set.seed(290875)
+> options(prompt = "R> ", width = 63, # digits = 4,
++     SweaveHooks = list(leftpar = function()
++         par(mai = par("mai") * c(1, 1.05, 1, 1))))
+R> HSAURpkg <- require("HSAUR")
+Loading required package: HSAUR
+Loading required package: lattice
+Loading required package: MASS
+Loading required package: scatterplot3d
+R> if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
+R> rm(HSAURpkg)
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 2: pre-HSAUR-install eval=FALSE
+R> ###################################################
+R> ## install.packages("HSAUR")
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 3: pre-HSA
+R> ###################################################
+R> library("HSAUR")
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 4: pre-vignette eval=FALSE
+R> ###################################################
+R> ## vignette("Ch_intoduction_to_R", package = "HSAUR")
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 5: pre-vignette-source eval=FALSE
+R> ###################################################
+R> ## edit(vignette("Ch_intoduction_to_R", package = "HSAUR"))
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 6: pre-vignette-source eval=FALSE
+R> ###################################################
+R> ## vignette(package = "HSAUR")
+R> 
+R> 
+R> 

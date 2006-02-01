@@ -1,0 +1,181 @@
+
+R : Copyright 2005, The R Foundation for Statistical Computing
+Version 2.2.1 beta (2005-12-18 r36792)
+ISBN 3-900051-07-0
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> ###################################################
+> ### chunk number 1: setup
+> ###################################################
+> rm(list = ls())
+> if (!file.exists("tables")) dir.create("tables")
+> set.seed(290875)
+> options(prompt = "R> ", width = 63, # digits = 4,
++     SweaveHooks = list(leftpar = function()
++         par(mai = par("mai") * c(1, 1.05, 1, 1))))
+R> HSAURpkg <- require("HSAUR")
+Loading required package: HSAUR
+Loading required package: lattice
+Loading required package: MASS
+Loading required package: scatterplot3d
+R> if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
+R> rm(HSAURpkg)
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 2: thissetup
+R> ###################################################
+R> library("mclust")
+
+Attaching package: 'mclust'
+
+
+	The following object(s) are masked from package:stats :
+
+	 density 
+
+R> library("mvtnorm")
+R> mai <- par("mai")
+R> options(SweaveHooks = list(rmai = function() { par(mai = mai * c(1,1,1,2))}))
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 3: CA-planets-scatter
+R> ###################################################
+R> data("planets", package = "HSAUR")
+R> library("scatterplot3d")
+R> scatterplot3d(log(planets$mass), log(planets$period), log(planets$eccen),
++               type = "h", angle = 55, scale.y = 0.7, pch =
++               16, y.ticklabs = seq(0, 10, by = 2), y.margin.add = 0.1)
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 4: CA-planet-ss
+R> ###################################################
+R> rge <- apply(planets, 2, max) - apply(planets, 2, min)
+R> planet.dat <- sweep(planets, 2, rge, FUN = "/")
+R> n <- nrow(planet.dat)
+R> wss <- rep(0, 10)
+R> wss[1] <- (n - 1) * sum(apply(planet.dat, 2, var))
+R> for (i in 2:10)
++     wss[i] <- sum(kmeans(planet.dat, centers = i)$withinss)
+R> plot(1:10, wss, type = "b", xlab = "Number of groups",
++      ylab = "Within groups sum of squares")
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 5: CA-planets-kmeans3
+R> ###################################################
+R> planet_kmeans3 <- kmeans(planet.dat, centers = 3)
+R> table(planet_kmeans3$cluster)
+
+ 1  2  3 
+14 53 34 
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 6: CA-planets-ccent
+R> ###################################################
+R> ccent <- function(cl) {
++     f <- function(i) colMeans(planets[cl == i,])
++     x <- sapply(sort(unique(cl)), f)
++     colnames(x) <- sort(unique(cl))
++     return(x)
++ }
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 7: CA-planets--kmeans3-ccent
+R> ###################################################
+R> ccent(planet_kmeans3$cluster)
+                1           2           3
+mass     10.56786   1.6710566   2.9276471
+period 1693.17201 427.7105892 616.0760882
+eccen     0.36650   0.1219491   0.4953529
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 8: CA-planets-kmeans5
+R> ###################################################
+R> planet_kmeans5 <- kmeans(planet.dat, centers = 5)
+R> table(planet_kmeans5$cluster)
+
+ 1  2  3  4  5 
+32 14  8 17 30 
+R> ccent(planet_kmeans5$cluster)
+                1            2           3           4
+mass     1.668750   10.8121429    2.066250   3.6735294
+period 402.082219 1318.6505856 2403.687500 674.9115294
+eccen    0.302875    0.3836429    0.191625   0.6094706
+                5
+mass     1.743533
+period 176.297374
+eccen    0.049310
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 9: CA-planets-mclust
+R> ###################################################
+R> library("mclust")
+R> planet_mclust <- Mclust(planet.dat)
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 10: CA-planets-mclust-plot
+R> ###################################################
+R> x <- plot.EMclust(planet_mclust$BIC, col = "black", ylab = "-BIC")
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 11: CA-planets-mclust-print
+R> ###################################################
+R> print(planet_mclust)
+
+ best model: diagonal, varying volume and shape with 3 groups
+
+ averge/median classification uncertainty: 0.043 / 0.012 
+
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 12: CA-planets-mclust-scatter
+R> ###################################################
+R> x <- clPairs(planet.dat, classification = planet_mclust$classification, symbols =
++ 1:3, col = "black")
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 13: CA-planets-mclust-scatterclust
+R> ###################################################
+R> scatterplot3d(log(planets$mass), log(planets$period), log(planets$eccen),
++               type = "h", angle = 55, scale.y = 0.7,
++               pch = planet_mclust$classification,
++               y.ticklabs = seq(0, 10, by = 2), y.margin.add = 0.1)
+R> 
+R> 
+R> ###################################################
+R> ### chunk number 14: CA-planets-mclust-mu
+R> ###################################################
+R> table(planet_mclust$classification)
+
+ 1  2  3 
+19 41 41 
+R> ccent(planet_mclust$classification)
+                1           2            3
+mass   1.16652632   1.5797561    6.0761463
+period 6.47180158 313.4127073 1325.5310048
+eccen  0.03652632   0.3061463    0.3704951
+R> 
+R> 
+R> 

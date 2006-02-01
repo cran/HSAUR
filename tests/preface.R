@@ -1,0 +1,44 @@
+###################################################
+### chunk number 1: setup
+###################################################
+rm(list = ls())
+if (!file.exists("tables")) dir.create("tables")
+set.seed(290875)
+options(prompt = "R> ", width = 63, # digits = 4,
+    SweaveHooks = list(leftpar = function()
+        par(mai = par("mai") * c(1, 1.05, 1, 1))))
+HSAURpkg <- require("HSAUR")
+if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
+rm(HSAURpkg)
+
+
+###################################################
+### chunk number 2: pre-HSAUR-install eval=FALSE
+###################################################
+## install.packages("HSAUR")
+
+
+###################################################
+### chunk number 3: pre-HSA
+###################################################
+library("HSAUR")
+
+
+###################################################
+### chunk number 4: pre-vignette eval=FALSE
+###################################################
+## vignette("Ch_intoduction_to_R", package = "HSAUR")
+
+
+###################################################
+### chunk number 5: pre-vignette-source eval=FALSE
+###################################################
+## edit(vignette("Ch_intoduction_to_R", package = "HSAUR"))
+
+
+###################################################
+### chunk number 6: pre-vignette-source eval=FALSE
+###################################################
+## vignette(package = "HSAUR")
+
+
