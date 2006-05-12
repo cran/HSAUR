@@ -1,6 +1,6 @@
 
-R : Copyright 2005, The R Foundation for Statistical Computing
-Version 2.2.1 beta (2005-12-18 r36792)
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 (2006-04-24)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -37,6 +37,7 @@ R> ###################################################
 R> ### chunk number 2: MA-smoking-
 R> ###################################################
 R> library("rmeta")
+Loading required package: grid
 R> data("smoking", package = "HSAUR")
 R> smokingOR <- meta.MH(smoking[["tt"]], smoking[["tc"]],
 +                      smoking[["qt"]], smoking[["qc"]],
@@ -196,7 +197,7 @@ Coefficients:
 Latitude     -0.026463   0.013553  -1.953   0.0794 .
 Year          0.007442   0.018755   0.397   0.6998  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 Residual standard error: 0.6862 on 10 degrees of freedom
 Multiple R-Squared:  0.45,	Adjusted R-squared:  0.34 

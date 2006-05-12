@@ -1,11 +1,11 @@
 %PDF-1.1
-%Å‚Å„ÅœÅ”
+%Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20060201111539)
-/ModDate (D:20060201111539)
+/CreationDate (D:20060523172628)
+/ModDate (D:20060523172628)
 /Title (R Graphics Output)
-/Producer (R 2.2.1)
+/Producer (R 2.3.0)
 /Creator (R)
 >>
 endobj
@@ -85,7 +85,7 @@ Q q 0.00 0.00 216.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F3 1 Tf 14.00 0.00 -0.00 14.00 68.71 253.45 Tm (Grade III Glioma) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 61.21 18.72 Tm (Survival Time in Month) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 61.66 18.72 Tm (Survival Time in Month) Tj
 /F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 123.19 Tm (Probability) Tj
 ET
 Q q 59.04 73.44 126.72 155.52 re W n
@@ -197,7 +197,7 @@ Q q 216.00 0.00 216.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F3 1 Tf 14.00 0.00 -0.00 14.00 283.93 253.45 Tm (Grade IV Glioma) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 277.21 18.72 Tm (Survival Time in Month) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 277.66 18.72 Tm (Survival Time in Month) Tj
 /F2 1 Tf 0.00 12.00 -12.00 0.00 228.96 123.19 Tm (Probability) Tj
 ET
 Q q 275.04 73.44 126.72 155.52 re W n
@@ -264,7 +264,7 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R /F5 13 0 R /F6 14 0 R >>
+/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R >>
 /ExtGState << >>
 >>
 endobj
@@ -277,73 +277,40 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj
-<<
+10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
 /Encoding 9 0 R
->>
-endobj
-11 0 obj
-<<
+>> endobj
+11 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F3
 /BaseFont /Helvetica-Bold
 /Encoding 9 0 R
->>
-endobj
-12 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F4
-/BaseFont /Helvetica-Oblique
-/Encoding 9 0 R
->>
-endobj
-13 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F5
-/BaseFont /Helvetica-BoldOblique
-/Encoding 9 0 R
->>
-endobj
-14 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F6
-/BaseFont /Symbol
->>
-endobj
+>> endobj
 xref
-0 15
+0 12
 0000000000 65535 f 
-0000000020 00000 n 
-0000000162 00000 n 
-0000005578 00000 n 
-0000005661 00000 n 
-0000000211 00000 n 
-0000000294 00000 n 
-0000000374 00000 n 
-0000005558 00000 n 
-0000005798 00000 n 
-0000006055 00000 n 
-0000006152 00000 n 
-0000006254 00000 n 
-0000006359 00000 n 
-0000006468 00000 n 
+0000000021 00000 n 
+0000000163 00000 n 
+0000005579 00000 n 
+0000005662 00000 n 
+0000000212 00000 n 
+0000000295 00000 n 
+0000000375 00000 n 
+0000005559 00000 n 
+0000005766 00000 n 
+0000006023 00000 n 
+0000006120 00000 n 
 trailer
 <<
-/Size 15
+/Size 12
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-6546
+6222
 %%EOF

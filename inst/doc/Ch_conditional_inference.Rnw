@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,25 +147,18 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Conditional Inference}
 %%\VignetteDepends{coin}
 \setcounter{chapter}{2}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -174,25 +170,19 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 \chapter[Conditional Inference]{Conditional Inference: Guessing Lengths, Suicides,
          Gastrointestinal Damage, and Newborn Infants \label{CI}}
-
 <<CI-roomwidth-ties, echo = FALSE, results = hide>>=
 data("roomwidth", package = "HSAUR")
 nobs <- table(roomwidth$unit)
 ties <- tapply(roomwidth$width, roomwidth$unit, function(x) length(x) - length(unique(x)))
 library("coin")
 @
-
 \section{Introduction}
 \section{Conditional Test Procedures}
 \section{Analysis Using \R{}}
-
 \subsection{Estimating the Width of a Room Revised}
-
 The unconditional analysis of the room width estimated by two groups of students in
 Chapter~\ref{SI} lead to the conclusion that the estimates in metres are
 slightly larger than the estimates in feet. Here, we reanalyse these data in
@@ -253,7 +243,6 @@ binom.test(sum(greater), length(greater))$conf.int
 @
 Note that the approximated conditional $p$-value is roughly the same as the
 $p$-value reported by the $t$-test in Chapter~\ref{SI}.
-
 \renewcommand{\nextcaption}{\R{} output of the exact permutation test applied to
                             the \Robject{roomwidth} data. \label{CI-roomwidth-p-fig}}
 \SchunkLabel
@@ -284,7 +273,6 @@ ftp <- round(fisher.test(suicides)$p.value, 3)
 ctp <- round(chisq.test(suicides)$p.value, 3)
 @
 \subsection{Gastrointestinal Damages}
-
 Here we are interested in the comparison of two groups of patients,
 where one group received a placebo and the other one Misoprostol. In the
 trials shown here, the response variable is measured on an ordered scale
@@ -299,7 +287,6 @@ xtabs(~ treatment + classification + study, data = Lanza)
 <<CI-width, echo = FALSE, results = hide>>=
 options(width = 65)
 @
-
 For the first study, the null hypothesis of independence of treatment and
 gastrointestinal damage, i.e., of no treatment effect of Misoprostol, is
 tested by
@@ -336,7 +323,6 @@ cmh_test(classification ~ treatment, data = Lanza,
          scores = list(classification = c(0, 1, 6, 17, 30)),
          subset = Lanza$study == "IV")
 @
-
 At the end, a separate analysis for each study is unsatisfactory. Because
 the design of the four studies is the same, we can use \Robject{study} as a
 block variable and perform a global linear-association test investigating
@@ -347,9 +333,7 @@ cmh_test(classification ~ treatment | study, data = Lanza,
          scores = list(classification = c(0, 1, 6, 17, 30)))
 @
 Based on this result, a strong treatment effect can be established.
-
 \subsection{Teratogenesis}
-
 \index{Teratogenesis}
 In this example, the medical doctor (MD) and the research assistant (RA)
 assessed the number of anomalies ($0, 1, 2$ or $3$) for each of $395$ babies:

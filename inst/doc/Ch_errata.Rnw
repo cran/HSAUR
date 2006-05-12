@@ -155,9 +155,8 @@
 \title{A Handbook of Statistical Analyses Using \R}
 \author{Brian S. Everitt and Torsten Hothorn}
 \maketitle
-%%\VignetteIndexEntry{Chapter Multidimensional Scaling}
-%%\VignetteDepends{ape}
-\setcounter{chapter}{13}
+%%\VignetteIndexEntry{Errata}
+\setcounter{chapter}{15}
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
@@ -171,112 +170,52 @@ if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
 \pagestyle{headings}
-<<MDS-setup, echo = FALSE, results = hide>>=
-x <- library("ape")
+\chapter[Errata]{Errata}
+The document gives a list of typos, errors, inconsistencies etc. which have been spotted.
+Moreover, small numeric output differences which are due to updated packages are reported here.
+To get a full list of differences run \Rcmd{R CMD check HSAUR} on the source package.
+\section*{Preface}
+Typo in name of vignette for Chapter 1, should read
+<<pre-vignette, echo = TRUE, eval = FALSE>>=
+vignette("Ch_introduction_to_R", package = "HSAUR")
 @
-\chapter[Multidimensional Scaling]{Multidimensional Scaling: British Water
-Voles and Voting in US Congress \label{MDS}}
-\section{Introduction}
+and
+<<pre-vignette, echo = TRUE, eval = FALSE>>=
+edit(vignette("Ch_introduction_to_R", package = "HSAUR"))
+@
+\section{Introduction to R}
+--nothing known--
+\section{Simple Inference}
+Typo at page 31, code line 4: use argument \Rcmd{varwidth = TRUE}, not \Rcmd{var.width = TRUE}.
+\section{Conditional Inference}
+The names of the test statistics in the output have been changed from \Rcmd{T} to \Rcmd{Z}
+or \Rcmd{chi-squared} throughout the chapter.
+\section{Analysis of Variance}
+--nothing known--
+\section{Multiple Linear Regression}
+Page 83: both \Rcmd{fitted} and \Rcmd{predict} can be used to compute fitted values, the later on
+can be applied to new unseen data as well.
+\section{Logistic Regression and Generalised Linear Models}
+--nothing known--
+\section{Density Estimation}
+Page 121: small numeric differences for the output of \Rcmd{optim}
+\section{Recursive Partitioning}
+Page 139: small differences in \Rcmd{predtab}
+Page 140: small differences in table at bottom of this page
+\section{Survival Analysis}
+The name of the test statistic in the output of \Rcmd{surv\_test} has been changed to
+\Rcmd{chi-squared}.
+\section{Analysing Longitudinal Data I}
+Page 168, Figure 10.2: \Rcmd{summary} does not provide degrees of freedom and p-values
+in newer versions of \Rpackage{lme4}.
+\section{Analysing Longitudinal Data II}
+--nothing known--
+\section{Meta-Analysis}
+--nothing known--
+\section{Principal Component Analysis}
+--nothing known--
 \section{Multidimensional Scaling}
-\section{Analysis Using \R{}}
-We can apply classical scaling to the distance matrix for
-populations of water voles using the \R{} function \Rcmd{cmdscale}.
-The following code finds the classical scaling solution and computes
-the two criteria for assessing the required number of dimensions
-as described above.
-<<MDS-voles-cmdscale, echo = TRUE>>=
-data("watervoles", package = "HSAUR")
-voles_mds <- cmdscale(watervoles, k = 13, eig = TRUE)
-voles_mds$eig
-@
-Note that some of the eigenvalues are negative.
-The criterion $P_2$ can be computed by
-<<MDS-voles-criterion1, echo = TRUE>>=
-sum(abs(voles_mds$eig[1:2]))/sum(abs(voles_mds$eig))
-@
-and the criterion suggested by \cite{HSAUR:Mardiaetal1979} is
-<<MDS-voles-criterion2, echo = TRUE>>=
-sum((voles_mds$eig[1:2])^2)/sum((voles_mds$eig)^2)
-@
-The two criteria for judging number of dimensions differ considerably, but
-both values are reasonably large, suggesting that the original distances
-between the water vole populations can be represented adequately in two
-dimensions. The two-dimensional solution can be plotted by extracting
-the coordinates from the \Robject{points} element of the \Robject{voles\_mds}
-object; the plot is shown in Figure~\ref{MDS-watervoles-plot}.
-\begin{figure}
-\begin{center}
-<<MDS-watervoles-plot, echo = TRUE, fig = TRUE>>=
-x <- voles_mds$points[,1]
-y <- voles_mds$points[,2]
-plot(x, y, xlab = "Coordinate 1", ylab = "Coordinate 2",
-     xlim = range(x)*1.2, type = "n")
-text(x, y, labels = colnames(watervoles))
-@
-\caption{Two-dimensional solution from classical multidimensional scaling of
-distance matrix for water vole populations. \label{MDS-watervoles-plot}}
-\end{center}
-\end{figure}
-\begin{figure}
-\begin{center}
-<<MDS-watervoles-mst, echo = TRUE, fig = TRUE>>=
-library("ape")
-st <- mst(watervoles)
-plot(x, y, xlab = "Coordinate 1", ylab = "Coordinate 2",
-     xlim = range(x)*1.2, type = "n")
-for (i in 1:nrow(watervoles)) {
-    w1 <- which(st[i, ] == 1)
-    segments(x[i], y[i], x[w1], y[w1])
-}
-text(x, y, labels = colnames(watervoles))
-@
-\caption{Minimum spanning tree for the \Robject{watervoles} data.
-\label{MDS-watervoles-mst}}
-\end{center}
-\end{figure}
-We shall now apply non-metric scaling to the voting behaviour shown in
-Table~\ref{MDS-voting-tab}. Non-metric scaling is available with
-function \Rcmd{isoMDS} from package \Rpackage{MASS}
-\citep{HSAUR:VenablesRipley2002}:
-<<MDS-voting, echo = TRUE, results = hide>>=
-library("MASS")
-data("voting", package = "HSAUR")
-voting_mds <- isoMDS(voting)
-@
-and we again depict the two-dimensional solution
-(Figure~\ref{MDS-voting-plot}). The Figure suggests that voting behaviour is
-essentially along party lines, although there is more variation among
-Republicans. The voting behaviour of one of the Republicans (Rinaldo)
-seems to be closer to his democratic collegues rather than to the voting
-behaviour of other Republicans.
-\begin{figure}
-\begin{center}
-<<MDS-voting-plot, echo = TRUE, fig = TRUE>>=
-x <- voting_mds$points[,1]
-y <- voting_mds$points[,2]
-plot(x, y, xlab = "Coordinate 1", ylab = "Coordinate 2",
-     xlim = range(voting_mds$points[,1])*1.2, type = "n")
-text(x, y, labels = colnames(voting))
-voting_sh <- Shepard(voting[lower.tri(voting)], voting_mds$points)
-@
-\caption{Two-dimensional solution from non-metric multidimensional scaling of
-distance matrix for voting matrix. \label{MDS-voting-plot}}
-\end{center}
-\end{figure}
-\begin{figure}
-\begin{center}
-<<MDS-voting-Shepard, echo = TRUE, fig = TRUE>>=
-library("MASS")
-voting_sh <- Shepard(voting[lower.tri(voting)], voting_mds$points)
-plot(voting_sh, pch = ".", xlab = "Dissimilarity", ylab = "Distance",
-     xlim = range(voting_sh$x), ylim = range(voting_sh$x))
-lines(voting_sh$x, voting_sh$yf, type = "S")
-@
-\caption{The Shepard diagram for the \Robject{voting} data shows some
-         discrepancies between the original dissimilarities and the
-         multidimensional scaling solution. \label{MDS-voting-shepard}}
-\end{center}
-\end{figure}
-\bibliographystyle{../LaTeX/refstyle}
-\bibliography{../LaTeX/HSAUR}
+--nothing known--
+\section{Cluster Analysis}
+--nothing known--
 \end{document}

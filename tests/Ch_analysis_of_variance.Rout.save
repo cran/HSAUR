@@ -1,6 +1,6 @@
 
-R : Copyright 2005, The R Foundation for Statistical Computing
-Version 2.2.1 beta (2005-12-18 r36792)
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 (2006-04-24)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -71,7 +71,7 @@ type         1 1299.6  1299.6  5.8123 0.02114 *
 source:type  1  883.6   883.6  3.9518 0.05447 .
 Residuals   36 8049.4   223.6                  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> 
 R> 
 R> ###################################################
@@ -148,7 +148,7 @@ motgen         3  775.08  258.36  4.7632 0.005736 **
 litgen:motgen  9  824.07   91.56  1.6881 0.120053   
 Residuals     45 2440.82   54.24                    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> 
 R> 
 R> ###################################################
@@ -167,7 +167,7 @@ litgen         3   63.63   21.21  0.3911 0.760004
 motgen:litgen  9  824.07   91.56  1.6881 0.120053   
 Residuals     45 2440.82   54.24                    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> 
 R> 
 R> ###################################################
@@ -221,7 +221,7 @@ Residuals 59
 location  ***
 Residuals    
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> 
 R> 
 R> ###################################################
@@ -267,13 +267,13 @@ R> summary(skulls_manova, test = "Pillai")
 epoch       4 0.3533   3.5120     16    580 4.675e-06 ***
 Residuals 145                                            
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> summary(skulls_manova, test = "Wilks")
               Df  Wilks approx F num Df den Df   Pr(>F)    
 epoch       4.00 0.6636   3.9009  16.00 434.45 7.01e-07 ***
 Residuals 145.00                                           
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> summary(skulls_manova, test = "Hotelling-Lawley")
            Df Hotelling-Lawley approx F num Df den Df
 epoch       4           0.4818   4.2310     16    562
@@ -282,13 +282,13 @@ Residuals 145
 epoch     8.278e-08 ***
 Residuals              
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> summary(skulls_manova, test = "Roy")
            Df     Roy approx F num Df den Df    Pr(>F)    
 epoch       4  0.4251  15.4097      4    145 1.588e-10 ***
 Residuals 145                                             
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> 
 R> 
 R> ###################################################
@@ -300,21 +300,21 @@ R> summary.aov(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls))
 epoch         4  502.83  125.71  5.9546 0.0001826 ***
 Residuals   145 3061.07   21.11                      
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
  Response bh :
              Df Sum Sq Mean Sq F value  Pr(>F)  
 epoch         4  229.9    57.5  2.4474 0.04897 *
 Residuals   145 3405.3    23.5                  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
  Response bl :
              Df Sum Sq Mean Sq F value    Pr(>F)    
 epoch         4  803.3   200.8  8.3057 4.636e-06 ***
 Residuals   145 3506.0    24.2                      
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
  Response nh :
              Df  Sum Sq Mean Sq F value Pr(>F)
@@ -337,21 +337,21 @@ R> summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls,
 epoch      1 0.1876   3.1744      4     55 0.02035 *
 Residuals 58                                        
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls,
 +                subset = epoch %in% c("c4000BC", "c200BC")))
           Df Pillai approx F num Df den Df    Pr(>F)    
 epoch      1 0.3030   5.9766      4     55 0.0004564 ***
 Residuals 58                                            
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls,
 +                subset = epoch %in% c("c4000BC", "cAD150")))
           Df Pillai approx F num Df den Df    Pr(>F)    
 epoch      1 0.3618   7.7956      4     55 4.736e-05 ***
 Residuals 58                                            
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 R> 
 R> 
 R> 

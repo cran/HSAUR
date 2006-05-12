@@ -16,7 +16,8 @@ rm(HSAURpkg)
 ### chunk number 2: DE-setup
 ###################################################
 x <- library("KernSmooth")
-x <- library("mclust")
+### don't attach mclust since it masks stats:::density
+### x <- library("mclust")
 x <- library("flexmix")
 x <- library("boot")
 
@@ -67,7 +68,6 @@ logL <- function(param, x) {
     d2 <- dnorm(x, mean = param[4], sd = param[5])
     -sum(log(param[1] * d1 + (1 - param[1]) * d2))
 }
-
 startparam <- c(p = 0.5, mu1 = 50, sd1 = 3, mu2 = 80, sd2 = 3)
 opp <- optim(startparam, logL, x = faithful$waiting, method = "L-BFGS-B",
              lower = c(0.01, rep(1, 4)),
@@ -82,7 +82,13 @@ print(opp[names(opp) != "message"])
 
 
 ###################################################
-### chunk number 8: DE-faithful-mclust
+### chunk number 8: DE-attach-mclust
+###################################################
+library("mclust")
+
+
+###################################################
+### chunk number 9: DE-faithful-mclust
 ###################################################
 library("mclust")
 mc <- Mclust(faithful$waiting)
@@ -90,33 +96,39 @@ mc
 
 
 ###################################################
-### chunk number 9: DE-faithful-mclust-mu
+### chunk number 10: DE-faithful-mclust-mu
 ###################################################
 mc$mu
 
 
 ###################################################
-### chunk number 10: DE-faithful-mclust-para
+### chunk number 11: DE-faithful-mclust-para
 ###################################################
 sqrt(mc$sigmasq)
 
 
 ###################################################
-### chunk number 11: DE-faithful-flexmix
+### chunk number 12: DE-detach-mclust
+###################################################
+detach(package:mclust)
+
+
+###################################################
+### chunk number 13: DE-faithful-flexmix
 ###################################################
 library("flexmix")
 fl <- flexmix(waiting ~ 1, data = faithful, k = 2)
 
 
 ###################################################
-### chunk number 12: DE-faithful-flexmix-parameters
+### chunk number 14: DE-faithful-flexmix-parameters
 ###################################################
 parameters(fl, component = 1)
 parameters(fl, component = 2)
 
 
 ###################################################
-### chunk number 13: DE-faithful-2Dplot
+### chunk number 15: DE-faithful-2Dplot
 ###################################################
 opar <- as.list(opp$par)
 rx <- seq(from = 40, to = 110, by = 0.1)
@@ -133,7 +145,7 @@ legend(50, 0.06, legend = c("Fitted two-component mixture density",
 
 
 ###################################################
-### chunk number 14: DE-faithful-boot
+### chunk number 16: DE-faithful-boot
 ###################################################
 library("boot")
 fit <- function(x, indx) {
@@ -145,7 +157,7 @@ fit <- function(x, indx) {
 
 
 ###################################################
-### chunk number 15: DE-faithful-bootrun
+### chunk number 17: DE-faithful-bootrun
 ###################################################
 bootparafile <- file.path(.find.package("HSAUR"), "cache", "DE-bootpara.rda")
 if (file.exists(bootparafile)) {
@@ -156,25 +168,25 @@ if (file.exists(bootparafile)) {
 
 
 ###################################################
-### chunk number 16: DE-faithful-p-ci
+### chunk number 18: DE-faithful-p-ci
 ###################################################
 boot.ci(bootpara, type = "bca", index = 1)
 
 
 ###################################################
-### chunk number 17: DE-faithful-mu1-ci
+### chunk number 19: DE-faithful-mu1-ci
 ###################################################
 boot.ci(bootpara, type = "bca", index = 2)
 
 
 ###################################################
-### chunk number 18: DE-faithful-mu2-ci
+### chunk number 20: DE-faithful-mu2-ci
 ###################################################
 boot.ci(bootpara, type = "bca", index = 3)
 
 
 ###################################################
-### chunk number 19: DE-bootplot
+### chunk number 21: DE-bootplot
 ###################################################
 bootplot <- function(b, index, main = "") {
     dens <- density(b$t[,index])
@@ -190,7 +202,7 @@ bootplot <- function(b, index, main = "") {
 
 
 ###################################################
-### chunk number 20: DE-faithful-boot-plot
+### chunk number 22: DE-faithful-boot-plot
 ###################################################
 layout(matrix(1:2, ncol = 2))
 bootplot(bootpara, 2, main = expression(mu[1]))

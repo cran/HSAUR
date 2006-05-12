@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,24 +147,17 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Logistic Regression and Generalised Linear Models}
 \setcounter{chapter}{5}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -173,17 +169,13 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 \chapter[Logistic Regression and Generalised Linear Models]{Logistic
 Regression and Generalised Linear Models: Blood Screening, Women's Role in %'
 Society, \\ and Colonic Polyps \label{GLM}}
-
 \section{Introduction}
 \section{Logistic Regression and Generalised Linear Models}
 \section{Analysis Using \R{}}
-
 \subsection{ESR and Plasma Proteins}
 \begin{figure}
 \begin{center}
@@ -198,7 +190,6 @@ cdplot(ESR ~ globulin, data = plasma)
  \label{GLM:plasma1}}
 \end{center}
 \end{figure}
-
 We can now fit a logistic regression model to the data using
 the \Rcmd{glm} function. We start with a model that includes
 only a single explanatory variable, \Robject{fibrinogen}. The
@@ -225,8 +216,6 @@ is the logistic function.)
 summary(plasma_glm_1)
 @
 \SchunkRaw
-
-
 From the results in Figure~\ref{GLM-plasma-summary-1} we
 see that the regression
 coefficient for fibrinogen is significant at the $5\%$ level.
@@ -264,7 +253,6 @@ The confidence interval is very wide because there are few observations
 overall and very few where the ESR value is greater than $20$.
 Nevertheless it seems likely that increased values of fibrinogen
 lead to a greater probability of an ESR value greater than $20$.
-
 We can now fit a logistic regression model that includes both
 explanatory variables using the code
 <<GLM-plasma-fit2, echo = TRUE>>=
@@ -273,7 +261,6 @@ plasma_glm_2 <- glm(ESR ~ fibrinogen + globulin, data = plasma,
 @
 and the output of the \Rcmd{summary} method is shown in Figure
 \ref{GLM-plasma-summary-2}.
-
 \renewcommand{\nextcaption}{\R{} output of the \Robject{summary}
                             method for the logistic regression model fitted
                             to the \Robject{plasma} data.
@@ -286,7 +273,6 @@ summary(plasma_glm_2)
 <<GLM-plasma-anova-hide, echo = FALSE, results = hide>>=
 plasma_anova <- anova(plasma_glm_1, plasma_glm_2, test = "Chisq")
 @
-
 The coefficient for gamma
 globulin is not significantly different from zero. Subtracting
 the residual deviance of the second model from the corresponding
@@ -314,7 +300,6 @@ as shown in Figure~\ref{GLM:bubble}. The plot clearly
 shows the increasing probability of an ESR value above $20$ (larger
 circles) as the values of fibrinogen, and to a lesser extent,
 gamma globulin, increase.
-
 \begin{figure}
 \begin{center}
 <<GLM-plasma-bubble, echo = TRUE, fig = TRUE>>=
@@ -327,10 +312,7 @@ symbols(plasma$fibrinogen, plasma$globulin, circles = prob,
 fitted to the ESR data. \label{GLM:bubble}}
 \end{center}
 \end{figure}
-
-
 \subsection{Women's Role in Society} %'
-
 Originally the data in Table~\ref{GLM-womensrole-tab}
 would have been in a completely
 equivalent form to the data in Table~\ref{GLM-plasma-tab}
@@ -349,7 +331,6 @@ data("womensrole", package = "HSAUR")
 womensrole_glm_1 <- glm(cbind(agree,disagree) ~ sex + education,
                         data = womensrole, family = binomial())
 @
-
 \renewcommand{\nextcaption}{\R{} output of the \Robject{summary}
                             method for the logistic regression model fitted
                             to the \Robject{womensrole} data.
@@ -359,7 +340,6 @@ womensrole_glm_1 <- glm(cbind(agree,disagree) ~ sex + education,
 summary(womensrole_glm_1)
 @
 \SchunkRaw
-
 From the \Rcmd{summary} output in Figure~\ref{GLM-womensrole-summary-1}
 it appears that education
 has a highly significant part to play in predicting whether a respondent
@@ -387,7 +367,6 @@ myplot <- function(role.fitted) {
     text(womensrole$education, y, ifelse(f, "\\VE", "\\MA"), vfont = c("serif", "plain"), cex = 1.25)
 }
 @
-
 \begin{figure}
 \begin{center}
 <<GLM-role-fitted1, echo = TRUE, fig = TRUE>>=
@@ -397,7 +376,6 @@ myplot(role.fitted1)
          agreeing for the \Robject{womensrole} data. \label{GLM-role1plot}}
 \end{center}
 \end{figure}
-
 The two curves
 for males and females in Figure~\ref{GLM-role1plot}
 are almost the same reflecting the non-significant
@@ -452,10 +430,7 @@ abline(h = 0, lty = 2)
 The residuals fall into a horizontal band between $-2$ and $2$.
 This pattern does not suggest a poor fit for any particular observation
 or subset of observations.
-
-
 \subsection{Colonic Polyps}
-
 The data on colonic polyps in Table~\ref{GLM-polyps-tab}
 involves \stress{count}
 data. We could try to model this using multiple regression
@@ -477,7 +452,6 @@ polyps_glm_1 <- glm(number ~ treat + age, data = polyps, family = poisson())
 @
 (The default link function when the Poisson family is requested
 is the log function.)
-
 \renewcommand{\nextcaption}{\R{} output of the \Robject{summary}
                             method for the Poisson regression model fitted
                             to the \Robject{polyps} data.

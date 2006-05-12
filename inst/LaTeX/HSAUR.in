@@ -1567,28 +1567,25 @@
     address = {Boca Raton, Florida, USA}
 }
 
-@techreport{HSAUR:Hothornetal2004,
+@article{HSAUR:Hothornetal2004,
     author = {Torsten Hothorn and Kurt Hornik and Achim Zeileis},
     title = {Unbiased Recursive Partitioning: {A} Conditional Inference 
              Framework},
-   institution = {Department of Statistics and Mathematics},
-   year      = {2004},
-   address   = {Wirtschaftsuniversit{\"a}t Wien, Austria},
-   number    = {8},
-   url       = {http://epub.wu-wien.ac.at/}
+    journal = {Journal of Computational and Graphical Statistics},
+    year = 2007,
+    note = {accepted},
+    url = {http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+Zeileis-2006.pdf}
 }
 
-@techreport{HSAUR:Hothornetal2005,
+@article{HSAUR:Hothornetal2005,
     author = {Torsten Hothorn and Kurt Hornik and Mark A. van de Wiel 
               and Achim Zeileis},
     title = {A {L}ego System for Conditional Inference},
-   institution = {Department of Statistics and Mathematics},
-   year      = {2005},
-   address   = {Wirtschaftsuniversit{\"a}t Wien, Austria},
-   number    = {25},
-   url       = {http://epub.wu-wien.ac.at/}
+    journal = {The American Statistician},
+    year = 2007,
+    note = {accepted},
+    url = {http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+VanDeWiel-2006.pdf}
 }
-
 
 @book{HSAUR:Dalgaard2002,
     author = {Peter Dalgaard},

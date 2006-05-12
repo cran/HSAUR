@@ -13,32 +13,14 @@ rm(HSAURpkg)
 
 
 ###################################################
-### chunk number 2: pre-HSAUR-install eval=FALSE
-###################################################
-## install.packages("HSAUR")
-
-
-###################################################
-### chunk number 3: pre-HSA
-###################################################
-library("HSAUR")
-
-
-###################################################
-### chunk number 4: pre-vignette eval=FALSE
+### chunk number 2: pre-vignette eval=FALSE
 ###################################################
 ## vignette("Ch_introduction_to_R", package = "HSAUR")
 
 
 ###################################################
-### chunk number 5: pre-vignette-source eval=FALSE
+### chunk number 3: pre-vignette eval=FALSE
 ###################################################
 ## edit(vignette("Ch_introduction_to_R", package = "HSAUR"))
-
-
-###################################################
-### chunk number 6: pre-vignette-source eval=FALSE
-###################################################
-## vignette(package = "HSAUR")
 
 

@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,25 +147,18 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Survival Analysis}
 %%\VignetteDepends{survival,coin}
 \setcounter{chapter}{8}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -174,21 +170,16 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 <<SA-setup, echo = FALSE, results = hide>>=
 x <- library("survival")
 x <- library("coin")
 x <- library("party")
 @
-
 \chapter[Survival Analysis]{Survival Analysis: \\ Glioma Treatment and Breast Cancer Survival \label{SA}}
-
 \section{Introduction}
 \section{Survival Analysis}
 \section{Analysis Using \R{}}
-
 \subsection{Glioma Radioimmunotherapy}
 \begin{figure}
 \begin{center}
@@ -213,7 +204,6 @@ plot(survfit(Surv(time, event) ~ group, data = g4),
 \label{SA-glioma-plot}}
 \end{center}
 \end{figure}
-
 Figure~\ref{SA-glioma-plot} leads to the impression that patients treated
 with the novel radioimmunotherapy survive longer, regardless of the tumor
 type. In order to assess if this informal finding is reliable, we may perform a
@@ -252,9 +242,7 @@ surv_test(Surv(time, event) ~ group | histology, data = glioma,
 Here, we need to approximate the exact conditional distribution since the
 exact distribution is hard to compute.
 The result supports the initial impression implied by Figure~\ref{SA-glioma-plot}
-
 \subsection{Breast Cancer Survival}
-
 Before fitting a Cox model to the \Robject{GBSG2} data, we again derive a
 Kaplan-Meier estimate of the survival function of the data,
 here stratified with respect to whether a
@@ -273,7 +261,6 @@ legend(250, 0.2, legend = c("yes", "no"), lty = c(2, 1),
 received a hormonal therapy or not. \label{SA-GBSG2-plot}}
 \end{center}
 \end{figure}
-
 Fitting a Cox model follows roughly the same rules are shown for linear
 models in Chapters~\ref{ANOVA}, \ref{MLR} or \ref{GLM} with the exception
 that the response variable is again coded as a \Rclass{Surv} object.
@@ -293,7 +280,6 @@ exp(cbind(coef(GBSG2_coxph), ci))["horThyes",]
 This result implies that patients treated with a hormonal therapy had a
 lower risk and thus survived longer compared to women who were not treated
 this way.
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for \Robject{GBSG2\_coxph}.
                             \label{GBSG2-coxph-summary}}
@@ -302,7 +288,6 @@ this way.
 summary(GBSG2_coxph)
 @
 \SchunkRaw
-
 Model checking and model selection for proportional hazards models are
 complicated by the fact that easy to use residuals, such as those discussed
 in Chapter~\ref{MLR} for linear regression model are not available,
@@ -348,7 +333,6 @@ abline(h = 0, lty = 3)
          \label{SA-GBSG2-mart-plot}}
 \end{center}
 \end{figure}
-
 The tree-structured regression models applied to continuous and binary
 responses in Chapter~\ref{RP} are applicable to censored responses in
 survival analysis as well. Such a simple prognostic model with only
@@ -369,7 +353,6 @@ regression, see Figure~\ref{GBSG2-coxph-summary}. Women with not more than
 three positive lymph nodes who have undergone a hormonal therapy seem to
 have the best prognosis whereas a large number of positive lymph nodes and
 a small value of the progesterone receptor indicates a bad prognosis.
-
 \begin{figure}
 \begin{center}
 <<SA-GBSG2-ctree-plot, echo = TRUE, fig = TRUE, width = 8>>=

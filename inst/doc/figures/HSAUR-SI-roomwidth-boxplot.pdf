@@ -1,11 +1,11 @@
 %PDF-1.1
-%Å‚Å„ÅœÅ”
+%Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20060201111534)
-/ModDate (D:20060201111534)
+/CreationDate (D:20060523172623)
+/ModDate (D:20060523172623)
 /Title (R Graphics Output)
-/Producer (R 2.2.1)
+/Producer (R 2.3.0)
 /Creator (R)
 >>
 endobj
@@ -69,22 +69,22 @@ BT
 2.25 w
 [] 0 d
 ET
-244.52 349.13 m 377.08 349.13 l S
+257.87 349.13 m 363.72 349.13 l S
 0.75 w
 [ 3.00 5.00] 0 d
 310.80 320.96 m 310.80 333.04 l S
 310.80 389.37 m 310.80 357.18 l S
 0.75 w
 [] 0 d
-277.66 320.96 m 343.94 320.96 l S
-277.66 389.37 m 343.94 389.37 l S
-277.66 320.96 m 343.94 320.96 l S
-277.66 389.37 m 343.94 389.37 l S
-244.52 333.04 m
-377.08 333.04 l
-377.08 357.18 l
-244.52 357.18 l
-244.52 333.04 l
+284.34 320.96 m 337.26 320.96 l S
+284.34 389.37 m 337.26 389.37 l S
+284.34 320.96 m 337.26 320.96 l S
+284.34 389.37 m 337.26 389.37 l S
+257.87 333.04 m
+363.72 333.04 l
+363.72 357.18 l
+257.87 357.18 l
+257.87 333.04 l
 S
 BT
 /F1 1 Tf 1 Tr 5.15 0 0 5.15 308.76 395.63 Tm (l) Tj 0 Tr
@@ -406,7 +406,7 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R /F5 13 0 R /F6 14 0 R >>
+/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R >>
 /ExtGState << >>
 >>
 endobj
@@ -419,73 +419,40 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj
-<<
+10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
 /Encoding 9 0 R
->>
-endobj
-11 0 obj
-<<
+>> endobj
+11 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F3
 /BaseFont /Helvetica-Bold
 /Encoding 9 0 R
->>
-endobj
-12 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F4
-/BaseFont /Helvetica-Oblique
-/Encoding 9 0 R
->>
-endobj
-13 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F5
-/BaseFont /Helvetica-BoldOblique
-/Encoding 9 0 R
->>
-endobj
-14 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F6
-/BaseFont /Symbol
->>
-endobj
+>> endobj
 xref
-0 15
+0 12
 0000000000 65535 f 
-0000000020 00000 n 
-0000000162 00000 n 
-0000012704 00000 n 
-0000012787 00000 n 
-0000000211 00000 n 
-0000000294 00000 n 
-0000000374 00000 n 
-0000012683 00000 n 
-0000012924 00000 n 
-0000013181 00000 n 
-0000013278 00000 n 
-0000013380 00000 n 
-0000013485 00000 n 
-0000013594 00000 n 
+0000000021 00000 n 
+0000000163 00000 n 
+0000012705 00000 n 
+0000012788 00000 n 
+0000000212 00000 n 
+0000000295 00000 n 
+0000000375 00000 n 
+0000012684 00000 n 
+0000012892 00000 n 
+0000013149 00000 n 
+0000013246 00000 n 
 trailer
 <<
-/Size 15
+/Size 12
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-13672
+13348
 %%EOF

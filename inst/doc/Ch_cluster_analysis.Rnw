@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,25 +147,18 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Cluster Analysis}
 %%\VignetteDepends{mclust,scatterplot3d}
 \setcounter{chapter}{14}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -174,18 +170,14 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 <<thissetup, echo = FALSE, results = hide>>=
 library("mclust")
 library("mvtnorm")
 mai <- par("mai")
 options(SweaveHooks = list(rmai = function() { par(mai = mai * c(1,1,1,2))}))
 @
-
 \chapter[Cluster Analysis]{Cluster Analysis: Classifying the Exoplanets \label{CA}}
-
 \section{Introduction}
 \section{Cluster Analysis}
 \section{Analysis Using \R{}}
@@ -202,8 +194,6 @@ scatterplot3d(log(planets$mass), log(planets$period), log(planets$eccen),
          for each of the exoplanets. \label{CA-planets-scatter}}
 \end{center}
 \end{figure}
-
-
 \begin{figure}
 \begin{center}
 <<CA-planet-ss, echo = TRUE, fig = TRUE>>=
@@ -221,7 +211,6 @@ plot(1:10, wss, type = "b", xlab = "Number of groups",
          the exoplanet data. \label{CA-planets-ss}}
 \end{center}
 \end{figure}
-
 Sadly Figure~\ref{CA-planets-ss} gives no completely convincing verdict on
 the number of groups we should consider, but using a little imagination
 `little elbows' can be spotted at the three and five group solutions. %%'
@@ -253,7 +242,6 @@ table(planet_kmeans5$cluster)
 ccent(planet_kmeans5$cluster)
 @
 \subsection{Model-based Clustering in \R{}}
-
 We now proceed to apply model-based clustering to the planets data.
 \R{} functions for model-based clustering are available in package
 \Rpackage{mclust} \citep{PKG:mclust,HSAUR:FraleyRaftery2002}.
@@ -293,7 +281,6 @@ to different model assumptions about the shape of clusters:
 \item Ellipsoidal, equal volume, shape and orientation,
 \item Ellipsoidal, varying volume, shape and orientation.
 \end{enumerate}
-
 The BIC selects model $4$ (diagonal varying volume and varying shape) with
 three clusters as the best solution as can be
 seen from the \Rcmd{print} output:
@@ -314,7 +301,6 @@ x <- clPairs(planet.dat, classification = planet_mclust$classification, symbols 
          from \Rcmd{Mclust}. \label{CA-planets-mclust-scatter}}
 \end{center}
 \end{figure}
-
 \begin{figure}
 \begin{center}
 <<CA-planets-mclust-scatterclust, echo = TRUE, fig = TRUE, rmai = TRUE>>=
@@ -327,8 +313,6 @@ scatterplot3d(log(planets$mass), log(planets$period), log(planets$eccen),
          from \Rcmd{Mclust}. \label{CA-planets-mclust-scatterclust}}
 \end{center}
 \end{figure}
-
-
 The number of planets in each cluster and the mean vectors of the three clusters
 for the untransformed data can now be inspected by using
 <<CA-planets-mclust-mu, echo = TRUE>>=

@@ -1,11 +1,11 @@
 %PDF-1.1
-%Å‚Å„ÅœÅ”
+%Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20060201111505)
-/ModDate (D:20060201111505)
+/CreationDate (D:20060523172550)
+/ModDate (D:20060523172550)
 /Title (R Graphics Output)
-/Producer (R 2.2.1)
+/Producer (R 2.3.0)
 /Creator (R)
 >>
 endobj
@@ -92,9 +92,9 @@ BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 315.06 221.55 Tm (Hunt\(R\)) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 285.08 358.69 Tm (Sandman\(R\)) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 67.84 174.26 Tm (Howard\(D\)) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 67.93 174.26 Tm (Howard\(D\)) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 102.48 306.99 Tm (Thompson\(D\)) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 267.85 121.51 Tm (Freylinghuysen\(R\)) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 267.58 121.51 Tm (Freylinghuysen\(R\)) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 219.63 153.21 Tm (Forsythe\(R\)) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 329.08 181.71 Tm (Widnall\(R\)) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 73.30 224.16 Tm (Roe\(D\)) Tj
@@ -102,7 +102,7 @@ BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 99.23 185.71 Tm (Rodino\(D\)) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 101.21 196.01 Tm (Minish\(D\)) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 85.61 208.97 Tm (Rinaldo\(R\)) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 241.21 81.38 Tm (Maraziti\(R\)) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 241.27 81.38 Tm (Maraziti\(R\)) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 155.39 185.19 Tm (Daniels\(D\)) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 107.57 247.51 Tm (Patten\(D\)) Tj
 ET
@@ -125,7 +125,7 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R /F5 13 0 R /F6 14 0 R >>
+/Font << /F1 5 0 R /F2 10 0 R >>
 /ExtGState << >>
 >>
 endobj
@@ -138,73 +138,32 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj
-<<
+10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
 /Encoding 9 0 R
->>
-endobj
-11 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F3
-/BaseFont /Helvetica-Bold
-/Encoding 9 0 R
->>
-endobj
-12 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F4
-/BaseFont /Helvetica-Oblique
-/Encoding 9 0 R
->>
-endobj
-13 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F5
-/BaseFont /Helvetica-BoldOblique
-/Encoding 9 0 R
->>
-endobj
-14 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F6
-/BaseFont /Symbol
->>
-endobj
+>> endobj
 xref
-0 15
+0 11
 0000000000 65535 f 
-0000000020 00000 n 
-0000000162 00000 n 
-0000002950 00000 n 
-0000003033 00000 n 
-0000000211 00000 n 
-0000000294 00000 n 
-0000000374 00000 n 
-0000002930 00000 n 
-0000003170 00000 n 
-0000003427 00000 n 
-0000003524 00000 n 
-0000003626 00000 n 
-0000003731 00000 n 
-0000003840 00000 n 
+0000000021 00000 n 
+0000000163 00000 n 
+0000002951 00000 n 
+0000003034 00000 n 
+0000000212 00000 n 
+0000000295 00000 n 
+0000000375 00000 n 
+0000002931 00000 n 
+0000003127 00000 n 
+0000003384 00000 n 
 trailer
 <<
-/Size 15
+/Size 11
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-3918
+3481
 %%EOF

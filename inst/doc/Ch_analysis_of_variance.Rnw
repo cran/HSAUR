@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,24 +147,17 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Analysis of Variance}
 \setcounter{chapter}{3}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -173,18 +169,13 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 \chapter[Analysis of Variance]{Analysis of Variance: Weight Gain, Foster
 Feeding in Rats, Water Hardness and Male Egyptian Skulls \label{ANOVA}}
-
 \section{Introduction}
 \section{Analysis of Variance}
 \section{Analysis Using \R{}}
-
 \subsection{Weight Gain in Rats \label{ANOVA:rats}}
-
 Before applying analysis of variance to the data in Table~\ref{ANOVA-weightgain-tab}
 we should try to summarise the main features of the data
 by calculating means and standard deviations and by producing some hopefully
@@ -198,7 +189,6 @@ mean)
 tapply(weightgain$weightgain, list(weightgain$source, weightgain$type),
 sd)
 @
-
 \begin{figure}
 \begin{center}
 <<ANOVA-weightgain-plot, echo = TRUE, fig = TRUE>>=
@@ -216,7 +206,6 @@ factor is \Robject{source}, and the second factor is \Robject{type}.
 <<ANOVA-weightgain-aov, echo = TRUE>>=
 wg_aov <- aov(weightgain ~ source * type, data = weightgain)
 @
-
 \renewcommand{\nextcaption}{\R{} output of the ANOVA fit
                             for the \Robject{weightgain} data.
                             \label{ANOVA-weightgain-output}}
@@ -239,7 +228,6 @@ legend(1.5, 95, legend = levels(weightgain$source), title = "weightgain$source",
 \caption{Interaction plot of type $\times$ source. \label{ANOVA-weightgain-fig2}}
 \end{center}
 \end{figure}
-
 The estimates of the intercept and the main and interaction effects can be
 extracted from the model fit by
 <<ANOVA-weightgain-coef, echo = TRUE>>=
@@ -259,9 +247,7 @@ Alternatively, we can use the restriction $\sum_i \gamma_i = 0$ by
 coef(aov(weightgain ~ source + type + source:type, data = weightgain,
      contrasts = list(source = contr.sum)))
 @
-
 \subsection{Foster Feeding of Rats of Different Genotype}
-
 As in the previous subsection we will begin the analysis
 of the foster feeding data in Table~\ref{ANOVA-foster-tab}
 with a plot of the mean litter weight for the different genotypes
@@ -271,7 +257,6 @@ The data are in the \Rclass{data.frame}
 <<ANOVA-foster, echo = TRUE>>=
 data("foster", package = "HSAUR")
 @
-
 \begin{figure}
 \begin{center}
 <<ANOVA-foster-plot, echo = TRUE, fig = TRUE>>=
@@ -338,7 +323,6 @@ graphical representation of the multiple confidence intervals as shown in
 Figure~\ref{ANOVA-foster-mc}.
 It appears that there is only evidence for a difference in the
 B and J genotypes.
-
 \begin{figure}
 \begin{center}
 <<ANOVA-foster-tukeyHSDplot, echo = TRUE, fig = TRUE>>=
@@ -349,9 +333,7 @@ plot(foster_hsd)
 \end{center}
 \end{figure}
 \index{Multiple comparison procedures|)}
-
 \subsection{Water Hardness and Mortality}
-
 The water hardness and mortality data for $61$ large towns in England and
 Wales (see Table~\ref{SI-w-tab}) was analysed in Chapter~\ref{SI} and here
 we will extend the analysis by an assessment of the differences of both
@@ -379,7 +361,6 @@ tapply(water$mortality, water$location, mean)
 we see large differences in the two regions both in water hardness and
 mortality, where low mortality is associated with hard water in the South
 and high mortality with soft water in the North (see Figure~\ref{SI-water-sp} also).
-
 \subsection{Male Egyptian Skulls}
 \index{Multivariate analysis of variance (MANOVA)|(}
 We can begin by looking at a table of mean values for the
@@ -395,7 +376,6 @@ It may also be useful to look at these means graphically
 and this could be done in a variety of ways. Here we construct
 a scatterplot matrix of the means using the code attached to
 Figure~\ref{ANOVA-skulls-fig}.
-
 \begin{figure}
 \begin{center}
 <<ANOVA-skulls-fig, echo = TRUE, fig = TRUE>>=
@@ -408,7 +388,6 @@ pairs(means[,-1],
          \Robject{skulls} data. \label{ANOVA-skulls-fig}}
 \end{center}
 \end{figure}
-
 There appear to be quite large differences between the epoch
 means, at least on some of the four measurements. We can now
 test for a difference more formally by using MANOVA with the

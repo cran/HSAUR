@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,25 +147,18 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Recursive Partitioning}
 %%\VignetteDepends{vcd,lattice,randomForest,party}
 \setcounter{chapter}{7}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -174,9 +170,7 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 <<RP-setup, echo = FALSE, results = hide>>=
 library("vcd")
 library("lattice")
@@ -190,16 +184,12 @@ options(SweaveHooks = list(nullmai = function() { par(mai = rep(0, 4)) },
                            twomai = function() { par(mai = c(0, mai[2], 0, 0)) },
                            threemai = function() { par(mai = c(0, mai[2], 0.1, 0)) }))
 @
-
 \chapter[Recursive Partitioning]{Recursive Partitioning:
                                  Large Companies and Glaucoma Diagnosis \label{RP}}
-
 \section{Introduction}
 \section{Recursive Partitioning}
 \section{Analysis Using \R{}}
-
 \subsection{Forbes 2000 Data}
-
 \index{Forbes 2000 ranking|(}
 \index{Missing values}
 For some observations the profit is missing and we first remove those
@@ -208,7 +198,6 @@ companies from the list
 data("Forbes2000", package = "HSAUR")
 Forbes2000 <- subset(Forbes2000, !is.na(profits))
 @
-
 The \Rcmd{rpart} function from \Rpackage{rpart} can be used to grow a
 regression tree. The response variable and the covariates are defined by a
 model formula in the same way as for \Rcmd{lm}, say. By default, a large
@@ -226,7 +215,6 @@ The numbers plotted in the leaves are the mean profit for those
 observations satisfying the conditions stated above. For example, the
 highest profit is observed for companies with a market value greater than
 $89.33$ billion US dollars and with more than $91.92$ US dollars sales.
-
 \begin{figure}
 \begin{center}
 <<RP-Forbes-initial, echo = TRUE, fig = TRUE, nullmai = TRUE>>=
@@ -236,7 +224,6 @@ text(forbes_rpart)
 \caption{Large initial tree for Forbes 2000 data. \label{RP:forbesL}}
 \end{center}
 \end{figure}
-
 \index{Cross-validation!Forbes 2000 data}
 To determine if the tree is appropriate or if some of the branches need to
 be subjected to pruning we can use the \Robject{cptable}
@@ -261,7 +248,6 @@ From the sample sizes and boxplots shown for each leaf we see that the
 majority of companies is grouped together. However, a large market
 value, more that $32.72$ billion US dollars, seems to be a good indicator of
 large profits.
-
 \begin{figure}
 \begin{center}
 <<RP-Forbes-plot, echo = TRUE, fig = TRUE, twomai = TRUE>>=
@@ -285,12 +271,10 @@ text(1:length(n), max(Forbes2000$profit) * 1.2, paste("n = ", n))
 \end{center}
 \end{figure}
 \index{Forbes 2000 ranking|)}
-
 \subsection{Glaucoma Diagnosis}
 <<RP-seed-again, echo = FALSE, results = hide>>=
 set.seed(290875)
 @
-
 <<RP-glaucoma-rpart, echo = TRUE>>=
 data("GlaucomaM", package = "ipred")
 glaucoma_rpart <- rpart(Class ~ ., data = GlaucomaM,
@@ -315,7 +299,6 @@ mosaicplot(table(where, GlaucomaM$Class), main = "", xlab = "", las = 1)
          distribution in the leaves depicted by a mosaicplot. \label{RP:gl}}
 \end{center}
 \end{figure}
-
 \index{Classification tree!choice of tree size}
 \index{Tree size}
 As we discussed earlier, the choice of the appropriate sized tree is not a
@@ -335,7 +318,6 @@ Although for \Sexpr{sum(nsplitopt == 1)} runs of cross-validation a simple
 tree with one split only is suggested, larger trees would have been favored
 in \Sexpr{sum(nsplitopt > 1)} of the cases. This short analysis shows that
 we should not trust the tree in Figure~\ref{RP:gl} too much.
-
 \index{Bagging}
 \index{Bootstrap approach!glaucoma diagnosis data}
 One way out of this dilemma is the aggregation of multiple trees via
@@ -368,7 +350,6 @@ as \Robject{vari} occur as well -- a further indication that the tree in
 Figure~\ref{RP:gl} is
 questionable and that hard decisions are not appropriate for the glaucoma
 data.
-
 In order to make use of the ensemble of trees in the list \Robject{trees}
 we estimate the conditional probability of suffering from glaucoma given the
 covariates for each observation in the original data set by
@@ -385,7 +366,6 @@ probability $0.632$ and thus was not used with probability $0.368$.
 Consequently, the estimate from a tree where an observation was not used for
 growing is better for judging the quality of the predictions and we label
 the other estimates with \Robject{NA}.
-
 Now, we can average the estimates and we vote for glaucoma when the average
 of the estimates of the conditional glaucoma probability exceeds $0.5$. The
 comparison between the observed and the predicted classes does not suffer from
@@ -431,7 +411,6 @@ print(xyplot(avg ~ obs | var, data = gdata,
          circles and normal eyes are triangles. \label{RP:glplot}}
 \end{center}
 \end{figure}
-
 \index{Random forest}
 The \stress{bagging} procedure is a special case of a more general approach
 called \stress{random forest} \citep{HSAUR:Breiman2001b}. The package
@@ -458,7 +437,6 @@ both the cutpoints and the $p$-values of the associated independence tests for e
 The first split is performed using a cutpoint defined with respect to the
 volume of the optic nerve above some reference plane, but in the inferior part of
 the eye only (\Robject{vari}).
-
 \begin{figure}
 \begin{center}
 <<RP-glaucoma-ctree-plot, echo = TRUE, fig = TRUE, width = 10, height = 6>>=

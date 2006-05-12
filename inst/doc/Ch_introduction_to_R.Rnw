@@ -147,6 +147,9 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
 %% Title page
 \title{A Handbook of Statistical Analyses Using \R}

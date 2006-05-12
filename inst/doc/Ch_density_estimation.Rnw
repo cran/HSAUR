@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,25 +147,18 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Density Estimation}
 %%\VignetteDepends{mclust,flexmix}
 \setcounter{chapter}{6}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -174,20 +170,16 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 <<DE-setup, echo = FALSE, results = hide>>=
 x <- library("KernSmooth")
-x <- library("mclust")
+### don't attach mclust since it masks stats:::density
+### x <- library("mclust")
 x <- library("flexmix")
 x <- library("boot")
 @
-
-
 \chapter[Density Estimation]{Density Estimation: Erupting Geysers and Star
 Clusters \label{DE}}
-
 \section{Introduction}
 \section{Density Estimation}
 \section{Analysis Using \R{}}
@@ -231,7 +223,6 @@ contour(x = CYGOB1d$x1, y = CYGOB1d$x2, z = CYGOB1d$fhat,
          \label{DE:CYGOB12Dcontour}}
 \end{center}
 \end{figure}
-
 \begin{figure}
 \begin{center}
 <<DE-CYGOB1-persp, echo = TRUE, fig = TRUE>>=
@@ -244,7 +235,6 @@ persp(x = CYGOB1d$x1, y = CYGOB1d$x2, z = CYGOB1d$fhat,
          \label{DE:CYGOB12Dpersp}}
 \end{center}
 \end{figure}
-
 \subsection{A Parametric Density Estimate for the Old Faithful Data
 \label{DE-waiting}}
 <<DE-faithful-optim, echo = TRUE, results = hide>>=
@@ -253,7 +243,6 @@ logL <- function(param, x) {
     d2 <- dnorm(x, mean = param[4], sd = param[5])
     -sum(log(param[1] * d1 + (1 - param[1]) * d2))
 }
-
 startparam <- c(p = 0.5, mu1 = 50, sd1 = 3, mu2 = 80, sd2 = 3)
 opp <- optim(startparam, logL, x = faithful$waiting, method = "L-BFGS-B",
              lower = c(0.01, rep(1, 4)),
@@ -263,7 +252,6 @@ opp
 <<DE-faithful-optim-print, echo = FALSE>>=
 print(opp[names(opp) != "message"])
 @
-
 Of course, optimising the appropriate likelihood `by hand' %'
 is not very convenient. In fact, (at least) two packages offer high-level
 functionality for estimating mixture models. The first one is package
@@ -271,6 +259,9 @@ functionality for estimating mixture models. The first one is package
 in \cite{HSAUR:FraleyRaftery2002}. Here, a Bayesian information criterion
 (BIC) is applied to choose the form of the mixture model:
 \index{Bayesian Information Criterion (BIC)}
+<<DE-attach-mclust, echo = FALSE, results = hide>>=
+library("mclust")
+@
 <<DE-faithful-mclust, echo = TRUE>>=
 library("mclust")
 mc <- Mclust(faithful$waiting)
@@ -283,6 +274,9 @@ mc$mu
 with estimated standard deviation (found to be equal within both groups)
 <<DE-faithful-mclust-para, echo = TRUE>>=
 sqrt(mc$sigmasq)
+@
+<<DE-detach-mclust, echo = FALSE, results = hide>>=
+detach(package:mclust)
 @
 The proportion is $\hat{p} = \Sexpr{round(mc$pro[1], 2)}$. The second package is called
 \Rpackage{flexmix} whose functionality is described by
@@ -297,7 +291,6 @@ with $\hat{p} = \Sexpr{round(fl@prior, 2)}$ and estimated parameters
 parameters(fl, component = 1)
 parameters(fl, component = 2)
 @
-
 \begin{figure}
 \begin{center}
 <<DE-faithful-2Dplot, echo = TRUE, fig = TRUE>>=
@@ -348,7 +341,6 @@ for bootstrapping (here $1000$ bootstrap samples are drawn)
 R> bootpara <- boot(faithful$waiting, fit, R = 1000)
 \end{Sinput}
 \end{Schunk}
-
 <<DE-faithful-bootrun, echo = FALSE>>=
 bootparafile <- file.path(.find.package("HSAUR"), "cache", "DE-bootpara.rda")
 if (file.exists(bootparafile)) {
@@ -357,7 +349,6 @@ if (file.exists(bootparafile)) {
     bootpara <- boot(faithful$waiting, fit, R = 1000)
 }
 @
-
 We assess the variability of our estimates $\hat{p}$ by
 means of adjusted bootstrap percentile (BCa) confidence intervals, which for
 $\hat{p}$ can be obtained from
@@ -396,7 +387,6 @@ First, we plot a simple density estimate and then construct a line
 representing the confidence interval.
 We apply this function to the bootstrap distributions of our estimates
 $\hat{\mu}_1$ and $\hat{\mu}_2$ in Figure~\ref{DE-bootplot}.
-
 \begin{figure}
 \begin{center}
 <<DE-faithful-boot-plot, echo = TRUE, fig = TRUE, height = 4>>=

@@ -1,6 +1,6 @@
 
-R : Copyright 2005, The R Foundation for Statistical Computing
-Version 2.2.1 beta (2005-12-18 r36792)
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 (2006-04-24)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -65,7 +65,7 @@ Coefficients:
 (Intercept)  -6.8451     2.7703  -2.471   0.0135 *
 fibrinogen    1.8271     0.9009   2.028   0.0425 *
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 (Dispersion parameter for binomial family taken to be 1)
 
@@ -159,7 +159,7 @@ Coefficients:
 fibrinogen    1.9104     0.9710   1.967   0.0491 *
 globulin      0.1558     0.1195   1.303   0.1925  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 (Dispersion parameter for binomial family taken to be 1)
 
@@ -232,7 +232,7 @@ Coefficients:
 sexFemale   -0.01145    0.08415  -0.136    0.892    
 education   -0.27062    0.01541 -17.560   <2e-16 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 (Dispersion parameter for binomial family taken to be 1)
 
@@ -299,7 +299,7 @@ sexFemale            0.90474    0.36007   2.513  0.01198 *
 education           -0.23403    0.02019 -11.592  < 2e-16 ***
 sexFemale:education -0.08138    0.03109  -2.617  0.00886 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 (Dispersion parameter for binomial family taken to be 1)
 
@@ -352,7 +352,7 @@ Coefficients:
 treatdrug   -1.359083   0.117643  -11.55  < 2e-16 ***
 age         -0.038830   0.005955   -6.52 7.02e-11 ***
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 (Dispersion parameter for poisson family taken to be 1)
 
@@ -385,7 +385,7 @@ Coefficients:
 treatdrug   -1.35908    0.38532  -3.527  0.00259 ** 
 age         -0.03883    0.01951  -1.991  0.06283 .  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 (Dispersion parameter for quasipoisson family taken to be 10.72761)
 

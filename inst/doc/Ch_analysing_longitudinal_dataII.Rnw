@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,25 +147,18 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Analysing Longitudinal Data II}
 %%\VignetteDepends{gee}
 \setcounter{chapter}{10}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -174,18 +170,14 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 \chapter[Analysing Longitudinal Data II]{
          Analysing Longitudinal Data II -- Generalised Estimation Equations:
          Treating Respiratory Illness and Epileptic Seizures
          \label{ALDII}}
-
 \section{Introduction}
 \section{Generalised Estimating Equations}
 \section{Analysis Using \R{}}
-
 \subsection{Beat the Blues Revisited}
 To use the \Rcmd{gee} function, package \Rpackage{gee} \citep{PKG:gee}
 has to be installed and attached:
@@ -228,7 +220,6 @@ btb_gee1 <- gee(bdi ~ bdi.pre + treatment + length + drug,
 The \Rcmd{summary} method can be used to inspect the fitted models; the
 results are shown in Figures~\ref{ALDII-gee-summary} and
 \ref{ALDII-gee1-summary}
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for the \Robject{btb\_gee} model.
                             \label{ALDII-gee-summary}}
@@ -237,7 +228,6 @@ results are shown in Figures~\ref{ALDII-gee-summary} and
 summary(btb_gee)
 @
 \SchunkRaw
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for the \Robject{btb\_gee1} model.
                             \label{ALDII-gee1-summary}}
@@ -279,7 +269,6 @@ resp_gee2 <- gee(nstat ~ centre + treatment + sex + baseline + age, data = resp,
 summary(resp_glm)
 @
 \SchunkRaw
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for the \Robject{resp\_gee1} model.
                             \label{ALDII-resp-gee1-summary}}
@@ -288,8 +277,6 @@ summary(resp_glm)
 summary(resp_gee1)
 @
 \SchunkRaw
-
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for the \Robject{resp\_gee2} model.
                             \label{ALDII-resp-gee2-summary}}
@@ -299,7 +286,6 @@ summary(resp_gee2)
 @
 \SchunkRaw
 \clearpage
-
 The estimated treatment effect taken from the exchangeable
 structure GEE model is \Sexpr{round(coef(resp_gee2)["treatmenttreatment"], 3)}
 which, using the robust standard
@@ -318,9 +304,7 @@ exp(coef(resp_gee2)["treatmenttreatment"] + c(-1, 1) * se * qnorm(0.975))
 @
 The odds of achieving a `good' respiratory status with the active treatment is between  %'
 about twice and seven times the corresponding odds for the placebo.
-
 \subsection{Epilepsy}
-
 Moving on to the count data in \Robject{epilepsy} from
 Table~\ref{ALDII-epilepsy-tab}, we begin by calculating
 the means and variances of the number of seizures for all treatment / period
@@ -334,7 +318,6 @@ tapply(epilepsy$seizure.rate, itp, var)
 Some of the variances are considerably larger than the corresponding means, which for
 a Poisson variable may suggest that overdispersion may be a problem, see
 Chapter~\ref{GLM}.
-
 \begin{figure}
 \begin{center}
 <<ALDII-plot1, echo = TRUE, fig = TRUE, height = 4>>=
@@ -395,7 +378,6 @@ As usual we inspect the fitted models using the \Rcmd{summary} method, the
 results are given in Figures~\ref{ALDII-epilepsy-glm-summary},
 \ref{ALDII-epilepsy-gee1-summary}, \ref{ALDII-epilepsy-gee2-summary}, and
 \ref{ALDII-epilepsy-gee3-summary}.
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for the \Robject{epilepsy\_glm} model.
                             \label{ALDII-epilepsy-glm-summary}}
@@ -404,7 +386,6 @@ results are given in Figures~\ref{ALDII-epilepsy-glm-summary},
 summary(epilepsy_glm)
 @
 \SchunkRaw
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for the \Robject{epilepsy\_gee1} model.
                             \label{ALDII-epilepsy-gee1-summary}}
@@ -413,7 +394,6 @@ summary(epilepsy_glm)
 summary(epilepsy_gee1)
 @
 \SchunkRaw
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for the \Robject{epilepsy\_gee2} model.
                             \label{ALDII-epilepsy-gee2-summary}}
@@ -422,7 +402,6 @@ summary(epilepsy_gee1)
 summary(epilepsy_gee2)
 @
 \SchunkRaw
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for the \Robject{epilepsy\_gee3} model.
                             \label{ALDII-epilepsy-gee3-summary}}

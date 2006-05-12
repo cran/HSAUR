@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,25 +147,18 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Meta-Analysis}
 %%\VignetteDepends{rmeta}
 \setcounter{chapter}{11}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -174,22 +170,12 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 \chapter[Meta-Analysis]{Meta-Analysis: Nicotine Gum and Smoking Cessation and
 the Efficacy of BCG Vaccine in the Treatment of Tuberculosis \label{MA}}
-
 \section{Introduction}
 \section{Systematic Reviews and Meta-Analysis}
 \section{Analysis Using \R{}}
-
-
-
-
-
-
-
 The aim in collecting the results from the randomised trials
 of using nicotine gum to help smokers quit was to estimate the
 overall \stress{odds ratio}, the odds of quitting smoking for those
@@ -214,11 +200,9 @@ see Figure~\ref{MA-smoking-summary}.
 summary(smokingOR)
 @
 \SchunkRaw
-
 %% <FIXME> why do I need to force the figure placement here?
 %% \clearpage
 %% </FIXME>
-
 \begin{figure}
 \begin{center}
 <<MA-smoking-OR-plot, echo = TRUE, fig = TRUE, height = 8>>=
@@ -228,8 +212,6 @@ plot(smokingOR, ylab = "")
 the nicotine gum studies. \label{MA:smokingplot}}
 \end{center}
 \end{figure}
-
-
 We shall use both the fixed effects and random effects approaches
 here so that we can compare results. For the fixed effects model (see
 Figure~\ref{MA-smoking-summary})
@@ -255,10 +237,7 @@ significant implying that we might use the fixed effects results. But the
 test is not particularly powerful and it is more sensible to assume a priori that
 heterogeneity is present and so we use the results from the random effects
 model.
-
-
 \section{Meta-Regression}
-
 The examination of heterogeneity of the effect sizes from the
 studies in a meta-analysis begins with the formal test for its
 presence, although in most meta-analyses such heterogeneity can
@@ -283,7 +262,6 @@ BCG_DSL <- meta.DSL(BCG[["BCGVacc"]], BCG[["NoVacc"]],
 @
 The results are inspected using the \Rcmd{summary} method as shown in
 Figures~\ref{MA-BCGOR-summary} and \ref{MA-BCGDSL-summary}.
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for \Robject{BCG\_OR}.
                             \label{MA-BCGOR-summary}}
@@ -292,7 +270,6 @@ Figures~\ref{MA-BCGOR-summary} and \ref{MA-BCGDSL-summary}.
 summary(BCG_OR)
 @
 \SchunkRaw
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for \Robject{BCG\_DSL}.
                             \label{MA-BCGDSL-summary}}
@@ -322,7 +299,6 @@ latitude is associated with observed effect size, the log-odds
 ratio becoming increasingly negative as latitude increases, as
 we can see from a scatterplot of the two variables with the added
 weighted regression fit seen in Figure~\ref{MA-BCG}.
-
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for \Robject{BCG\_mod}.
                             \label{MA-mod-summary}}
@@ -331,7 +307,6 @@ weighted regression fit seen in Figure~\ref{MA-BCG}.
 summary(BCG_mod)
 @
 \SchunkRaw
-
 \begin{figure}
 \begin{center}
 <<BCG-Latitude-plot, echo = TRUE, fig = TRUE>>=
@@ -343,8 +318,6 @@ abline(lm(y ~ Latitude, data = BCG, weights = studyweights))
          regression fit shown in addition. \label{MA-BCG}}
 \end{center}
 \end{figure}
-
-
 \section{Publication Bias}
 \begin{figure}
 \begin{center}
@@ -363,11 +336,9 @@ plot(y[gr], 1/(sigma[gr]), xlim = range(y),
          that a publication bias might be a problem. \label{MA-funnel}}
 \end{center}
 \end{figure}
-
 We can construct a funnel plot for the nicotine gum data using the \R{} code
 depicted with Figure~\ref{MA:funnel}. There does not
 appear to be any strong evidence of publication bias here.
-
 \begin{figure}
 \begin{center}
 <<MA-smoking-funnel, echo = TRUE, fig = TRUE>>=

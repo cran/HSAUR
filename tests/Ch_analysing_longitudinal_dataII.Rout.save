@@ -1,6 +1,6 @@
 
-R : Copyright 2005, The R Foundation for Statistical Computing
-Version 2.2.1 beta (2005-12-18 r36792)
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 (2006-04-24)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -221,7 +221,7 @@ sexmale             0.119244   0.294671   0.405  0.68572
 baselinegood        1.882029   0.241290   7.800 6.20e-15 ***
 age                -0.018166   0.008864  -2.049  0.04043 *  
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 (Dispersion parameter for binomial family taken to be 1)
 
@@ -440,7 +440,7 @@ base                0.0226517  0.0005093  44.476  < 2e-16 ***
 age                 0.0227401  0.0040240   5.651 1.59e-08 ***
 treatmentProgabide -0.1527009  0.0478051  -3.194  0.00140 ** 
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 (Dispersion parameter for poisson family taken to be 1)
 

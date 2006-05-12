@@ -1,11 +1,11 @@
 %PDF-1.1
-%Å‚Å„ÅœÅ”
+%Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20060201111446)
-/ModDate (D:20060201111446)
+/CreationDate (D:20060523172523)
+/ModDate (D:20060523172523)
 /Title (R Graphics Output)
-/Producer (R 2.2.1)
+/Producer (R 2.3.0)
 /Creator (R)
 >>
 endobj
@@ -601,6 +601,7 @@ Q q 0.00 0.00 216.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F6 1 Tf 14.00 0.00 -0.00 14.00 115.59 256.54 Tm (m) Tj
+/F6 1 Tf 14.00 0.00 -0.00 14.00 115.59 256.54 Tm (m) Tj
 /F2 1 Tf 10.00 0.00 -0.00 10.00 123.65 253.98 Tm (1) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 39.68 18.72 Tm (N = 1000   Bandwidth = 0.1489) Tj
 /F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 131.20 Tm (Density) Tj
@@ -1190,6 +1191,7 @@ Q q 216.00 0.00 216.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F6 1 Tf 14.00 0.00 -0.00 14.00 331.59 256.54 Tm (m) Tj
+/F6 1 Tf 14.00 0.00 -0.00 14.00 331.59 256.54 Tm (m) Tj
 /F2 1 Tf 10.00 0.00 -0.00 10.00 339.65 253.98 Tm (2) Tj
 /F2 1 Tf 12.00 0.00 -0.00 12.00 259.01 18.72 Tm (N = 1000   Bandwidth = 0.111) Tj
 /F2 1 Tf 0.00 12.00 -12.00 0.00 228.96 131.20 Tm (Density) Tj
@@ -1218,7 +1220,7 @@ Q
 endstream
 endobj
 8 0 obj
-19504
+19616
 endobj
 3 0 obj
 <<
@@ -1233,7 +1235,7 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R /F4 12 0 R /F5 13 0 R /F6 14 0 R >>
+/Font << /F1 5 0 R /F2 10 0 R /F6 11 0 R >>
 /ExtGState << >>
 >>
 endobj
@@ -1246,73 +1248,39 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj
-<<
+10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
 /Encoding 9 0 R
->>
-endobj
-11 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F3
-/BaseFont /Helvetica-Bold
-/Encoding 9 0 R
->>
-endobj
-12 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F4
-/BaseFont /Helvetica-Oblique
-/Encoding 9 0 R
->>
-endobj
-13 0 obj
-<<
-/Type /Font
-/Subtype /Type1
-/Name /F5
-/BaseFont /Helvetica-BoldOblique
-/Encoding 9 0 R
->>
-endobj
-14 0 obj
-<<
+>> endobj
+11 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F6
 /BaseFont /Symbol
->>
-endobj
+>> endobj
 xref
-0 15
+0 12
 0000000000 65535 f 
-0000000020 00000 n 
-0000000162 00000 n 
-0000019952 00000 n 
-0000020035 00000 n 
-0000000211 00000 n 
-0000000294 00000 n 
-0000000374 00000 n 
-0000019931 00000 n 
-0000020172 00000 n 
-0000020429 00000 n 
-0000020526 00000 n 
-0000020628 00000 n 
-0000020733 00000 n 
-0000020842 00000 n 
+0000000021 00000 n 
+0000000163 00000 n 
+0000020065 00000 n 
+0000020148 00000 n 
+0000000212 00000 n 
+0000000295 00000 n 
+0000000375 00000 n 
+0000020044 00000 n 
+0000020252 00000 n 
+0000020509 00000 n 
+0000020606 00000 n 
 trailer
 <<
-/Size 15
+/Size 12
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-20920
+20684
 %%EOF

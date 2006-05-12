@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,24 +147,17 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Multiple Linear Regression}
 \setcounter{chapter}{4}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -173,15 +169,9 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 \chapter[Multiple Linear Regression]{Multiple Linear Regression: \ Cloud Seeding \label{MLR}}
-
-
 \section{Introduction}
-
-
 \index{Cloud seeding}
 \section{Multiple Linear Regression}
 \index{Linear models|(}
@@ -199,7 +189,6 @@ bxpecho <- boxplot(rainfall ~ echomotion, data = clouds, ylab = "Rainfall",
 \caption{Boxplots of \Robject{rainfall}. \label{MLR-rainfall-boxplot}}
 \end{center}
 \end{figure}
-
 \begin{figure}
 \begin{center}
 <<MLR-clouds-scatterplots, echo = TRUE, fig = TRUE, width = 7, height = 7>>=
@@ -213,7 +202,6 @@ plot(rainfall ~ prewetness, data = clouds)
 covariables. \label{MLR-rainfall-scplot}}
 \end{center}
 \end{figure}
-
 Both the boxplots (Figure~\ref{MLR-rainfall-boxplot}) and the scatterplots
 (Figure~\ref{MLR-rainfall-scplot}) show some evidence
 of outliers. The row names of the extreme observations in the
@@ -225,9 +213,7 @@ where \Robject{bxpseeding} and \Robject{bxpecho} are variables
 created by \Rcmd{boxplot} in Figure~\ref{MLR-rainfall-boxplot}.
 For the time being we shall not remove these observations but bear
 in mind during the modelling process that they may cause problems.
-
 \subsection{Fitting a Linear Model}
-
 In this example it is sensible to assume that the effect that
 some of the other explanatory variables is modified by seeding
 and therefore consider a model that allows interaction terms
@@ -252,7 +238,6 @@ The default contrasts can be changed via the \Rarg{contrasts.arg}
 argument to \Rcmd{model.matrix} or the \Robject{contrasts} argument to the
 fitting function, for example \Rcmd{lm} or \Rcmd{aov} as shown in
 Chapter~\ref{ANOVA}.
-
 However, such internals are hidden and performed by high-level model fitting
 functions such as \Rcmd{lm} which will be used to fit the linear model
 defined by the \Rclass{formula} \Robject{clouds\_formula}:
@@ -273,7 +258,6 @@ and $t$-statistics as well as the $F$-statistic with associated $p$-value.
 summary(clouds_lm)
 @
 \SchunkRaw
-
 Many methods are available for extracting components of the fitted model.
 The estimates $\hat{\beta}^\star$ can be assessed via
 <<MLR-clouds-coef, echo = TRUE>>=
@@ -307,7 +291,7 @@ and without seeding. \label{MLR-rel}}
 In order to investigate the quality of the model fit, we need access to the
 residuals and the fitted values. The residuals can be found by the
 \Rcmd{residuals} method and the fitted values of the response
-from the \Rcmd{predict} method
+from the \Rcmd{fitted} (or \Rcmd{predict}) method
 <<MLR-clouds-residfitted, echo = TRUE>>=
 clouds_resid <- residuals(clouds_lm)
 clouds_fitted <- fitted(clouds_lm)
@@ -320,7 +304,6 @@ data should perhaps be reanalysed after these two observations are removed.
 The normal probability plot of the residuals shown in Figure~\ref{MLR-qqplot}
 shows a reasonable agreement between theoretical and sample
 quantiles, however, observations $1$ and $15$ are extreme again.
-
 \begin{figure}
 \begin{center}
 <<MLR-clouds-residplot, echo = TRUE, fig = TRUE>>=
@@ -334,7 +317,6 @@ text(clouds_fitted, clouds_resid, labels = rownames(clouds))
 \label{MLR-resid}}
 \end{center}
 \end{figure}
-
 \begin{figure}
 \begin{center}
 <<MLR-clouds-qqplot, echo = TRUE, fig = TRUE>>=

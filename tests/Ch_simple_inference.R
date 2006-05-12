@@ -43,7 +43,7 @@ tapply(roomwidth$width * convert, roomwidth$unit, sd)
 layout(matrix(c(1,2,1,3), nrow = 2, ncol = 2, byrow = FALSE))
 boxplot(I(width * convert) ~ unit, data = roomwidth,
         ylab = "Estimated width (feet)",
-        var.width = TRUE, names = c("Estimates in feet",
+        varwidth = TRUE, names = c("Estimates in feet",
         "Estimates in metres (converted to feet)"))
 feet <- roomwidth$unit == "feet"
 qqnorm(roomwidth$width[feet], ylab = "Estimated width (feet)")

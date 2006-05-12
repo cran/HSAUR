@@ -1,3 +1,6 @@
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -144,23 +147,16 @@
 
 %%% hyphenations
 \hyphenation{drop-out}
+
+%%% new bidirectional quotes need
+\usepackage[utf8]{inputenc}
 \begin{document}
-
-
 %% Title page
-
 \title{A Handbook of Statistical Analyses Using \R}
-
 \author{Brian S. Everitt and Torsten Hothorn}
-
 \maketitle
 %%\VignetteIndexEntry{Chapter Preface}
-
-
-
-
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
-
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
@@ -172,13 +168,9 @@ HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
 @
-
 \pagestyle{headings}
-
 \pagestyle{empty}
-
 \chapter*{Preface}
-
 This book is intended as a guide to data analysis with the \R{} system for
 statistical computing. \R{} is an environment incorporating an implementation
 of the \S{} programming language, which is powerful, flexible and has excellent
@@ -191,7 +183,6 @@ each chapter along with appropriate references, but our prime
 focus is on how to use \R{} and how to interpret results. We hope
 the book will provide students and researchers in many disciplines
 with a self-contained means of using \R{} to analyse their data.
-
 \R{} is an open-source project developed by dozens of volunteers for more
 than ten years now and is available from the Internet under the General
 Public Licence. \R{} has become the \stress{lingua franca} of statistical
@@ -208,7 +199,6 @@ HSAUR:Gentleman2005}. For a reproducible piece of research, the original
 observations, all data preprocessing steps, the statistical analysis as well
 as the scientific report form a unity and all need to be available for
 inspection, reproduction and modification by the readers.
-
 Reproducibility is a natural requirement for textbooks such as the
 \booktitle{Handbook of Statistical Analyses Using \R{}}
 and therefore this book is fully reproducible using an \R{} version
@@ -231,11 +221,11 @@ basically a document including both the \R{} sources and the rendered output
 of every analysis contained in the book. For example, the first chapter can
 be inspected by
 <<pre-vignette, echo = TRUE, eval = FALSE>>=
-vignette("Ch_intoduction_to_R", package = "HSAUR")
+vignette("Ch_introduction_to_R", package = "HSAUR")
 @
 and the \R{} sources are available for reproducing our analyses by
 <<pre-vignette-source, echo = TRUE, eval = FALSE>>=
-edit(vignette("Ch_intoduction_to_R", package = "HSAUR"))
+edit(vignette("Ch_introduction_to_R", package = "HSAUR"))
 @
 An overview on all chapter vignettes included in the package can be obtained
 from
@@ -246,7 +236,6 @@ We welcome comments on the \R{} package \Rpackage{HSAUR}, and
 where we think these add to or improve our analysis of a data set
 we will incorporate them into the package and, hopefully at a later stage,
 into a revised or second edition of the book.
-
 Plots and tables of results obtained from \R{} are all
 labelled as `Figures' in the %%'
 text. For the graphical material, the corresponding figure also contains
@@ -254,7 +243,6 @@ the `essence' of the \R{} code used to produce the figure, although this %%'
 code may differ a little from that given in the \Rpackage{HSAUR} package,
 since the latter may include some features, for example thicker line widths,
 designed to make a basic plot more suitable for publication.
-
 We would like to thank the \R{} Development Core Team for the \R{} system,
 and authors of contributed add-on packages, particularly Uwe Ligges and Vince Carey
 for helpful advice on \Rpackage{scatterplot3d} and \Rpackage{gee}. Kurt
@@ -267,12 +255,9 @@ would like to thank the CRC Press staff, in particular Rob Calver, for
 their support during the preparation of the book.
 Any errors in the book are, of course, the joint
 responsibility of the two authors.
-
 \vspace*{1cm}
-
 \begin{flushright}
 \textbf{Brian S. Everitt and Torsten Hothorn} \\London and Erlangen, December 2005
-
 \end{flushright}
 \bibliographystyle{../LaTeX/refstyle}
 \bibliography{../LaTeX/HSAUR}

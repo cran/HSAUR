@@ -1,6 +1,6 @@
 
-R : Copyright 2005, The R Foundation for Statistical Computing
-Version 2.2.1 beta (2005-12-18 r36792)
+R : Copyright 2006, The R Foundation for Statistical Computing
+Version 2.3.0 (2006-04-24)
 ISBN 3-900051-07-0
 
 R is free software and comes with ABSOLUTELY NO WARRANTY.
@@ -132,7 +132,7 @@ seedingyes:cloudcover            0.02545 *
 seedingyes:prewetness            0.57796   
 seedingyes:echomotionstationary  0.83492   
 ---
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1 
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1 
 
 Residual standard error: 2.205 on 13 degrees of freedom
 Multiple R-Squared: 0.7158,	Adjusted R-squared: 0.4972 
