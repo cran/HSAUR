@@ -1,6 +1,8 @@
 
 export(HSAURtable)
 
+import(utils)
+
 S3method(HSAURtable, table)
 S3method(HSAURtable, data.frame)
 S3method(toLatex, tabtab)

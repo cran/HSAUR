@@ -224,7 +224,7 @@ in newer versions of \Rpackage{lme4}.
 \section{Cluster Analysis}
 --nothing known--
 \section*{Thanks}
-We would like to thank the following people for pointing our errors, typos etc and for
+We would like to thank the following people for pointing out errors, typos etc and for
 making suggestions for improvements:
 \begin{itemize}
 \item Tobias Verbeke
