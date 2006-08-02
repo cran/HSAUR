@@ -10,6 +10,9 @@ options(prompt = "R> ", width = 63, # digits = 4,
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
+### </FIXME> hm, R-2.4.0 --vanilla seems to need this
+a <- Sys.setlocale("LC_ALL", "C")
+### </FIXME>
 
 
 ###################################################

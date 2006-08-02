@@ -168,12 +168,22 @@ options(prompt = "R> ", width = 63, # digits = 4,
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
+### </FIXME> hm, R-2.4.0 --vanilla seems to need this
+a <- Sys.setlocale("LC_ALL", "C")
+### </FIXME>
 @
 \pagestyle{headings}
 \chapter[Principal Component Analysis]{Principal Component Analysis: The Olympic Heptathlon \label{PCA}}
 \section{Introduction}
 \section{Principal Component Analysis}
+
+
+
+
+
+
 \section{Analysis Using \R{}}
+
 To begin it will help to score all the seven events in the
 same direction, so that `large' values are `good'. We will
 recode the running events to achieve this;
@@ -183,6 +193,7 @@ heptathlon$hurdles <- max(heptathlon$hurdles) - heptathlon$hurdles
 heptathlon$run200m <- max(heptathlon$run200m) - heptathlon$run200m
 heptathlon$run800m <- max(heptathlon$run800m) - heptathlon$run800m
 @
+
 \begin{figure}
 \begin{center}
 <<PCA-heptathlon-scatter, echo = TRUE, fig = TRUE>>=
@@ -192,6 +203,7 @@ plot(heptathlon[,-score])
 \caption{Scatterplot matrix for the \Robject{heptathlon} data. \label{PCA-heptathlon-scatter}}
 \end{center}
 \end{figure}
+
 Figure~\ref{PCA-heptathlon-scatter} shows a
 scatterplot matrix of the results from the $25$ competitors on
 the seven events. We
@@ -213,6 +225,7 @@ round(cor(heptathlon[,-score]), 2)
 options(width = w$width)
 @
 This correlation matrix demonstrates again the points made earlier.
+
 A principal component analysis of the data can be applied
 using the \Rcmd{prcomp} function. The result is a list
 containing the coefficients defining each component
@@ -255,6 +268,7 @@ principal components
 <<PCA-heptathlon-s1, echo = TRUE>>=
 predict(heptathlon_pca)[,1]
 @
+
 \begin{figure}
 \begin{center}
 <<PCA-heptathlon-pca-plot, echo = TRUE, fig = TRUE>>=
@@ -264,6 +278,7 @@ plot(heptathlon_pca)
 \label{PCA-heptathlon-pca-plot}}
 \end{center}
 \end{figure}
+
 <<PCA-heptathlon-sdev, echo = FALSE, results = hide>>=
 sdev <- heptathlon_pca$sdev
 prop12 <- round(sum(sdev[1:2]^2)/sum(sdev^2)*100, 0)
@@ -278,6 +293,7 @@ the events are given in a second coordinate system, also illustrating the specia
 role of the javelin event. This graphical representation is known as
 \stress{biplot} \citep{HSAUR:Gabriel1971}.
 \index{Biplot}
+
 \begin{figure}
 \begin{center}
 <<PCA-heptathlon-PCscatter, eval = FALSE>>=
@@ -293,6 +309,7 @@ c(-0.5, 0.7))
 \label{PCA-heptathlon-PCscatter}}
 \end{center}
 \end{figure}
+
 The correlation between the score
 given to each athlete by the standard scoring system used for
 the heptathlon and the first principal component score can be
@@ -304,6 +321,7 @@ This implies that the first principal component is in good agreement with
 the score assigned to the athletes by official Olympic rules; a scatterplot
 of the official score and the first principal component is given in
 Figure~\ref{PCA-heptathlonscore}.
+
 \begin{figure}
 \begin{center}
 <<PCA-heptathlonscore, echo = TRUE, fig = TRUE>>=

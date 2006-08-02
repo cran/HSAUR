@@ -156,7 +156,7 @@
 \author{Brian S. Everitt and Torsten Hothorn}
 \maketitle
 %%\VignetteIndexEntry{Chapter Cluster Analysis}
-%%\VignetteDepends{mclust,scatterplot3d}
+%%\VignetteDepends{scatterplot3d}
 \setcounter{chapter}{14}
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
 <<setup, echo = FALSE, results = hide>>=
@@ -169,6 +169,9 @@ options(prompt = "R> ", width = 63, # digits = 4,
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
+### </FIXME> hm, R-2.4.0 --vanilla seems to need this
+a <- Sys.setlocale("LC_ALL", "C")
+### </FIXME>
 @
 \pagestyle{headings}
 <<thissetup, echo = FALSE, results = hide>>=

@@ -156,7 +156,7 @@
 \author{Brian S. Everitt and Torsten Hothorn}
 \maketitle
 %%\VignetteIndexEntry{Chapter Density Estimation}
-%%\VignetteDepends{mclust,flexmix}
+%%\VignetteDepends{flexmix}
 \setcounter{chapter}{6}
 \SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
 <<setup, echo = FALSE, results = hide>>=
@@ -169,14 +169,17 @@ options(prompt = "R> ", width = 63, # digits = 4,
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
+### </FIXME> hm, R-2.4.0 --vanilla seems to need this
+a <- Sys.setlocale("LC_ALL", "C")
+### </FIXME>
 @
 \pagestyle{headings}
 <<DE-setup, echo = FALSE, results = hide>>=
 x <- library("KernSmooth")
-### don't attach mclust since it masks stats:::density
-### x <- library("mclust")
 x <- library("flexmix")
 x <- library("boot")
+### just in case
+x <- try(detach(package:mclust))
 @
 \chapter[Density Estimation]{Density Estimation: Erupting Geysers and Star
 Clusters \label{DE}}

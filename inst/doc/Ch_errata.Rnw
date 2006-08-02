@@ -168,6 +168,9 @@ options(prompt = "R> ", width = 63, # digits = 4,
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
+### </FIXME> hm, R-2.4.0 --vanilla seems to need this
+a <- Sys.setlocale("LC_ALL", "C")
+### </FIXME>
 @
 \pagestyle{headings}
 \chapter[Errata]{Errata}
@@ -183,8 +186,9 @@ and
 <<pre-vignette, echo = TRUE, eval = FALSE>>=
 edit(vignette("Ch_introduction_to_R", package = "HSAUR"))
 @
+As of version 1.0-3, only the correctly named vignette is available.
 \section{Introduction to R}
---nothing known--
+Typo at page 20 (Ex. 1.5): number of companies, not number of countries.
 \section{Simple Inference}
 Typo at page 31, code line 4: use argument \Rcmd{varwidth = TRUE}, not \Rcmd{var.width = TRUE}.
 \section{Conditional Inference}
@@ -196,7 +200,8 @@ or \Rcmd{chi-squared} throughout the chapter.
 Page 83: both \Rcmd{fitted} and \Rcmd{predict} can be used to compute fitted values, the later on
 can be applied to new unseen data as well.
 \section{Logistic Regression and Generalised Linear Models}
---nothing known--
+Function \Rcmd{myplot} (page 100): the \Rcmd{vfont} argument in \Rcmd{text} has been changed
+to \Rcmd{family = "HersheySerif"} (the resulting plots remain the same).
 \section{Density Estimation}
 Page 121: small numeric differences for the output of \Rcmd{optim}
 \section{Recursive Partitioning}
@@ -218,4 +223,11 @@ in newer versions of \Rpackage{lme4}.
 --nothing known--
 \section{Cluster Analysis}
 --nothing known--
+\section*{Thanks}
+We would like to thank the following people for pointing our errors, typos etc and for
+making suggestions for improvements:
+\begin{itemize}
+\item Tobias Verbeke
+\item Brian D. Ripley
+\end{itemize}
 \end{document}

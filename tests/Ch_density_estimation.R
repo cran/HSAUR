@@ -10,16 +10,19 @@ options(prompt = "R> ", width = 63, # digits = 4,
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
+### </FIXME> hm, R-2.4.0 --vanilla seems to need this
+a <- Sys.setlocale("LC_ALL", "C")
+### </FIXME>
 
 
 ###################################################
 ### chunk number 2: DE-setup
 ###################################################
 x <- library("KernSmooth")
-### don't attach mclust since it masks stats:::density
-### x <- library("mclust")
 x <- library("flexmix")
 x <- library("boot")
+### just in case
+x <- try(detach(package:mclust))
 
 
 ###################################################

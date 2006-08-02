@@ -10,6 +10,9 @@ options(prompt = "R> ", width = 63, # digits = 4,
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
+### </FIXME> hm, R-2.4.0 --vanilla seems to need this
+a <- Sys.setlocale("LC_ALL", "C")
+### </FIXME>
 
 
 ###################################################
@@ -147,7 +150,7 @@ myplot <- function(role.fitted) {
     lgtxt <- c("Fitted (Males)", "Fitted (Females)")
     legend("topright", lgtxt, lty = 1:2, bty = "n")
     y <- womensrole$agree / (womensrole$agree + womensrole$disagree)
-    text(womensrole$education, y, ifelse(f, "\\VE", "\\MA"), vfont = c("serif", "plain"), cex = 1.25)
+    text(womensrole$education, y, ifelse(f, "\\VE", "\\MA"), family = "HersheySerif", cex = 1.25)
 }
 
 

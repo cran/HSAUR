@@ -168,6 +168,9 @@ options(prompt = "R> ", width = 63, # digits = 4,
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
+### </FIXME> hm, R-2.4.0 --vanilla seems to need this
+a <- Sys.setlocale("LC_ALL", "C")
+### </FIXME>
 @
 \pagestyle{headings}
 \chapter{An Introduction to \R{} \label{AItR}}
@@ -1080,7 +1083,7 @@ need to be abbreviated (using \Rcmd{abbreviate}) to avoid making the
 plot look too `messy'. %%'
 \exercise
 Find the average value of sales for the companies in each country in
-the Forbes data set, and find the number of countries in each country with
+the Forbes data set, and find the number of companies in each country with
 profits above $5$ billion US dollars.
 \end{description}
 \bibliographystyle{../LaTeX/refstyle}
