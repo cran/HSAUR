@@ -258,16 +258,10 @@ library("mclust")
 planet_mclust <- Mclust(planet.dat)
 @
 and we first examine a plot of BIC values using
-\begin{Schunk}
-\begin{Sinput}
-R> plot(planet_mclust, planet.dat)
-\end{Sinput}
-\end{Schunk}
-and selecting the BIC option (option number 1 to be selected interactively).
 \begin{figure}
 \begin{center}
-<<CA-planets-mclust-plot, echo = FALSE, fig = TRUE>>=
-x <- plot.EMclust(planet_mclust$BIC, col = "black", ylab = "-BIC")
+<<CA-planets-mclust-plot, echo = TRUE, fig = TRUE>>=
+plot(planet_mclust, planet.dat, what = "BIC", col = "black", ylab = "-BIC")
 @
 \caption{Plot of BIC values for a variety of models and a range of number of
 clusters. \label{CA-mclust1}}

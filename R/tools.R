@@ -4,7 +4,7 @@
 ### copy *Rout to *Rout.save
 cpRoutsave <- function(Routdir = NULL, Routsavedir = NULL) {
 
-    Routfiles <- list.files(path = Routdir, pattern = "\.Rout$", 
+    Routfiles <- list.files(path = Routdir, pattern = "\\.Rout$", 
                             full.names = FALSE)
     srcfiles <- file.path(Routdir, Routfiles)
     destfiles <- file.path(Routsavedir, 
@@ -74,18 +74,18 @@ prettyS <- function(file, texenvironment = c("Sinput", "Soutput"),
 
     ### dirty hack: in `Makefile's I want to call `prettyS'
     ### right after weaving and thus have only `file.Rnw' available
-    if (length(grep("Rnw\$", file)) > 0) file <- gsub("Rnw\$", "tex", file)
+    if (length(grep("Rnw$", file)) > 0) file <- gsub("Rnw$", "tex", file)
 
     ### read file
     x <- readLines(file)
 
     ### remove all end-line spaces
-    x <- gsub(" \$", "", x)
+    x <- gsub("\\s+$", "", x)
 
     ### determine begin and end lines of environment
-    start <- grep(paste("^\\\\begin\\{", texenvironment, "\\}\$", 
+    start <- grep(paste("^\\\\begin\\{", texenvironment, "\\}$", 
                   sep = "", collapse = ""), x)
-    end <- grep(paste("^\\\\end\\{", texenvironment, "\\}\$", 
+    end <- grep(paste("^\\\\end\\{", texenvironment, "\\}$", 
                   sep = "", collapse = ""), x)
     if (length(start) == 0) return(NULL)
     if (length(start) != length(end)) 
@@ -140,9 +140,9 @@ chkS <- function(file) {
     x <- readLines(file)
 
     ### determine begin and end lines of environment
-    start <- grep(paste("^\\\\begin\\{", texenvironment, "\\}\$", 
+    start <- grep(paste("^\\\\begin\\{", texenvironment, "\\}$", 
                   sep = "", collapse = ""), x)
-    end <- grep(paste("^\\\\end\\{", texenvironment, "\\}\$", 
+    end <- grep(paste("^\\\\end\\{", texenvironment, "\\}$", 
                   sep = "", collapse = ""), x)
     if (length(start) == 0) return(NULL)
     if (length(start) != length(end)) 
@@ -170,7 +170,7 @@ readBibtex <- function(file = NULL) {
     bib <- readLines(file)
 
     entries <- grep("^@", bib)
-    labels <- gsub(",\$", "", gsub("^\@[A-Za-z].*\\{", "", bib[entries]))
+    labels <- gsub(",$", "", gsub("^@[A-Za-z].*\\{", "", bib[entries]))
 
     if (any(duplicated(labels))) {
         print(labels[duplicated(labels)])
@@ -183,7 +183,7 @@ readBibtex <- function(file = NULL) {
         nexte <- ifelse(i == length(entries), length(entries), 
                         entries[i + 1] - 1)
         biblist[[i]] <- bib[entries[i]:nexte]
-        empty <- grep("^\$", biblist[[i]])
+        empty <- grep("^$", biblist[[i]])
         if (length(empty) > 0)
         biblist[[i]] <- biblist[[i]][-empty]
     }

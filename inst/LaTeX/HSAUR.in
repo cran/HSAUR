@@ -1567,24 +1567,32 @@
     address = {Boca Raton, Florida, USA}
 }
 
-@article{HSAUR:Hothornetal2004,
+@Article{HSAUR:Hothorn:2006:JCGS,
+    key = {566},
     author = {Torsten Hothorn and Kurt Hornik and Achim Zeileis},
-    title = {Unbiased Recursive Partitioning: {A} Conditional Inference 
+    title = {Unbiased Recursive Partitioning: A Conditional Inference
              Framework},
     journal = {Journal of Computational and Graphical Statistics},
-    year = 2007,
-    note = {accepted},
+    year = 2006,
+    volume = 15,
+    number = 3,
+    pages = {651--674},
+    doi = {10.1198/106186006X133933},
     url = {http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+Zeileis-2006.pdf}
 }
 
-@article{HSAUR:Hothornetal2005,
-    author = {Torsten Hothorn and Kurt Hornik and Mark A. van de Wiel 
-              and Achim Zeileis},
-    title = {A {L}ego System for Conditional Inference},
-    journal = {The American Statistician},
-    year = 2007,
-    note = {accepted},
-    url = {http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+VanDeWiel-2006.pdf}
+@Article{HSAUR:Hothorn:2006:AmStat,
+  key = {575},
+  author        = {Torsten Hothorn and Kurt Hornik and
+                   Mark A. van de Wiel and Achim Zeileis},
+  title         = {A {L}ego System for Conditional Inference},
+  journal       = {The American Statistician},
+  year          = {2006},
+  volume        = {60},
+  issue         = {3},
+  pages         = {257--263},
+  doi           = {10.1198/000313006X118430},
+  URL = {http://statmath.wu-wien.ac.at/~zeileis/papers/Hothorn+Hornik+VanDeWiel-2006.pdf}
 }
 
 @book{HSAUR:Dalgaard2002,

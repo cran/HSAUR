@@ -178,8 +178,6 @@ a <- Sys.setlocale("LC_ALL", "C")
 x <- library("KernSmooth")
 x <- library("flexmix")
 x <- library("boot")
-### just in case
-x <- try(detach(package:mclust))
 @
 \chapter[Density Estimation]{Density Estimation: Erupting Geysers and Star
 Clusters \label{DE}}
@@ -272,16 +270,13 @@ mc
 @
 and the estimated means are
 <<DE-faithful-mclust-mu, echo = TRUE>>=
-mc$mu
+mc$parameters$mean
 @
 with estimated standard deviation (found to be equal within both groups)
 <<DE-faithful-mclust-para, echo = TRUE>>=
-sqrt(mc$sigmasq)
+sqrt(mc$parameters$variance$sigmasq)
 @
-<<DE-detach-mclust, echo = FALSE, results = hide>>=
-detach(package:mclust)
-@
-The proportion is $\hat{p} = \Sexpr{round(mc$pro[1], 2)}$. The second package is called
+The proportion is $\hat{p} = \Sexpr{round(mc$parameters$pro[1], 2)}$. The second package is called
 \Rpackage{flexmix} whose functionality is described by
 \cite{HSAUR:Leisch2004}.
 A mixture of two normals can be fitted using
@@ -331,10 +326,10 @@ sure that we always get an estimate of $p$, not $1 - p$):
 <<DE-faithful-boot, echo = TRUE>>=
 library("boot")
 fit <- function(x, indx) {
-    a <- Mclust(x[indx], minG = 2, maxG = 2)
+    a <- Mclust(x[indx], minG = 2, maxG = 2)$parameters
     if (a$pro[1] < 0.5)
-        return(c(p = a$pro[1], mu1 = a$mu[1], mu2 = a$mu[2]))
-    return(c(p = 1 - a$pro[1], mu1 = a$mu[2], mu2 = a$mu[1]))
+        return(c(p = a$pro[1], mu1 = a$mean[1], mu2 = a$mean[2]))
+    return(c(p = 1 - a$pro[1], mu1 = a$mean[2], mu2 = a$mean[1]))
 }
 @
 The function \Rcmd{fit} can now be fed into the \Rcmd{boot} function \citep{PKG:boot}

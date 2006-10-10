@@ -90,7 +90,7 @@ planet_mclust <- Mclust(planet.dat)
 ###################################################
 ### chunk number 10: CA-planets-mclust-plot
 ###################################################
-x <- plot.EMclust(planet_mclust$BIC, col = "black", ylab = "-BIC")
+plot(planet_mclust, planet.dat, what = "BIC", col = "black", ylab = "-BIC")
 
 
 ###################################################

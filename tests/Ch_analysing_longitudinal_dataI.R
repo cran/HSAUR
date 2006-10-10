@@ -20,6 +20,8 @@ a <- Sys.setlocale("LC_ALL", "C")
 ###################################################
 library("Matrix")
 library("lme4")
+### fix bug in lme4 0.9975-1 (for the time being)
+residuals <- function(object) object@y - fitted(object)
 
 
 ###################################################

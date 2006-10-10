@@ -21,8 +21,6 @@ a <- Sys.setlocale("LC_ALL", "C")
 x <- library("KernSmooth")
 x <- library("flexmix")
 x <- library("boot")
-### just in case
-x <- try(detach(package:mclust))
 
 
 ###################################################
@@ -101,37 +99,31 @@ mc
 ###################################################
 ### chunk number 10: DE-faithful-mclust-mu
 ###################################################
-mc$mu
+mc$parameters$mean
 
 
 ###################################################
 ### chunk number 11: DE-faithful-mclust-para
 ###################################################
-sqrt(mc$sigmasq)
+sqrt(mc$parameters$variance$sigmasq)
 
 
 ###################################################
-### chunk number 12: DE-detach-mclust
-###################################################
-detach(package:mclust)
-
-
-###################################################
-### chunk number 13: DE-faithful-flexmix
+### chunk number 12: DE-faithful-flexmix
 ###################################################
 library("flexmix")
 fl <- flexmix(waiting ~ 1, data = faithful, k = 2)
 
 
 ###################################################
-### chunk number 14: DE-faithful-flexmix-parameters
+### chunk number 13: DE-faithful-flexmix-parameters
 ###################################################
 parameters(fl, component = 1)
 parameters(fl, component = 2)
 
 
 ###################################################
-### chunk number 15: DE-faithful-2Dplot
+### chunk number 14: DE-faithful-2Dplot
 ###################################################
 opar <- as.list(opp$par)
 rx <- seq(from = 40, to = 110, by = 0.1)
@@ -148,19 +140,19 @@ legend(50, 0.06, legend = c("Fitted two-component mixture density",
 
 
 ###################################################
-### chunk number 16: DE-faithful-boot
+### chunk number 15: DE-faithful-boot
 ###################################################
 library("boot")
 fit <- function(x, indx) {
-    a <- Mclust(x[indx], minG = 2, maxG = 2)
+    a <- Mclust(x[indx], minG = 2, maxG = 2)$parameters
     if (a$pro[1] < 0.5)
-        return(c(p = a$pro[1], mu1 = a$mu[1], mu2 = a$mu[2]))
-    return(c(p = 1 - a$pro[1], mu1 = a$mu[2], mu2 = a$mu[1]))
+        return(c(p = a$pro[1], mu1 = a$mean[1], mu2 = a$mean[2]))
+    return(c(p = 1 - a$pro[1], mu1 = a$mean[2], mu2 = a$mean[1]))
 }
 
 
 ###################################################
-### chunk number 17: DE-faithful-bootrun
+### chunk number 16: DE-faithful-bootrun
 ###################################################
 bootparafile <- file.path(.find.package("HSAUR"), "cache", "DE-bootpara.rda")
 if (file.exists(bootparafile)) {
@@ -171,25 +163,25 @@ if (file.exists(bootparafile)) {
 
 
 ###################################################
-### chunk number 18: DE-faithful-p-ci
+### chunk number 17: DE-faithful-p-ci
 ###################################################
 boot.ci(bootpara, type = "bca", index = 1)
 
 
 ###################################################
-### chunk number 19: DE-faithful-mu1-ci
+### chunk number 18: DE-faithful-mu1-ci
 ###################################################
 boot.ci(bootpara, type = "bca", index = 2)
 
 
 ###################################################
-### chunk number 20: DE-faithful-mu2-ci
+### chunk number 19: DE-faithful-mu2-ci
 ###################################################
 boot.ci(bootpara, type = "bca", index = 3)
 
 
 ###################################################
-### chunk number 21: DE-bootplot
+### chunk number 20: DE-bootplot
 ###################################################
 bootplot <- function(b, index, main = "") {
     dens <- density(b$t[,index])
@@ -205,7 +197,7 @@ bootplot <- function(b, index, main = "") {
 
 
 ###################################################
-### chunk number 22: DE-faithful-boot-plot
+### chunk number 21: DE-faithful-boot-plot
 ###################################################
 layout(matrix(1:2, ncol = 2))
 bootplot(bootpara, 2, main = expression(mu[1]))

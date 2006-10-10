@@ -192,8 +192,11 @@ Typo at page 20 (Ex. 1.5): number of companies, not number of countries.
 \section{Simple Inference}
 Typo at page 31, code line 4: use argument \Rcmd{varwidth = TRUE}, not \Rcmd{var.width = TRUE}.
 \section{Conditional Inference}
-The names of the test statistics in the output have been changed from \Rcmd{T} to \Rcmd{Z}
+\begin{itemize}
+\item The names of the test statistics in the output have been changed from \Rcmd{T} to \Rcmd{Z}
 or \Rcmd{chi-squared} throughout the chapter.
+\item Reference \cite{HSAUR:Hothorn:2006:AmStat} updated
+\end{itemize}
 \section{Analysis of Variance}
 --nothing known--
 \section{Multiple Linear Regression}
@@ -203,10 +206,17 @@ can be applied to new unseen data as well.
 Function \Rcmd{myplot} (page 100): the \Rcmd{vfont} argument in \Rcmd{text} has been changed
 to \Rcmd{family = "HersheySerif"} (the resulting plots remain the same).
 \section{Density Estimation}
-Page 121: small numeric differences for the output of \Rcmd{optim}
+\begin{itemize}
+\item Page 121: small numeric differences for the output of \Rcmd{optim}
+\item update to \Rpackage{mclust} version 3.0-0 (new names of parameters in \Robject{mclust}
+objects)
+\end{itemize}
 \section{Recursive Partitioning}
-Page 139: small differences in \Rcmd{predtab}
-Page 140: small differences in table at bottom of this page
+\begin{itemize}
+\item Page 139: small differences in \Rcmd{predtab}
+\item Page 140: small differences in table at bottom of this page
+\item Reference \cite{HSAUR:Hothorn:2006:JCGS} updated
+\end{itemize}
 \section{Survival Analysis}
 The name of the test statistic in the output of \Rcmd{surv\_test} has been changed to
 \Rcmd{chi-squared}.
@@ -222,7 +232,7 @@ in newer versions of \Rpackage{lme4}.
 \section{Multidimensional Scaling}
 --nothing known--
 \section{Cluster Analysis}
---nothing known--
+update to \Rpackage{mclust} version 3.0-0 (new plot method)
 \section*{Thanks}
 We would like to thank the following people for pointing out errors, typos etc and for
 making suggestions for improvements:
@@ -230,4 +240,6 @@ making suggestions for improvements:
 \item Tobias Verbeke
 \item Brian D. Ripley
 \end{itemize}
+\bibliographystyle{../LaTeX/refstyle}
+\bibliography{../LaTeX/HSAUR}
 \end{document}
