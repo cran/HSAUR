@@ -111,12 +111,28 @@
 %%% links
 \usepackage{hyperref}
 
+\hypersetup{%
+  pdftitle = {A Handbook of Statistical Analyses Using R},
+  pdfsubject = {Book},
+  pdfauthor = {Brian S. Everitt and Torsten Hothorn},
+  colorlinks = {true},
+  linkcolor = {blue},
+  citecolor = {blue},
+  urlcolor = {red},
+  hyperindex = {true},
+  linktocpage = {true},
+}
+
+
 %%% captions & tables
 %% <FIXME>: conflics with figure definition in chapman.cls
 %%\usepackage[format=hang,margin=10pt,labelfont=bf]{caption}
 %% </FIMXE>
 \usepackage{longtable}
 \usepackage{rotating}
+
+%%% R symbol in chapter 1
+\usepackage{wrapfig}
 
 %%% Bibliography
 \usepackage[round,comma]{natbib}
@@ -240,7 +256,7 @@ attr(Xstar, "contrasts")
 The default contrasts can be changed via the \Rarg{contrasts.arg}
 argument to \Rcmd{model.matrix} or the \Robject{contrasts} argument to the
 fitting function, for example \Rcmd{lm} or \Rcmd{aov} as shown in
-Chapter~\ref{ANOVA}.
+Chapter~4.
 However, such internals are hidden and performed by high-level model fitting
 functions such as \Rcmd{lm} which will be used to fit the linear model
 defined by the \Rclass{formula} \Robject{clouds\_formula}:
@@ -355,6 +371,6 @@ after these two observations have been removed (see Exercise
 5.2).
 %% \ref{MLR-ex2})
 \index{Regression diagnostics|)}
-%%\bibliographystyle{../LaTeX/refstyle}
-%%\bibliography{../LaTeX/HSAUR}
+%%\bibliographystyle{../LaTeXBibTeX/refstyle}
+%%\bibliography{../LaTeXBibTeX/HSAUR}
 \end{document}

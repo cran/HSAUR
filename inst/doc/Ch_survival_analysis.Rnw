@@ -111,12 +111,28 @@
 %%% links
 \usepackage{hyperref}
 
+\hypersetup{%
+  pdftitle = {A Handbook of Statistical Analyses Using R},
+  pdfsubject = {Book},
+  pdfauthor = {Brian S. Everitt and Torsten Hothorn},
+  colorlinks = {true},
+  linkcolor = {blue},
+  citecolor = {blue},
+  urlcolor = {red},
+  hyperindex = {true},
+  linktocpage = {true},
+}
+
+
 %%% captions & tables
 %% <FIXME>: conflics with figure definition in chapman.cls
 %%\usepackage[format=hang,margin=10pt,labelfont=bf]{caption}
 %% </FIMXE>
 \usepackage{longtable}
 \usepackage{rotating}
+
+%%% R symbol in chapter 1
+\usepackage{wrapfig}
 
 %%% Bibliography
 \usepackage[round,comma]{natbib}
@@ -217,10 +233,11 @@ survdiff(Surv(time, event) ~ group, data = g3)
 @
 which indicates that the survival times are indeed different in both groups.
 However, the number of patients is rather limited and so it might be
-dangerous to rely on asymptotic tests. As shown in Chapter~\ref{CI},
+dangerous to rely on asymptotic tests. As shown in
+Chapter~3,
 conditioning on the data and computing the distribution of the test
 statistics without additional assumptions is one alternative. The function
-\Rcmd{surv\_test} from package \Rpackage{coin} \citep{PKG:coin} can be used
+\Rcmd{surv\_test} from package \Rpackage{coin} \citep{HSAUR:Hothorn:2006:AmStat,PKG:coin} can be used
 to compute an exact conditional test answering the question whether the
 survival times differ for grade III patients:
 <<SA-glioma-exact, echo = TRUE>>=
@@ -265,7 +282,9 @@ received a hormonal therapy or not. \label{SA-GBSG2-plot}}
 \end{center}
 \end{figure}
 Fitting a Cox model follows roughly the same rules are shown for linear
-models in Chapters~\ref{ANOVA}, \ref{MLR} or \ref{GLM} with the exception
+models in
+Chapters~4, 5 or 6
+with the exception
 that the response variable is again coded as a \Rclass{Surv} object.
 For the \Robject{GBSG2} data, the model is fitted via
 <<SA-GBSG2-coxph, echo = TRUE>>=
@@ -293,7 +312,9 @@ summary(GBSG2_coxph)
 \SchunkRaw
 Model checking and model selection for proportional hazards models are
 complicated by the fact that easy to use residuals, such as those discussed
-in Chapter~\ref{MLR} for linear regression model are not available,
+in
+Chapter 5
+for linear regression model are not available,
 but several possibilities do exist.
 A check of the proportional hazards assumption can be done by looking at the
 parameter estimates $\beta_1, \dots, \beta_q$ over time. We can safely
@@ -337,7 +358,9 @@ abline(h = 0, lty = 3)
 \end{center}
 \end{figure}
 The tree-structured regression models applied to continuous and binary
-responses in Chapter~\ref{RP} are applicable to censored responses in
+responses in
+Chapter~8
+are applicable to censored responses in
 survival analysis as well. Such a simple prognostic model with only
 a few terminal nodes might be helpful for relating the risk to certain
 subgroups of patients. Both \Rcmd{rpart} and the \Rcmd{ctree} function
@@ -366,6 +389,6 @@ plot(GBSG2_ctree)
          identified by the tree. \label{SA-GBSG2-ctree-plot}}
 \end{center}
 \end{figure}
-\bibliographystyle{../LaTeX/refstyle}
-\bibliography{../LaTeX/HSAUR}
+\bibliographystyle{../LaTeXBibTeX/refstyle}
+\bibliography{../LaTeXBibTeX/HSAUR}
 \end{document}

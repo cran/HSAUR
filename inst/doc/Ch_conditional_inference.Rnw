@@ -111,12 +111,28 @@
 %%% links
 \usepackage{hyperref}
 
+\hypersetup{%
+  pdftitle = {A Handbook of Statistical Analyses Using R},
+  pdfsubject = {Book},
+  pdfauthor = {Brian S. Everitt and Torsten Hothorn},
+  colorlinks = {true},
+  linkcolor = {blue},
+  citecolor = {blue},
+  urlcolor = {red},
+  hyperindex = {true},
+  linktocpage = {true},
+}
+
+
 %%% captions & tables
 %% <FIXME>: conflics with figure definition in chapman.cls
 %%\usepackage[format=hang,margin=10pt,labelfont=bf]{caption}
 %% </FIMXE>
 \usepackage{longtable}
 \usepackage{rotating}
+
+%%% R symbol in chapter 1
+\usepackage{wrapfig}
 
 %%% Bibliography
 \usepackage[round,comma]{natbib}
@@ -245,7 +261,8 @@ with a confidence interval of
 binom.test(sum(greater), length(greater))$conf.int
 @
 Note that the approximated conditional $p$-value is roughly the same as the
-$p$-value reported by the $t$-test in Chapter~\ref{SI}.
+$p$-value reported by the $t$-test in
+Chapter~2.
 \renewcommand{\nextcaption}{\R{} output of the exact permutation test applied to
                             the \Robject{roomwidth} data. \label{CI-roomwidth-p-fig}}
 \SchunkLabel
@@ -349,7 +366,9 @@ We are interested in testing whether the number of anomalies assessed by the
 medical doctor differs structurally from the number reported by the research
 assistant. Because we compare \stress{paired} observations, i.e., one pair
 of measurements for each newborn, a test of marginal homogeneity (a
-generalisation of McNemar's test, see Chapter~\ref{SI}) needs to be applied: %%'
+generalisation of McNemar's test, 
+see Chapter~2)
+needs to be applied: %%'
 \newpage
 <<CI-anomalies-mh, echo = TRUE>>=
 mh_test(anomalies)
@@ -365,6 +384,6 @@ mh_test(anomalies, scores = list(c(0, 1, 2, 3)))
 In our case, both versions coincide and one can conclude that the
 assessment of the number of anomalies differs between the medical doctor
 and the research assistant.
-%%\bibliographystyle{../LaTeX/refstyle}
-%%\bibliography{../LaTeX/HSAUR}
+%%\bibliographystyle{../LaTeXBibTeX/refstyle}
+%%\bibliography{../LaTeXBibTeX/HSAUR}
 \end{document}

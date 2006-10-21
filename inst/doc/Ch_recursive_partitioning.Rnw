@@ -111,12 +111,28 @@
 %%% links
 \usepackage{hyperref}
 
+\hypersetup{%
+  pdftitle = {A Handbook of Statistical Analyses Using R},
+  pdfsubject = {Book},
+  pdfauthor = {Brian S. Everitt and Torsten Hothorn},
+  colorlinks = {true},
+  linkcolor = {blue},
+  citecolor = {blue},
+  urlcolor = {red},
+  hyperindex = {true},
+  linktocpage = {true},
+}
+
+
 %%% captions & tables
 %% <FIXME>: conflics with figure definition in chapman.cls
 %%\usepackage[format=hang,margin=10pt,labelfont=bf]{caption}
 %% </FIMXE>
 \usepackage{longtable}
 \usepackage{rotating}
+
+%%% R symbol in chapter 1
+\usepackage{wrapfig}
 
 %%% Bibliography
 \usepackage[round,comma]{natbib}
@@ -278,6 +294,7 @@ text(1:length(n), max(Forbes2000$profit) * 1.2, paste("n = ", n))
 <<RP-seed-again, echo = FALSE, results = hide>>=
 set.seed(290875)
 @
+
 <<RP-glaucoma-rpart, echo = TRUE>>=
 data("GlaucomaM", package = "ipred")
 glaucoma_rpart <- rpart(Class ~ ., data = GlaucomaM,
@@ -450,6 +467,6 @@ plot(glaucoma_ctree)
          \label{RP-glaucoma-ctree-plot}}
 \end{center}
 \end{figure}
-\bibliographystyle{../LaTeX/refstyle}
-\bibliography{../LaTeX/HSAUR}
+\bibliographystyle{../LaTeXBibTeX/refstyle}
+\bibliography{../LaTeXBibTeX/HSAUR}
 \end{document}

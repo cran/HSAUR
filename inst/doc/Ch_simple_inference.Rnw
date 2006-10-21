@@ -111,12 +111,28 @@
 %%% links
 \usepackage{hyperref}
 
+\hypersetup{%
+  pdftitle = {A Handbook of Statistical Analyses Using R},
+  pdfsubject = {Book},
+  pdfauthor = {Brian S. Everitt and Torsten Hothorn},
+  colorlinks = {true},
+  linkcolor = {blue},
+  citecolor = {blue},
+  urlcolor = {red},
+  hyperindex = {true},
+  linktocpage = {true},
+}
+
+
 %%% captions & tables
 %% <FIXME>: conflics with figure definition in chapman.cls
 %%\usepackage[format=hang,margin=10pt,labelfont=bf]{caption}
 %% </FIMXE>
 \usepackage{longtable}
 \usepackage{rotating}
+
+%%% R symbol in chapter 1
+\usepackage{wrapfig}
 
 %%% Bibliography
 \usepackage[round,comma]{natbib}
@@ -253,7 +269,9 @@ I(width * convert) ~ unit
 @
 where the response, \Robject{width}, on
 the left hand side needs to be converted first and, because the star has a
-special meaning in formulae as will be explained in Chapter~\ref{ANOVA}, the
+special meaning in formulae as will be explained in
+Chapter~4,
+the
 conversion needs to be embedded by \texttt{I}. The factor \Robject{unit} on
 the right hand side specifies the two groups to be compared.
 <<SI-roomwidth-tt-T-hide, echo = FALSE, results = hide>>=
@@ -336,13 +354,17 @@ But to begin we will construct a scatterplot
 of the data enhanced somewhat by the addition of information
 about the marginal distributions of water hardness (calcium concentration)
 and mortality, and by adding the estimated linear regression
-fit (see Chapter~\ref{MLR}) for mortality on hardness.
+fit (see
+Chapter~5)
+for mortality on hardness.
 The plot and the required \R{} code is given along with
 Figure~\ref{SI-water-sp}. In line 1 of Figure~\ref{SI-water-sp}, we divide
 the plotting region into four areas of different size. The scatterplot (line
 3) uses a plotting symbol depending on the location of the city (by
 the \Rarg{pch} argument), a legend for the location is added in line 6.
-We add a least squares fit (see Chapter~\ref{MLR}) to the scatterplot and,
+We add a least squares fit (see
+Chapter~5)
+to the scatterplot and,
 finally, depict the marginal distributions by means of a boxplot and a
 histogram. The scatterplot
 shows that as hardness increases mortality decreases, and the
@@ -463,6 +485,6 @@ mcnemar.test(rearrests, correct = FALSE)
 binom.test(rearrests[2], n = sum(rearrests[c(2,3)]))
 @
 \SchunkRaw
-\bibliographystyle{../LaTeX/refstyle}
-\bibliography{../LaTeX/HSAUR}
+\bibliographystyle{../LaTeXBibTeX/refstyle}
+\bibliography{../LaTeXBibTeX/HSAUR}
 \end{document}

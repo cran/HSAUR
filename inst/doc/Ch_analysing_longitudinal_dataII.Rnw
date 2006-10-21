@@ -111,12 +111,28 @@
 %%% links
 \usepackage{hyperref}
 
+\hypersetup{%
+  pdftitle = {A Handbook of Statistical Analyses Using R},
+  pdfsubject = {Book},
+  pdfauthor = {Brian S. Everitt and Torsten Hothorn},
+  colorlinks = {true},
+  linkcolor = {blue},
+  citecolor = {blue},
+  urlcolor = {red},
+  hyperindex = {true},
+  linktocpage = {true},
+}
+
+
 %%% captions & tables
 %% <FIXME>: conflics with figure definition in chapman.cls
 %%\usepackage[format=hang,margin=10pt,labelfont=bf]{caption}
 %% </FIMXE>
 \usepackage{longtable}
 \usepackage{rotating}
+
+%%% R symbol in chapter 1
+\usepackage{wrapfig}
 
 %%% Bibliography
 \usepackage[round,comma]{natbib}
@@ -188,13 +204,17 @@ has to be installed and attached:
 library("gee")
 @
 The \Rcmd{gee} function is used in a similar way to the \Rcmd{lme} function
-met in Chapter~\ref{ALDI}, with the addition of the features of the
+met in
+Chapter 10,
+with the addition of the features of the
 \Rcmd{glm} function that specify the appropriate error distribution
 for the response and the implied link function, and an argument
 to specify the structure of the working correlation matrix. Here
 we will fit an independence structure and then an exchangeable
 structure. The \R{} code for fitting generalised estimation equations to the
-\Robject{BtheB\_long} data (as constructed in Chapter~\ref{ALDI}) with
+\Robject{BtheB\_long} data (as constructed in
+Chapter 10,
+with
 idenity working correlation matrix is as follows (note that the \Rcmd{gee} function
 assumes the rows of the \Rclass{data.frame} \Robject{BtheB\_long} to be
 ordered with respect to subjects)
@@ -413,6 +433,6 @@ summary(epilepsy_gee2)
 summary(epilepsy_gee3)
 @
 \SchunkRaw
-\bibliographystyle{../LaTeX/refstyle}
-\bibliography{../LaTeX/HSAUR}
+\bibliographystyle{../LaTeXBibTeX/refstyle}
+\bibliography{../LaTeXBibTeX/HSAUR}
 \end{document}

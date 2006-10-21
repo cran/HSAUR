@@ -111,12 +111,28 @@
 %%% links
 \usepackage{hyperref}
 
+\hypersetup{%
+  pdftitle = {A Handbook of Statistical Analyses Using R},
+  pdfsubject = {Book},
+  pdfauthor = {Brian S. Everitt and Torsten Hothorn},
+  colorlinks = {true},
+  linkcolor = {blue},
+  citecolor = {blue},
+  urlcolor = {red},
+  hyperindex = {true},
+  linktocpage = {true},
+}
+
+
 %%% captions & tables
 %% <FIXME>: conflics with figure definition in chapman.cls
 %%\usepackage[format=hang,margin=10pt,labelfont=bf]{caption}
 %% </FIMXE>
 \usepackage{longtable}
 \usepackage{rotating}
+
+%%% R symbol in chapter 1
+\usepackage{wrapfig}
 
 %%% Bibliography
 \usepackage[round,comma]{natbib}
@@ -338,7 +354,11 @@ plot(foster_hsd)
 \index{Multiple comparison procedures|)}
 \subsection{Water Hardness and Mortality}
 The water hardness and mortality data for $61$ large towns in England and
-Wales (see Table~\ref{SI-w-tab}) was analysed in Chapter~\ref{SI} and here
+Wales (see
+Table~2.3)
+was analysed in
+Chapter~2
+and here
 we will extend the analysis by an assessment of the differences of both
 hardness and mortality in the North or South. The hypothesis that the
 two-dimensional mean-vector of water hardness and mortality is the same for
@@ -440,6 +460,6 @@ results of the four pairwise tests suggest that as the epochs become
 further separated in time the four skull measurements become
 increasingly distinct.
 \index{Multivariate analysis of variance (MANOVA)|)}
-\bibliographystyle{../LaTeX/refstyle}
-\bibliography{../LaTeX/HSAUR}
+\bibliographystyle{../LaTeXBibTeX/refstyle}
+\bibliography{../LaTeXBibTeX/HSAUR}
 \end{document}

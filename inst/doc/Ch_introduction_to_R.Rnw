@@ -111,12 +111,28 @@
 %%% links
 \usepackage{hyperref}
 
+\hypersetup{%
+  pdftitle = {A Handbook of Statistical Analyses Using R},
+  pdfsubject = {Book},
+  pdfauthor = {Brian S. Everitt and Torsten Hothorn},
+  colorlinks = {true},
+  linkcolor = {blue},
+  citecolor = {blue},
+  urlcolor = {red},
+  hyperindex = {true},
+  linktocpage = {true},
+}
+
+
 %%% captions & tables
 %% <FIXME>: conflics with figure definition in chapman.cls
 %%\usepackage[format=hang,margin=10pt,labelfont=bf]{caption}
 %% </FIMXE>
 \usepackage{longtable}
 \usepackage{rotating}
+
+%%% R symbol in chapter 1
+\usepackage{wrapfig}
 
 %%% Bibliography
 \usepackage[round,comma]{natbib}
@@ -249,25 +265,15 @@ download the
 corresponding file (currently named \file{\Sexpr{HSAUR:::exename()}}), execute it
 locally and follow the instructions given by the installer.
 \index{Base system|)}
-%%% this is `pixeled LaTeX', fix if possible %'
-\vspace*{\parsep}
+
+\begin{wrapfigure}{l}{2cm}
+\includegraphics[width=1.95cm]{graphics/Rlogo_bw}
+\end{wrapfigure}
+
 \noindent
-\begin{minipage}[c]{0.3\textwidth}
-%%% <FIXME> transparent background
-%%\begin{figure}[h!]
-%%\pagecolor{white}
-\begin{center}
-\includegraphics[width = 1.95cm]{graphics/Rlogo_bw}
-\end{center}
-%%\end{figure}
-%%% </FIXME>
-\end{minipage}
-\begin{minipage}[c]{0.688\textwidth}
 Depending on the operating system, \R{} can be started either by typing
 `\texttt{R}' on the shell (Unix systems) or by clicking on the %'
 \R{} symbol (as shown left) created by the installer (Windows).
-\end{minipage}
-\vspace*{0.6\parsep} \newline
 \R{} comes without any frills and on start up shows simply
 a short introductory message including the version number
 and a prompt `\texttt{>}': %'
@@ -357,7 +363,8 @@ If, for example,
 add-on functionality for robust estimation of covariance matrices via sandwich
 estimators
 \index{Sandwich estimators}
-is required (for example in Chapter~\ref{ALDII}),
+is required (for example in
+Chapter~11),
 the \Rpackage{sandwich} package \citep{PKG:sandwich}
 can be downloaded and installed via
 <<AItR-install-packages, echo = TRUE, eval = FALSE>>=
@@ -944,7 +951,8 @@ the next section.
 The degree of skewness of a distribution can be investigated by constructing
 histograms using the
 \Rcmd{hist} function. (More sophisticated alternatives
-such as smooth density estimates will be considered in Chapter~\ref{DE}.)
+such as smooth density estimates will be considered in
+Chapter~7.)
 \begin{figure}
 \begin{center}
 <<AItR-Forbes2000-marketvalue, echo = TRUE, fig = TRUE>>=
@@ -976,8 +984,9 @@ with the dependent variable on the left hand side and the independent
 variable on the right hand side. The tilde separates left and right hand
 side.
 Such a model formula can be passed to a model function (for example to
-the linear model function as explained in Chapter~\ref{MLR}). The
-\Rcmd{plot} generic function implements a \Rclass{formula} method as well. Because
+the linear model function as explained in
+Chapter~5).
+The \Rcmd{plot} generic function implements a \Rclass{formula} method as well. Because
 the distributions of both market value and sales are skewed we choose to
 depict their logarithms. A raw scatterplot of $2000$ data points
 (Figure~\ref{AItR:scatter-raw}) is
@@ -1086,6 +1095,6 @@ Find the average value of sales for the companies in each country in
 the Forbes data set, and find the number of companies in each country with
 profits above $5$ billion US dollars.
 \end{description}
-\bibliographystyle{../LaTeX/refstyle}
-\bibliography{../LaTeX/HSAUR}
+\bibliographystyle{../LaTeXBibTeX/refstyle}
+\bibliography{../LaTeXBibTeX/HSAUR}
 \end{document}
