@@ -2,10 +2,10 @@
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20061021201526)
-/ModDate (D:20061021201526)
+/CreationDate (D:20061129104654)
+/ModDate (D:20061129104654)
 /Title (R Graphics Output)
-/Producer (R 2.4.0)
+/Producer (R 2.5.0)
 /Creator (R)
 >>
 endobj
@@ -205,7 +205,7 @@ S
 Q q 0.00 0.00 252.00 252.00 re W n
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 10.00 0.00 -0.00 10.00 105.43 15.54 Tm (S-NE criterion) Tj
+/F2 1 Tf 10.00 0.00 -0.00 10.00 113.98 15.54 Tm (cloudcover) Tj
 /F2 1 Tf 0.00 10.00 -10.00 0.00 10.76 117.45 Tm (rainfall) Tj
 ET
 Q q 301.00 312.96 177.90 142.04 re W n
@@ -293,7 +293,7 @@ S
 Q q 252.00 252.00 252.00 252.00 re W n
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 10.00 0.00 -0.00 10.00 365.98 267.54 Tm (cloudcover) Tj
+/F2 1 Tf 10.00 0.00 -0.00 10.00 357.99 267.54 Tm (S-Ne criterion) Tj
 /F2 1 Tf 0.00 10.00 -10.00 0.00 262.76 369.45 Tm (rainfall) Tj
 ET
 Q q 301.00 60.96 177.90 142.04 re W n

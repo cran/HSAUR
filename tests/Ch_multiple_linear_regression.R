@@ -31,8 +31,8 @@ bxpecho <- boxplot(rainfall ~ echomotion, data = clouds, ylab = "Rainfall",
 ###################################################
 layout(matrix(1:4, nrow = 2))
 plot(rainfall ~ time, data = clouds)
-plot(rainfall ~ sne, data = clouds, xlab="S-NE criterion")
 plot(rainfall ~ cloudcover, data = clouds)
+plot(rainfall ~ sne, data = clouds, xlab="S-Ne criterion")
 plot(rainfall ~ prewetness, data = clouds)
 
 
@@ -97,9 +97,9 @@ sqrt(diag(Vbetastar))
 ### chunk number 13: MLR-clouds-lmplot
 ###################################################
 psymb <- as.numeric(clouds$seeding)
-plot(rainfall ~ cloudcover, data = clouds, pch = psymb)
-abline(lm(rainfall ~ cloudcover, data = clouds, subset = seeding == "no"))
-abline(lm(rainfall ~ cloudcover, data = clouds, subset = seeding == "yes"), lty = 2)
+plot(rainfall ~ sne, data = clouds, pch = psymb, xlab = "S-Ne criterion")
+abline(lm(rainfall ~ sne, data = clouds, subset = seeding == "no"))
+abline(lm(rainfall ~ sne, data = clouds, subset = seeding == "yes"), lty = 2)
 legend("topright", legend = c("No seeding", "Seeding"), pch = 1:2, lty = 1:2, bty = "n")
 
 

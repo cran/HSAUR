@@ -192,7 +192,8 @@ a <- Sys.setlocale("LC_ALL", "C")
 \chapter[Errata]{Errata}
 The document gives a list of typos, errors, inconsistencies etc. which have been spotted.
 Moreover, small numeric output differences which are due to updated packages are reported here.
-To get a full list of differences run \Rcmd{R CMD check HSAUR} on the source package.
+To get a full list of differences run \Rcmd{R CMD check HSAUR} on the source package. All issues marked
+with \textbf{R1} have been silently fixed in the first reprint.
 \section*{Preface}
 Typo in name of vignette for Chapter 1, should read
 <<pre-vignette, echo = TRUE, eval = FALSE>>=
@@ -202,25 +203,34 @@ and
 <<pre-vignette, echo = TRUE, eval = FALSE>>=
 edit(vignette("Ch_introduction_to_R", package = "HSAUR"))
 @
-As of version 1.0-3, only the correctly named vignette is available.
+As of version 1.0-3, only the correctly named vignette is available (\textbf{R1}).
 \section{Introduction to R}
-Typo at page 20 (Ex. 1.5): number of companies, not number of countries.
+\begin{itemize}
+\item Type at page 11: `.' needs to be double-quoted in \Rcmd{list.files} (\textbf{R1})
+\item Typo at page 20 (Ex. 1.5): number of companies, not number of countries (\textbf{R1}).
+\end{itemize}
 \section{Simple Inference}
-Typo at page 31, code line 4: use argument \Rcmd{varwidth = TRUE}, not \Rcmd{var.width = TRUE}.
+Typo at page 31, code line 4: use argument \Rcmd{varwidth = TRUE}, not \Rcmd{var.width = TRUE} (\textbf{R1}).
 \section{Conditional Inference}
 \begin{itemize}
 \item The names of the test statistics in the output have been changed from \Rcmd{T} to \Rcmd{Z}
-or \Rcmd{chi-squared} throughout the chapter.
-\item Reference \cite{HSAUR:Hothorn:2006:AmStat} updated
+or \Rcmd{chi-squared} throughout the chapter (\textbf{R1}).
+\item Reference \cite{HSAUR:Hothorn:2006:AmStat} updated (\textbf{R1})
 \end{itemize}
 \section{Analysis of Variance}
 --nothing known--
 \section{Multiple Linear Regression}
+\begin{itemize}
+\item
+Page 74, Table 5.1: The values for \Robject{cloudcover} and \Robject{sne} had to be exchanged.
+The corresponding coefficients and Figures in this chapter change accordingly (\textbf{R1}).
+\item
 Page 83: both \Rcmd{fitted} and \Rcmd{predict} can be used to compute fitted values, the later on
-can be applied to new unseen data as well.
+can be applied to new unseen data as well (\textbf{R1}).
+\end{itemize}
 \section{Logistic Regression and Generalised Linear Models}
 Function \Rcmd{myplot} (page 100): the \Rcmd{vfont} argument in \Rcmd{text} has been changed
-to \Rcmd{family = "HersheySerif"} (the resulting plots remain the same).
+to \Rcmd{family = "HersheySerif"} (the resulting plots remain the same) (\textbf{R1}).
 \section{Density Estimation}
 \begin{itemize}
 \item Page 121: small numeric differences for the output of \Rcmd{optim}
@@ -231,11 +241,11 @@ objects)
 \begin{itemize}
 \item Page 139: small differences in \Rcmd{predtab}
 \item Page 140: small differences in table at bottom of this page
-\item Reference \cite{HSAUR:Hothorn:2006:JCGS} updated
+\item Reference \cite{HSAUR:Hothorn:2006:JCGS} updated (\textbf{R1})
 \end{itemize}
 \section{Survival Analysis}
 The name of the test statistic in the output of \Rcmd{surv\_test} has been changed to
-\Rcmd{chi-squared}.
+\Rcmd{chi-squared} (\textbf{R1}).
 \section{Analysing Longitudinal Data I}
 Page 168, Figure 10.2: \Rcmd{summary} does not provide degrees of freedom and p-values
 in newer versions of \Rpackage{lme4}.

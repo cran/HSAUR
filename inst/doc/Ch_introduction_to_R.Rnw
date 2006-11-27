@@ -265,11 +265,9 @@ download the
 corresponding file (currently named \file{\Sexpr{HSAUR:::exename()}}), execute it
 locally and follow the instructions given by the installer.
 \index{Base system|)}
-
 \begin{wrapfigure}{l}{2cm}
 \includegraphics[width=1.95cm]{graphics/Rlogo_bw}
 \end{wrapfigure}
-
 \noindent
 Depending on the operating system, \R{} can be started either by typing
 `\texttt{R}' on the shell (Unix systems) or by clicking on the %'
@@ -324,7 +322,7 @@ nrows <- ceiling(length(pkgs) / colwidth)
 cat(paste(c("\\begin{tabular}{", paste(rep("l", colwidth), collapse=""), "}"), collapse = ""),
     "\n", file = "tables/rec.tex", append = FALSE)
 for (i in 1:(nrows-1)) {
-    cat(paste(pkgs[(1:colwidth) + (i-1)*colwidth], collapse = " \& "),
+    cat(paste(pkgs[(1:colwidth) + (i-1)*colwidth], collapse = " \\& "),
         file = "tables/rec.tex", append = TRUE)
     cat("\\\\ \n", file = "tables/rec.tex", append = TRUE)
 }
@@ -729,7 +727,7 @@ its functionality can be used to assess \EXCEL{} and \ACCESS{} files directly:
 <<AItR-Forbes2000-RODBC, echo = TRUE, eval = FALSE>>=
 library("RODBC")
 cnct <- odbcConnectExcel("Forbes2000.xls")
-sqlQuery(cnct, "select * from \"Forbes2000\$\"")
+sqlQuery(cnct, "select * from \"Forbes2000\\$\"")
 @
 The function \Rcmd{odbcConnectExcel} opens a connection to the specified
 \EXCEL{} or \ACCESS{} file which can be used to send \SQL{} queries to the
@@ -757,7 +755,7 @@ save(Forbes2000, file = "Forbes2000.rda")
 where the extension \file{.rda} is standard. We can get the file names of
 all files with extension \file{.rda} from the working directory
 <<AItR-Forbes2000-list, echo = TRUE>>=
-list.files(pattern = "\.rda")
+list.files(pattern = "\\.rda")
 @
 and we can load the contents of the file into \R{} by
 <<AItR-Forbes2000-load, echo = TRUE>>=

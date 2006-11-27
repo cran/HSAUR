@@ -57,7 +57,7 @@ nrows <- ceiling(length(pkgs) / colwidth)
 cat(paste(c("\\begin{tabular}{", paste(rep("l", colwidth), collapse=""), "}"), collapse = ""),
     "\n", file = "tables/rec.tex", append = FALSE)
 for (i in 1:(nrows-1)) {
-    cat(paste(pkgs[(1:colwidth) + (i-1)*colwidth], collapse = " \& "),
+    cat(paste(pkgs[(1:colwidth) + (i-1)*colwidth], collapse = " \\& "),
         file = "tables/rec.tex", append = TRUE)
     cat("\\\\ \n", file = "tables/rec.tex", append = TRUE)
 }
@@ -319,7 +319,7 @@ class(classes)
 ###################################################
 ## library("RODBC")
 ## cnct <- odbcConnectExcel("Forbes2000.xls")
-## sqlQuery(cnct, "select * from \"Forbes2000\$\"")
+## sqlQuery(cnct, "select * from \"Forbes2000\\$\"")
 
 
 ###################################################
@@ -343,7 +343,7 @@ save(Forbes2000, file = "Forbes2000.rda")
 ###################################################
 ### chunk number 49: AItR-Forbes2000-list
 ###################################################
-list.files(pattern = "\.rda")
+list.files(pattern = "\\.rda")
 
 
 ###################################################

@@ -1702,6 +1702,24 @@
 }
 
 
+@article{HSAUR:Mazess1984,
+   author = {R. B. Mazess and W. W. Peppler and M. Gibbons},
+   title = {Total body composition by dual-photon {(153Gd)} absorptiometry},
+   year = 1984,
+   journal = {American Journal of Clinical Nutrition},
+   volume = 40,
+   pages = {834-839}
+}
+
+@book{HSAUR:Goldberg1972,
+    author = {D. Goldberg},
+    year = 1972,
+    title = {The Detection of Psychiatric Illness by Questionnaire},
+    publisher = {Oxford University Press},
+    address = {Oxford, UK}
+}
+
+
 %% PACKAGES
 
 @article{PKG:sandwich,

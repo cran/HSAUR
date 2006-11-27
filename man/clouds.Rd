@@ -16,9 +16,9 @@
     \item{seeding}{a factor indicating whether seeding action occured (\code{no}
                    or \code{yes}).}
     \item{time}{number of days after the first day of the experiment.}
+    \item{sne}{suitability criterion.}
     \item{cloudcover}{the percentage cloud cover in the experimental area,
                   measured using radar.}
-    \item{sne}{suitability criterion.}
     \item{prewetness}{the total rainfall in the target area one hour before
                       seeding (in cubic metres times \code{1e+8}).}
     \item{echomotion}{a factor showing whether the radar echo was
@@ -51,6 +51,10 @@ on the basis that a measured suitability criterion (\code{SNE}).
     W. L. Woodley, J. Simpson, R. Biondini and J. Berkeley (1977),
     Rainfall results 1970-75: {F}lorida area cumulus experiment.
     \emph{Science} \bold{195}, 735--742.
+
+    R. D. Cook and S. Weisberg (1980), Characterizations of an 
+    empirical influence function for detecting influential cases in 
+    regression. \emph{Technometrics} \bold{22}, 495--508.
 
 }
 \examples{
