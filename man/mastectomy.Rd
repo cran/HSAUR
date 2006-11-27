@@ -7,7 +7,7 @@
   The cancers are classified as having metastized or not based on a 
   histochemical marker. 
 }
-\usage{data("matectomy")}
+\usage{data("mastectomy")}
 \format{
   A data frame with 42 observations on the following 3 variables.
   \describe{
