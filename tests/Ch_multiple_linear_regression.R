@@ -4,7 +4,8 @@
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -13,6 +14,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 
 
 ###################################################
@@ -20,10 +33,10 @@ a <- Sys.setlocale("LC_ALL", "C")
 ###################################################
 data("clouds", package = "HSAUR")
 layout(matrix(1:2, nrow = 2))
-bxpseeding <- boxplot(rainfall ~ seeding, data = clouds, ylab = "Rainfall",
-        xlab = "Seeding")
-bxpecho <- boxplot(rainfall ~ echomotion, data = clouds, ylab = "Rainfall",
-        xlab = "Echo Motion")
+bxpseeding <- boxplot(rainfall ~ seeding, data = clouds,
+    ylab = "Rainfall", xlab = "Seeding")
+bxpecho <- boxplot(rainfall ~ echomotion, data = clouds,
+    ylab = "Rainfall", xlab = "Echo Motion")
 
 
 ###################################################
@@ -39,7 +52,8 @@ plot(rainfall ~ prewetness, data = clouds)
 ###################################################
 ### chunk number 4: MLR-clouds-outliers
 ###################################################
-rownames(clouds)[clouds$rainfall %in% c(bxpseeding$out, bxpecho$out)]
+rownames(clouds)[clouds$rainfall %in% c(bxpseeding$out,
+                                        bxpecho$out)]
 
 
 ###################################################
@@ -97,10 +111,14 @@ sqrt(diag(Vbetastar))
 ### chunk number 13: MLR-clouds-lmplot
 ###################################################
 psymb <- as.numeric(clouds$seeding)
-plot(rainfall ~ sne, data = clouds, pch = psymb, xlab = "S-Ne criterion")
-abline(lm(rainfall ~ sne, data = clouds, subset = seeding == "no"))
-abline(lm(rainfall ~ sne, data = clouds, subset = seeding == "yes"), lty = 2)
-legend("topright", legend = c("No seeding", "Seeding"), pch = 1:2, lty = 1:2, bty = "n")
+plot(rainfall ~ sne, data = clouds, pch = psymb,
+     xlab = "S-Ne criterion")
+abline(lm(rainfall ~ sne, data = clouds,
+          subset = seeding == "no"))
+abline(lm(rainfall ~ sne, data = clouds,
+          subset = seeding == "yes"), lty = 2)
+legend("topright", legend = c("No seeding", "Seeding"),
+       pch = 1:2, lty = 1:2, bty = "n")
 
 
 ###################################################
@@ -114,8 +132,8 @@ clouds_fitted <- fitted(clouds_lm)
 ### chunk number 15: MLR-clouds-residplot
 ###################################################
 plot(clouds_fitted, clouds_resid, xlab = "Fitted values",
-     ylab = "Residuals", ylim = max(abs(clouds_resid)) * c(-1, 1),
-     type = "n")
+     ylab = "Residuals", type = "n",
+     ylim = max(abs(clouds_resid)) * c(-1, 1))
 abline(h = 0, lty = 2)
 text(clouds_fitted, clouds_resid, labels = rownames(clouds))
 

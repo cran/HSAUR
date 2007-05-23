@@ -4,7 +4,8 @@
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -13,6 +14,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 
 
 ###################################################
@@ -22,7 +35,7 @@ a <- Sys.setlocale("LC_ALL", "C")
 
 
 ###################################################
-### chunk number 3: pre-HSA
+### chunk number 3: pre-HSAUR
 ###################################################
 library("HSAUR")
 

@@ -174,12 +174,13 @@
 %%\VignetteIndexEntry{Chapter Analysing Longitudinal Data I}
 %%\VignetteDepends{lme4}
 \setcounter{chapter}{9}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -188,6 +189,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 @
 \pagestyle{headings}
 <<ALDI-setup, echo = FALSE, results = hide>>=
@@ -207,13 +220,18 @@ residuals <- function(object) object@y - fitted(object)
 <<ALDI-plot-BtheB, echo = TRUE, fig = TRUE, height = 4>>=
 data("BtheB", package = "HSAUR")
 layout(matrix(1:2, nrow = 1))
-ylim <- range(BtheB[,grep("bdi", names(BtheB))], na.rm = TRUE)
-boxplot(subset(BtheB, treatment == "TAU")[,grep("bdi", names(BtheB))],
-        main = "Treated as usual", ylab = "BDI",
-        xlab = "Time (in months)", names = c(0, 2, 4, 6, 8), ylim = ylim)
-boxplot(subset(BtheB, treatment == "BtheB")[,grep("bdi", names(BtheB))],
-        main = "Beat the Blues", ylab = "BDI", xlab = "Time (in months)",
-        names = c(0, 2, 4, 6, 8), ylim = ylim)
+ylim <- range(BtheB[,grep("bdi", names(BtheB))],
+              na.rm = TRUE)
+tau <- subset(BtheB, treatment == "TAU")[,
+    grep("bdi", names(BtheB))]
+boxplot(tau, main = "Treated as usual", ylab = "BDI",
+        xlab = "Time (in months)", names = c(0, 2, 4, 6, 8),
+        ylim = ylim)
+btheb <- subset(BtheB, treatment == "BtheB")[,
+    grep("bdi", names(BtheB))]
+boxplot(btheb, main = "Beat the Blues", ylab = "BDI",
+        xlab = "Time (in months)", names = c(0, 2, 4, 6, 8),
+        ylim = ylim)
 @
 \caption{Boxplots for the repeated measures by treatment group for the
          \Robject{BtheB} data. \label{ALDI:boxplots}}
@@ -237,8 +255,8 @@ data("BtheB", package = "HSAUR")
 BtheB$subject <- factor(rownames(BtheB))
 nobs <- nrow(BtheB)
 BtheB_long <- reshape(BtheB, idvar = "subject",
-                      varying = c("bdi.2m", "bdi.4m", "bdi.6m", "bdi.8m"),
-                      direction = "long")
+    varying = c("bdi.2m", "bdi.4m", "bdi.6m", "bdi.8m"),
+    direction = "long")
 BtheB_long$time <- rep(c(2, 4, 6, 8), rep(nobs, 4))
 @
 such that the data are now in the form (here shown for the first three
@@ -261,12 +279,12 @@ models (\ref{ALDI:ModelA}) and (\ref{ALDI:ModelB}) and test which is most
 appropriate using
 <<ALDI-fit-BtheB, echo = TRUE>>=
 library("lme4")
-BtheB_lmer1 <- lmer(bdi ~ bdi.pre + time + treatment + drug + length +
-                  (1 | subject), data = BtheB_long,
-                   method = "ML", na.action = na.omit)
-BtheB_lmer2 <- lmer(bdi ~ bdi.pre + time + treatment + drug + length +
-                  (time | subject), data = BtheB_long,
-                   method = "ML", na.action = na.omit)
+BtheB_lmer1 <- lmer(bdi ~ bdi.pre + time + treatment + drug +
+    length + (1 | subject), data = BtheB_long,
+    method = "ML", na.action = na.omit)
+BtheB_lmer2 <- lmer(bdi ~ bdi.pre + time + treatment + drug +
+    length + (time | subject), data = BtheB_long,
+    method = "ML", na.action = na.omit)
 anova(BtheB_lmer1, BtheB_lmer2)
 @
 %% <FIXME> summary() does not report p-values anymore: recompute or update the text!!! </FIXME>

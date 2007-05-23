@@ -4,7 +4,8 @@
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -13,6 +14,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 
 
 ###################################################
@@ -30,15 +43,18 @@ data("faithful", package = "datasets")
 x <- faithful$waiting
 layout(matrix(1:3, ncol = 3))
 hist(x, xlab = "Waiting times (in min.)", ylab = "Frequency",
-     probability = TRUE, main = "Gaussian kernel", border = "gray")
+     probability = TRUE, main = "Gaussian kernel",
+     border = "gray")
 lines(density(x, width = 12), lwd = 2)
 rug(x)
 hist(x, xlab = "Waiting times (in min.)", ylab = "Frequency",
-     probability = TRUE, main = "Rectangular kernel", border = "gray")
+     probability = TRUE, main = "Rectangular kernel",
+     border = "gray")
 lines(density(x, width = 12, window = "rectangular"), lwd = 2)
 rug(x)
 hist(x, xlab = "Waiting times (in min.)", ylab = "Frequency",
-     probability = TRUE, main = "Triangular kernel", border = "gray")
+     probability = TRUE, main = "Triangular kernel",
+     border = "gray")
 lines(density(x, width = 12, window = "triangular"), lwd = 2)
 rug(x)
 
@@ -50,15 +66,18 @@ library("KernSmooth")
 data("CYGOB1", package = "HSAUR")
 CYGOB1d <- bkde2D(CYGOB1, bandwidth = sapply(CYGOB1, dpik))
 contour(x = CYGOB1d$x1, y = CYGOB1d$x2, z = CYGOB1d$fhat,
-        xlab = "log surface temperature", ylab = "log light intensity")
+        xlab = "log surface temperature",
+        ylab = "log light intensity")
 
 
 ###################################################
 ### chunk number 5: DE-CYGOB1-persp
 ###################################################
 persp(x = CYGOB1d$x1, y = CYGOB1d$x2, z = CYGOB1d$fhat,
-      xlab = "log surface temperature", ylab = "log light intensity",
-      zlab = "estimated density", theta = -35, axes = TRUE, box = TRUE)
+      xlab = "log surface temperature",
+      ylab = "log light intensity",
+      zlab = "estimated density",
+      theta = -35, axes = TRUE, box = TRUE)
 
 
 ###################################################
@@ -70,7 +89,8 @@ logL <- function(param, x) {
     -sum(log(param[1] * d1 + (1 - param[1]) * d2))
 }
 startparam <- c(p = 0.5, mu1 = 50, sd1 = 3, mu2 = 80, sd2 = 3)
-opp <- optim(startparam, logL, x = faithful$waiting, method = "L-BFGS-B",
+opp <- optim(startparam, logL, x = faithful$waiting,
+             method = "L-BFGS-B",
              lower = c(0.01, rep(1, 4)),
              upper = c(0.99, rep(200, 4)))
 opp
@@ -131,12 +151,14 @@ d1 <- dnorm(rx, mean = opar$mu1, sd = opar$sd1)
 d2 <- dnorm(rx, mean = opar$mu2, sd = opar$sd2)
 f <- opar$p * d1 + (1 - opar$p) * d2
 hist(x, probability = TRUE, xlab = "Waiting times (in min.)",
-     border = "gray", xlim = range(rx), ylim = c(0, 0.06), main = "")
+     border = "gray", xlim = range(rx), ylim = c(0, 0.06),
+     main = "")
 lines(rx, f, lwd = 2)
-lines(rx, dnorm(rx, mean = mean(x), sd = sd(x)), lty = 2, lwd = 2)
-legend(50, 0.06, legend = c("Fitted two-component mixture density",
-                            "Fitted single normal density"),
-       lty = 1:2, bty = "n")
+lines(rx, dnorm(rx, mean = mean(x), sd = sd(x)), lty = 2,
+      lwd = 2)
+legend(50, 0.06, lty = 1:2, bty = "n",
+       legend = c("Fitted two-component mixture density",
+                  "Fitted single normal density"))
 
 
 ###################################################
@@ -146,8 +168,10 @@ library("boot")
 fit <- function(x, indx) {
     a <- Mclust(x[indx], minG = 2, maxG = 2)$parameters
     if (a$pro[1] < 0.5)
-        return(c(p = a$pro[1], mu1 = a$mean[1], mu2 = a$mean[2]))
-    return(c(p = 1 - a$pro[1], mu1 = a$mean[2], mu2 = a$mean[1]))
+        return(c(p = a$pro[1], mu1 = a$mean[1],
+                               mu2 = a$mean[2]))
+    return(c(p = 1 - a$pro[1], mu1 = a$mean[2],
+                               mu2 = a$mean[1]))
 }
 
 

@@ -173,12 +173,13 @@
 \maketitle
 %%\VignetteIndexEntry{Chapter Analysis of Variance}
 \setcounter{chapter}{3}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -187,14 +188,32 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 @
 \pagestyle{headings}
 \chapter[Analysis of Variance]{Analysis of Variance: Weight Gain, Foster
 Feeding in Rats, Water Hardness and Male Egyptian Skulls \label{ANOVA}}
 \section{Introduction}
 \section{Analysis of Variance}
+
+
+
+
 \section{Analysis Using \R{}}
+
 \subsection{Weight Gain in Rats \label{ANOVA:rats}}
+
 Before applying analysis of variance to the data in Table~\ref{ANOVA-weightgain-tab}
 we should try to summarise the main features of the data
 by calculating means and standard deviations and by producing some hopefully
@@ -203,11 +222,12 @@ informative graphs. The data is available in the \Rclass{data.frame}
 required summary statistics
 <<ANOVA-weightgain-mean-var, echo = TRUE>>=
 data("weightgain", package = "HSAUR")
-tapply(weightgain$weightgain, list(weightgain$source, weightgain$type),
-mean)
-tapply(weightgain$weightgain, list(weightgain$source, weightgain$type),
-sd)
+tapply(weightgain$weightgain,
+       list(weightgain$source, weightgain$type), mean)
+tapply(weightgain$weightgain,
+       list(weightgain$source, weightgain$type), sd)
 @
+
 \begin{figure}
 \begin{center}
 <<ANOVA-weightgain-plot, echo = TRUE, fig = TRUE>>=
@@ -236,13 +256,14 @@ summary(wg_aov)
 \begin{figure}
 \begin{center}
 <<ANOVA-weightgain-iplot, echo = TRUE, fig = FALSE, eval = FALSE>>=
-interaction.plot(weightgain$type, weightgain$source, weightgain$weightgain)
+interaction.plot(weightgain$type, weightgain$source,
+                 weightgain$weightgain)
 @
 <<ANOVA-weightgain-iplot-nice, echo = FALSE, fig = TRUE>>=
 interaction.plot(weightgain$type, weightgain$source, weightgain$weightgain,
 legend = FALSE)
 legend(1.5, 95, legend = levels(weightgain$source), title = "weightgain$source",
-       lty = 1:2, bty = "n")
+       lty = c(2,1), bty = "n")
 @
 \caption{Interaction plot of type $\times$ source. \label{ANOVA-weightgain-fig2}}
 \end{center}
@@ -263,8 +284,8 @@ Thus, the coefficient for \Robject{source} of $\Sexpr{coef(wg_aov)[2]}$
 can be interpreted as an estimate of the difference $\gamma_2 - \gamma_1$.
 Alternatively, we can use the restriction $\sum_i \gamma_i = 0$ by
 <<ANOVA-weightgain-coef-sum, echo = TRUE>>=
-coef(aov(weightgain ~ source + type + source:type, data = weightgain,
-     contrasts = list(source = contr.sum)))
+coef(aov(weightgain ~ source + type + source:type,
+    data = weightgain, contrasts = list(source = contr.sum)))
 @
 \subsection{Foster Feeding of Rats of Different Genotype}
 As in the previous subsection we will begin the analysis
@@ -369,7 +390,8 @@ test in a multivariate analysis of variance framework. The \R{} function
 argument
 <<ANOVA-water-manova, echo = TRUE>>=
 data("water", package = "HSAUR")
-summary(manova(cbind(hardness, mortality) ~ location, data = water), test = "Hotelling-Lawley")
+summary(manova(cbind(hardness, mortality) ~ location,
+    data = water), test = "Hotelling-Lawley")
 @
 The \Rcmd{cbind} statement in the left hand side of the formula indicates
 that a \stress{multivariate} response variable is to be modelled.
@@ -392,7 +414,8 @@ are available in the \Rclass{data.frame} \Robject{skulls} and we can compute
 the means over all epochs by
 <<ANOVA-skulls-data, echo = TRUE>>=
 data("skulls", package = "HSAUR")
-means <- aggregate(skulls[,c("mb", "bh", "bl", "nh")], list(epoch = skulls$epoch), mean)
+means <- aggregate(skulls[,c("mb", "bh", "bl", "nh")],
+                   list(epoch = skulls$epoch), mean)
 means
 @
 It may also be useful to look at these means graphically
@@ -417,7 +440,8 @@ test for a difference more formally by using MANOVA with the
 following \R{} code to apply each of the four possible test criteria
 mentioned earlier;
 <<ANOVA-skulls-manova, echo = TRUE>>=
-skulls_manova <- manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls)
+skulls_manova <- manova(cbind(mb, bh, bl, nh) ~ epoch,
+                        data = skulls)
 summary(skulls_manova, test = "Pillai")
 summary(skulls_manova, test = "Wilks")
 summary(skulls_manova, test = "Hotelling-Lawley")
@@ -431,7 +455,7 @@ and on which variables. We can look at the univariate $F$-tests
 \index{F-tests@$F$-tests}
 for each of the four variables by using the code
 <<ANOVA-skulls-manova2, echo = TRUE>>=
-summary.aov(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls))
+summary.aov(skulls_manova)
 @
 We see that the results for the maximum breadths (\Robject{mb}) and
 basialiveolar length (\Robject{bl}) are highly significant, with those for the other two

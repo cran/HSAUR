@@ -4,7 +4,8 @@
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -13,10 +14,22 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 
 
 ###################################################
-### chunk number 2: MA-smoking-
+### chunk number 2: MA-smoking-OR
 ###################################################
 library("rmeta")
 data("smoking", package = "HSAUR")
@@ -73,9 +86,10 @@ summary(BCG_DSL)
 ###################################################
 ### chunk number 9: BCG-studyweights
 ###################################################
-studyweights <- 1 / (BCG_DSL$tau2 + BCG_DSL$selogs)
+studyweights <- 1 / (BCG_DSL$tau2 + BCG_DSL$selogs^2)
 y <- BCG_DSL$logs
-BCG_mod <- lm(y ~ Latitude + Year, data = BCG, weights = studyweights)
+BCG_mod <- lm(y ~ Latitude + Year, data = BCG,
+              weights = studyweights)
 
 
 ###################################################
@@ -107,8 +121,8 @@ plot(y[gr], 1/(sigma[gr]), xlim = range(y),
 ###################################################
 ### chunk number 13: MA-smoking-funnel
 ###################################################
-funnelplot(smokingDSL$logs, smokingDSL$selogs, summ = smokingDSL$logDSL,
-xlim = c(-1.7, 1.7))
+funnelplot(smokingDSL$logs, smokingDSL$selogs,
+           summ = smokingDSL$logDSL, xlim = c(-1.7, 1.7))
 abline(v = 0, lty = 2)
 
 

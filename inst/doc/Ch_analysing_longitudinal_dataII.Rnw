@@ -174,12 +174,13 @@
 %%\VignetteIndexEntry{Chapter Analysing Longitudinal Data II}
 %%\VignetteDepends{gee}
 \setcounter{chapter}{10}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -188,6 +189,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 @
 \pagestyle{headings}
 \chapter[Analysing Longitudinal Data II]{
@@ -196,7 +209,9 @@ a <- Sys.setlocale("LC_ALL", "C")
          \label{ALDII}}
 \section{Introduction}
 \section{Generalised Estimating Equations}
+
 \section{Analysis Using \R{}}
+
 \subsection{Beat the Blues Revisited}
 To use the \Rcmd{gee} function, package \Rpackage{gee} \citep{PKG:gee}
 has to be installed and attached:
@@ -223,22 +238,22 @@ data("BtheB", package = "HSAUR")
 BtheB$subject <- factor(rownames(BtheB))
 nobs <- nrow(BtheB)
 BtheB_long <- reshape(BtheB, idvar = "subject",
-                      varying = c("bdi.2m", "bdi.4m", "bdi.6m", "bdi.8m"),
-                      direction = "long")
+    varying = c("bdi.2m", "bdi.4m", "bdi.6m", "bdi.8m"),
+    direction = "long")
 BtheB_long$time <- rep(c(2, 4, 6, 8), rep(nobs, 4))
 @
 <<ALDII-BtheB-geefit-indep, echo = TRUE, results = hide>>=
 osub <- order(as.integer(BtheB_long$subject))
 BtheB_long <- BtheB_long[osub,]
 btb_gee <- gee(bdi ~ bdi.pre + treatment + length + drug,
-               data = BtheB_long, id = subject, family = gaussian,
-               corstr = "independence")
+    data = BtheB_long, id = subject, family = gaussian,
+    corstr = "independence")
 @
 and with exchangeable correlation matrix
 <<ALDII-BtheB-geefit-ex, echo = TRUE, results = hide>>=
 btb_gee1 <- gee(bdi ~ bdi.pre + treatment + length + drug,
-                data = BtheB_long, id = subject, family = gaussian,
-                corstr = "exchangeable")
+    data = BtheB_long, id = subject, family = gaussian,
+    corstr = "exchangeable")
 @
 The \Rcmd{summary} method can be used to inspect the fitted models; the
 results are shown in Figures~\ref{ALDII-gee-summary} and
@@ -275,14 +290,14 @@ respiratory status. Now we can use the data \Robject{resp} to fit a logistic reg
 and GEE models with an independent and an exchangeable correlation structure
 as follows;
 <<ALDII-respiratory-fit, echo = TRUE, results = hide>>=
-resp_glm <- glm(status ~ centre + treatment + sex + baseline + age,
-                data = resp, family = "binomial")
-resp_gee1 <- gee(nstat ~ centre + treatment + sex + baseline + age, data = resp,
-                 family = "binomial", id = subject, corstr = "independence",
-                 scale.fix = TRUE, scale.value = 1)
-resp_gee2 <- gee(nstat ~ centre + treatment + sex + baseline + age, data = resp,
-                 family = "binomial", id = subject, corstr = "exchangeable",
-                 scale.fix = TRUE, scale.value = 1)
+resp_glm <- glm(status ~ centre + treatment + sex + baseline +
+    age, data = resp, family = "binomial")
+resp_gee1 <- gee(nstat ~ centre + treatment + sex + baseline +
+    age, data = resp, family = "binomial", id = subject,
+    corstr = "independence", scale.fix = TRUE, scale.value = 1)
+resp_gee2 <- gee(nstat ~ centre + treatment + sex + baseline +
+    age, data = resp, family = "binomial", id = subject,
+    corstr = "exchangeable", scale.fix = TRUE, scale.value = 1)
 @
 \renewcommand{\nextcaption}{\R{} output of the \Rcmd{summary} method
                             for the \Robject{resp\_glm} model.
@@ -314,8 +329,10 @@ structure GEE model is \Sexpr{round(coef(resp_gee2)["treatmenttreatment"], 3)}
 which, using the robust standard
 errors, has an associated $95\%$ confidence interval
 <<ALDII-resp-confint, echo = TRUE>>=
-se <- summary(resp_gee2)$coefficients["treatmenttreatment","Robust S.E."]
-coef(resp_gee2)["treatmenttreatment"] + c(-1, 1) * se * qnorm(0.975)
+se <- summary(resp_gee2)$coefficients["treatmenttreatment",
+                                      "Robust S.E."]
+coef(resp_gee2)["treatmenttreatment"] +
+    c(-1, 1) * se * qnorm(0.975)
 @
 These values reflect effects on the log-odds scale. Interpretation
 becomes simpler if we exponentiate the values to get the effects
@@ -323,7 +340,8 @@ in terms of odds. This gives a treatment effect of
 \Sexpr{round(exp(coef(resp_gee2)["treatmenttreatment"]), 3)}
 and a $95\%$ confidence interval of
 <<ALDII-resp-confint-exp, echo = TRUE>>=
-exp(coef(resp_gee2)["treatmenttreatment"] + c(-1, 1) * se * qnorm(0.975))
+exp(coef(resp_gee2)["treatmenttreatment"] +
+    c(-1, 1) * se * qnorm(0.975))
 @
 The odds of achieving a `good' respiratory status with the active treatment is between  %'
 about twice and seven times the corresponding odds for the placebo.
@@ -385,17 +403,17 @@ using the following \R{} code:
 <<ALDII-epilepsy-gee, echo = TRUE, results = hide>>=
 per <- rep(log(2),nrow(epilepsy))
 epilepsy$period <- as.numeric(epilepsy$period)
-epilepsy_glm <- glm(seizure.rate ~ base + age + treatment + offset(per),
-                    data = epilepsy, family = "poisson")
-epilepsy_gee1 <- gee(seizure.rate ~ base + age + treatment + offset(per),
-                     data = epilepsy, family = "poisson", id = subject, corstr = "independence",
-                     scale.fix = TRUE, scale.value = 1)
-epilepsy_gee2 <- gee(seizure.rate ~ base + age + treatment + offset(per),
-                     data = epilepsy, family = "poisson", id = subject, corstr = "exchangeable",
-                     scale.fix = TRUE, scale.value = 1)
-epilepsy_gee3 <- gee(seizure.rate ~ base + age + treatment + offset(per),
-                     data = epilepsy, family = "poisson", id = subject, corstr = "exchangeable",
-                     scale.fix = FALSE, scale.value = 1)
+fm <- seizure.rate ~ base + age + treatment + offset(per)
+epilepsy_glm <- glm(fm, data = epilepsy, family = "poisson")
+epilepsy_gee1 <- gee(fm, data = epilepsy, family = "poisson",
+    id = subject, corstr = "independence", scale.fix = TRUE,
+    scale.value = 1)
+epilepsy_gee2 <- gee(fm, data = epilepsy, family = "poisson",
+    id = subject, corstr = "exchangeable", scale.fix = TRUE,
+    scale.value = 1)
+epilepsy_gee3 <- gee(fm, data = epilepsy, family = "poisson",
+    id = subject, corstr = "exchangeable", scale.fix = FALSE,
+    scale.value = 1)
 @
 As usual we inspect the fitted models using the \Rcmd{summary} method, the
 results are given in Figures~\ref{ALDII-epilepsy-glm-summary},

@@ -174,12 +174,13 @@
 %%\VignetteIndexEntry{Chapter Conditional Inference}
 %%\VignetteDepends{coin}
 \setcounter{chapter}{2}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -188,6 +189,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 @
 \pagestyle{headings}
 \chapter[Conditional Inference]{Conditional Inference: Guessing Lengths, Suicides,
@@ -268,14 +281,16 @@ Chapter~2.
 \SchunkLabel
 <<CI-roomwidth-coin, echo = TRUE>>=
 library("coin")
-independence_test(y ~ unit, data = roomwidth, distribution = "exact")
+independence_test(y ~ unit, data = roomwidth,
+                  distribution = exact())
 @
 \SchunkRaw
 \renewcommand{\nextcaption}{\R{} output of the exact conditional Wilcoxon
 rank sum test applied to the \Robject{roomwidth} data. \label{CI-roomwidth-w-fig}}
 \SchunkLabel
 <<CI-roomwidth-coin, echo = TRUE>>=
-wilcox_test(y ~ unit, data = roomwidth, distribution = "exact")
+wilcox_test(y ~ unit, data = roomwidth,
+            distribution = exact())
 @
 \SchunkRaw
 \subsection{Crowds and Threatened Suicide}
@@ -358,8 +373,10 @@ Based on this result, a strong treatment effect can be established.
 In this example, the medical doctor (MD) and the research assistant (RA)
 assessed the number of anomalies ($0, 1, 2$ or $3$) for each of $395$ babies:
 <<CI-anomalies, echo = TRUE>>=
-anomalies <- as.table(matrix(c(235, 23, 3, 0, 41, 35, 8, 0, 20, 11, 11, 1, 2, 1, 3, 1),
-ncol = 4, dimnames = list(MD = 0:3, RA = 0:3)))
+anomalies <- c(235, 23, 3, 0, 41, 35, 8, 0,
+               20, 11, 11, 1, 2, 1, 3, 1)
+anomalies <- as.table(matrix(anomalies,
+    ncol = 4, dimnames = list(MD = 0:3, RA = 0:3)))
 anomalies
 @
 We are interested in testing whether the number of anomalies assessed by the

@@ -4,7 +4,8 @@
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -13,6 +14,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 
 
 ###################################################
@@ -49,9 +62,11 @@ boxplot(I(width * convert) ~ unit, data = roomwidth,
         varwidth = TRUE, names = c("Estimates in feet",
         "Estimates in metres (converted to feet)"))
 feet <- roomwidth$unit == "feet"
-qqnorm(roomwidth$width[feet], ylab = "Estimated width (feet)")
+qqnorm(roomwidth$width[feet],
+       ylab = "Estimated width (feet)")
 qqline(roomwidth$width[feet])
-qqnorm(roomwidth$width[!feet], ylab = "Estimated width (metres)")
+qqnorm(roomwidth$width[!feet],
+       ylab = "Estimated width (metres)")
 qqline(roomwidth$width[!feet])
 
 
@@ -64,32 +79,36 @@ I(width * convert) ~ unit
 ###################################################
 ### chunk number 8: SI-roomwidth-tt-T-hide
 ###################################################
-tt <- t.test(I(width * convert) ~ unit, data = roomwidth, var.equal = TRUE)
+tt <- t.test(I(width * convert) ~ unit, data = roomwidth,
+             var.equal = TRUE)
 
 
 ###################################################
 ### chunk number 9: SI-roomwidth-tt-T
 ###################################################
-t.test(I(width * convert) ~ unit, data = roomwidth, var.equal = TRUE)
+t.test(I(width * convert) ~ unit, data = roomwidth,
+       var.equal = TRUE)
 
 
 ###################################################
 ### chunk number 10: SI-roomwidth-tt-F
 ###################################################
-t.test(I(width * convert) ~ unit, data = roomwidth, var.equal = FALSE)
+t.test(I(width * convert) ~ unit, data = roomwidth,
+       var.equal = FALSE)
 
 
 ###################################################
 ### chunk number 11: SI-roomwidth-wt
 ###################################################
-wilcox.test(I(width * convert) ~ unit, data = roomwidth, conf.int = TRUE)
+wilcox.test(I(width * convert) ~ unit, data = roomwidth,
+            conf.int = TRUE)
 
 
 ###################################################
 ### chunk number 12: SI-roomwidth-wt-hide
 ###################################################
 pwt <- round(wilcox.test(I(width * convert) ~ unit, data =
-roomwidth)$p.value, 3)
+             roomwidth)$p.value, 3)
 
 
 ###################################################
@@ -103,7 +122,8 @@ data("waves", package = "HSAUR")
 ###################################################
 mooringdiff <- waves$method1 - waves$method2
 layout(matrix(1:2, ncol = 2))
-boxplot(mooringdiff, ylab = "Differences (Newton metres)", main = "Boxplot")
+boxplot(mooringdiff, ylab = "Differences (Newton metres)",
+        main = "Boxplot")
 abline(h = 0, lty = 2)
 qqnorm(mooringdiff, ylab = "Differences (Newton metres)")
 qqline(mooringdiff)
@@ -141,7 +161,8 @@ nf <- layout(matrix(c(2, 0, 1, 3), 2, 2, byrow = TRUE),
 psymb <- as.numeric(water$location)
 plot(mortality ~ hardness, data = water, pch = psymb)
 abline(lm(mortality ~ hardness, data = water))
-legend("topright", legend = levels(water$location), pch = c(1,2), bty = "n")
+legend("topright", legend = levels(water$location),
+       pch = c(1,2), bty = "n")
 hist(water$hardness)
 boxplot(water$mortality)
 

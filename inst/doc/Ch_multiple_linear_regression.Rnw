@@ -173,12 +173,13 @@
 \maketitle
 %%\VignetteIndexEntry{Multiple Linear Regression}
 \setcounter{chapter}{4}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -187,6 +188,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 @
 \pagestyle{headings}
 \chapter[Multiple Linear Regression]{Multiple Linear Regression: \ Cloud Seeding \label{MLR}}
@@ -200,10 +213,10 @@ a <- Sys.setlocale("LC_ALL", "C")
 <<MLR-clouds-boxplots, echo = TRUE, fig = TRUE, height = 9>>=
 data("clouds", package = "HSAUR")
 layout(matrix(1:2, nrow = 2))
-bxpseeding <- boxplot(rainfall ~ seeding, data = clouds, ylab = "Rainfall",
-        xlab = "Seeding")
-bxpecho <- boxplot(rainfall ~ echomotion, data = clouds, ylab = "Rainfall",
-        xlab = "Echo Motion")
+bxpseeding <- boxplot(rainfall ~ seeding, data = clouds,
+    ylab = "Rainfall", xlab = "Seeding")
+bxpecho <- boxplot(rainfall ~ echomotion, data = clouds,
+    ylab = "Rainfall", xlab = "Echo Motion")
 @
 \caption{Boxplots of \Robject{rainfall}. \label{MLR-rainfall-boxplot}}
 \end{center}
@@ -226,7 +239,8 @@ Both the boxplots (Figure~\ref{MLR-rainfall-boxplot}) and the scatterplots
 of outliers. The row names of the extreme observations in the
 \Robject{clouds} \Rclass{data.frame} can be identified via
 <<MLR-clouds-outliers, echo = TRUE>>=
-rownames(clouds)[clouds$rainfall %in% c(bxpseeding$out, bxpecho$out)]
+rownames(clouds)[clouds$rainfall %in% c(bxpseeding$out,
+                                        bxpecho$out)]
 @
 where \Robject{bxpseeding} and \Robject{bxpecho} are variables
 created by \Rcmd{boxplot} in Figure~\ref{MLR-rainfall-boxplot}.
@@ -256,7 +270,12 @@ attr(Xstar, "contrasts")
 The default contrasts can be changed via the \Rarg{contrasts.arg}
 argument to \Rcmd{model.matrix} or the \Robject{contrasts} argument to the
 fitting function, for example \Rcmd{lm} or \Rcmd{aov} as shown in
+
 Chapter~4.
+
+
+
+
 However, such internals are hidden and performed by high-level model fitting
 functions such as \Rcmd{lm} which will be used to fit the linear model
 defined by the \Rclass{formula} \Robject{clouds\_formula}:
@@ -277,6 +296,7 @@ and $t$-statistics as well as the $F$-statistic with associated $p$-value.
 summary(clouds_lm)
 @
 \SchunkRaw
+
 Many methods are available for extracting components of the fitted model.
 The estimates $\hat{\beta}^\star$ can be assessed via
 <<MLR-clouds-coef, echo = TRUE>>=
@@ -297,10 +317,14 @@ sqrt(diag(Vbetastar))
 \begin{center}
 <<MLR-clouds-lmplot, echo = TRUE, fig = TRUE>>=
 psymb <- as.numeric(clouds$seeding)
-plot(rainfall ~ sne, data = clouds, pch = psymb, xlab = "S-Ne criterion")
-abline(lm(rainfall ~ sne, data = clouds, subset = seeding == "no"))
-abline(lm(rainfall ~ sne, data = clouds, subset = seeding == "yes"), lty = 2)
-legend("topright", legend = c("No seeding", "Seeding"), pch = 1:2, lty = 1:2, bty = "n")
+plot(rainfall ~ sne, data = clouds, pch = psymb,
+     xlab = "S-Ne criterion")
+abline(lm(rainfall ~ sne, data = clouds,
+          subset = seeding == "no"))
+abline(lm(rainfall ~ sne, data = clouds,
+          subset = seeding == "yes"), lty = 2)
+legend("topright", legend = c("No seeding", "Seeding"),
+       pch = 1:2, lty = 1:2, bty = "n")
 @
 \caption{Regression relationship between S-Ne criterion and rainfall with
 and without seeding. \label{MLR-rel}}
@@ -327,8 +351,8 @@ quantiles, however, observations $1$ and $15$ are extreme again.
 \begin{center}
 <<MLR-clouds-residplot, echo = TRUE, fig = TRUE>>=
 plot(clouds_fitted, clouds_resid, xlab = "Fitted values",
-     ylab = "Residuals", ylim = max(abs(clouds_resid)) * c(-1, 1),
-     type = "n")
+     ylab = "Residuals", type = "n",
+     ylim = max(abs(clouds_resid)) * c(-1, 1))
 abline(h = 0, lty = 2)
 text(clouds_fitted, clouds_resid, labels = rownames(clouds))
 @

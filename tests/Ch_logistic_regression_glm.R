@@ -4,7 +4,8 @@
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -13,6 +14,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 
 
 ###################################################
@@ -27,7 +40,8 @@ cdplot(ESR ~ globulin, data = plasma)
 ###################################################
 ### chunk number 3: GLM-plasma-fit1
 ###################################################
-plasma_glm_1 <- glm(ESR ~ fibrinogen, data = plasma, family = binomial())
+plasma_glm_1 <- glm(ESR ~ fibrinogen, data = plasma,
+                    family = binomial())
 
 
 ###################################################
@@ -106,14 +120,14 @@ anova(plasma_glm_1, plasma_glm_2, test = "Chisq")
 ###################################################
 ### chunk number 16: GLM-plasma-predict
 ###################################################
-prob <- predict(plasma_glm_1, type = "response")
+prob <- predict(plasma_glm_2, type = "response")
 
 
 ###################################################
 ### chunk number 17: GLM-plasma-bubble
 ###################################################
-plot(globulin ~ fibrinogen, data = plasma, xlim=c(2,6), ylim=c(25,50),
-     pch = ".")
+plot(globulin ~ fibrinogen, data = plasma, xlim = c(2, 6),
+     ylim = c(25, 55), pch = ".")
 symbols(plasma$fibrinogen, plasma$globulin, circles = prob,
         add = TRUE)
 
@@ -122,8 +136,9 @@ symbols(plasma$fibrinogen, plasma$globulin, circles = prob,
 ### chunk number 18: GLM-womensrole-fit1
 ###################################################
 data("womensrole", package = "HSAUR")
-womensrole_glm_1 <- glm(cbind(agree,disagree) ~ sex + education,
-                        data = womensrole, family = binomial())
+fm1 <- cbind(agree, disagree) ~ sex + education
+womensrole_glm_1 <- glm(fm1, data = womensrole,
+                        family = binomial())
 
 
 ###################################################
@@ -143,14 +158,17 @@ role.fitted1 <- predict(womensrole_glm_1, type = "response")
 ###################################################
 myplot <- function(role.fitted) {
     f <- womensrole$sex == "Female"
-    plot(womensrole$education, role.fitted, type = "n", ylab = "Probability of agreeing",
+    plot(womensrole$education, role.fitted, type = "n",
+         ylab = "Probability of agreeing",
          xlab = "Education", ylim = c(0,1))
     lines(womensrole$education[!f], role.fitted[!f], lty = 1)
     lines(womensrole$education[f], role.fitted[f], lty = 2)
     lgtxt <- c("Fitted (Males)", "Fitted (Females)")
     legend("topright", lgtxt, lty = 1:2, bty = "n")
-    y <- womensrole$agree / (womensrole$agree + womensrole$disagree)
-    text(womensrole$education, y, ifelse(f, "\\VE", "\\MA"), family = "HersheySerif", cex = 1.25)
+    y <- womensrole$agree / (womensrole$agree +
+                              womensrole$disagree)
+    text(womensrole$education, y, ifelse(f, "\\VE", "\\MA"),
+         family = "HersheySerif", cex = 1.25)
 }
 
 
@@ -163,7 +181,8 @@ myplot(role.fitted1)
 ###################################################
 ### chunk number 23: GLM-womensrole-fit2
 ###################################################
-womensrole_glm_2 <- glm(cbind(agree,disagree) ~ sex * education, data = womensrole,
+fm2 <- cbind(agree,disagree) ~ sex * education
+womensrole_glm_2 <- glm(fm2, data = womensrole,
                         family = binomial())
 
 
@@ -185,7 +204,8 @@ myplot(role.fitted2)
 ###################################################
 res <- residuals(womensrole_glm_2, type = "deviance")
 plot(predict(womensrole_glm_2), res,
-     xlab="Fitted values", ylab = "Residuals", ylim = max(abs(res)) * c(-1,1))
+     xlab="Fitted values", ylab = "Residuals",
+     ylim = max(abs(res)) * c(-1,1))
 abline(h = 0, lty = 2)
 
 
@@ -193,7 +213,8 @@ abline(h = 0, lty = 2)
 ### chunk number 27: GLM-polyps-fit1
 ###################################################
 data("polyps", package = "HSAUR")
-polyps_glm_1 <- glm(number ~ treat + age, data = polyps, family = poisson())
+polyps_glm_1 <- glm(number ~ treat + age, data = polyps,
+                    family = poisson())
 
 
 ###################################################

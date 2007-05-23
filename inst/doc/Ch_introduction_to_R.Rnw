@@ -173,12 +173,13 @@
 \maketitle
 %%\VignetteIndexEntry{Chapter An Introduction to R}
 \setcounter{chapter}{0}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -187,8 +188,23 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 @
 \pagestyle{headings}
+<<singlebook, echo = FALSE>>=
+book <- FALSE
+@
 \chapter{An Introduction to \R{} \label{AItR}}
 \setcounter{page}{1}
 \section{What Is \R{}?}
@@ -322,7 +338,7 @@ nrows <- ceiling(length(pkgs) / colwidth)
 cat(paste(c("\\begin{tabular}{", paste(rep("l", colwidth), collapse=""), "}"), collapse = ""),
     "\n", file = "tables/rec.tex", append = FALSE)
 for (i in 1:(nrows-1)) {
-    cat(paste(pkgs[(1:colwidth) + (i-1)*colwidth], collapse = " \\& "),
+    cat(paste(pkgs[(1:colwidth) + (i-1)*colwidth], collapse = " & "),
         file = "tables/rec.tex", append = TRUE)
     cat("\\\\ \n", file = "tables/rec.tex", append = TRUE)
 }
@@ -361,8 +377,7 @@ If, for example,
 add-on functionality for robust estimation of covariance matrices via sandwich
 estimators
 \index{Sandwich estimators}
-is required (for example in
-Chapter~11),
+is required (for example in \Sexpr{ch("ALDII")}),
 the \Rpackage{sandwich} package \citep{PKG:sandwich}
 can be downloaded and installed via
 <<AItR-install-packages, echo = TRUE, eval = FALSE>>=
@@ -416,7 +431,7 @@ package functionality and giving examples. Such a document is called a
 \Rclass{vignette} \citep{HSAUR:Leisch2003,HSAUR:Gentleman2005}.
 The \Rpackage{sandwich} package vignette is opened using
 <<AItR-help-lib, echo = TRUE, eval = FALSE>>=
-vignette("sandwich")
+vignette("sandwich", package = "sandwich")
 @
 More extensive documentation is available electronically from the collection
 of manuals at \curl{http://CRAN.R-project.org/manuals.html} 
@@ -701,7 +716,8 @@ argument
 csvForbes2000 <- read.table("Forbes2000.csv",
     header = TRUE, sep = ",", row.names = 1,
     colClasses = c("character", "integer", "character",
-    "factor", "factor", "numeric", "numeric", "numeric", "numeric"))
+        "factor", "factor", "numeric", "numeric", "numeric",
+        "numeric"))
 class(csvForbes2000[,"name"])
 @
 and check if this object is identical with our previous Forbes 2000 list
@@ -714,8 +730,8 @@ the number of columns in the file. Such a vector can be supplied by the
 \Rcmd{c} function that combines the objects given in the parameter list into
 a \Rclass{vector}
 <<AItR-Forbes2000-classes, echo = TRUE>>=
-classes <- c("character", "integer", "character", "factor", "factor",
-    "numeric", "numeric", "numeric", "numeric")
+classes <- c("character", "integer", "character", "factor",
+    "factor", "numeric", "numeric", "numeric", "numeric")
 length(classes)
 class(classes)
 @
@@ -741,7 +757,8 @@ the base distribution).
 Exporting data from \R{} is now rather straightforward. A comma separated file
 readable by \EXCEL{} can be constructed from a \Rclass{data.frame} object via
 <<AItR-Forbes2000-write.table, echo = TRUE>>=
-write.table(Forbes2000, file = "Forbes2000.csv", sep = ",", col.names = NA)
+write.table(Forbes2000, file = "Forbes2000.csv", sep = ",",
+            col.names = NA)
 @
 The function \Rcmd{write.csv} is one alternative and the functionality implemented
 in the \Rpackage{RODBC} package can be used to write data directly into \EXCEL{}
@@ -832,14 +849,16 @@ companies[order_sales[1:3]]
 The indices of the three top sellers are the elements $1998, 1999$ and $2000$
 of the integer vector \Robject{order\_sales}
 <<AItR-Forbes2000-order, echo = TRUE>>=
-Forbes2000[order_sales[c(2000, 1999, 1998)],c("name", "sales", "profits", "assets")]
+Forbes2000[order_sales[c(2000, 1999, 1998)],
+           c("name", "sales", "profits", "assets")]
 @
 Another way of selecting vector elements is the use of a logical vector
 being \Robject{TRUE} when the corresponding element is to be selected and
 \Robject{FALSE} otherwise. The companies with assets of more than $1000$
 billion US dollars are
 <<AItR-Forbes2000-logical, echo = TRUE>>=
-Forbes2000[Forbes2000$assets > 1000,c("name", "sales", "profits", "assets")]
+Forbes2000[Forbes2000$assets > 1000,
+           c("name", "sales", "profits", "assets")]
 @
 where the expression \Robject{Forbes2000\$assets > 1000} indicates a logical
 vector of length $2000$ with
@@ -857,7 +876,8 @@ via
 <<AItR-Forbes2000-NA, echo = TRUE>>=
 na_profits <- is.na(Forbes2000$profits)
 table(na_profits)
-Forbes2000[na_profits, c("name", "sales", "profits", "assets")]
+Forbes2000[na_profits,
+           c("name", "sales", "profits", "assets")]
 @
 where the function \Rcmd{is.na} returns a logical vector being
 \Robject{TRUE} when the corresponding element of the supplied vector is
@@ -920,7 +940,8 @@ level of a factor. It might be interesting to compare the profits in each of the
 $\Sexpr{nlevels(Forbes2000$category)}$ categories. To do so, we first
 compute the median profit for each category from
 <<AItR-Forbes2000-tapply-category, echo = TRUE>>=
-mprofits <- tapply(Forbes2000$profits, Forbes2000$category, median, na.rm = TRUE)
+mprofits <- tapply(Forbes2000$profits,
+                   Forbes2000$category, median, na.rm = TRUE)
 @
 a command that should be read as follows. For each level of the factor
 \Robject{category}, determine the corresponding elements of the
@@ -950,7 +971,7 @@ The degree of skewness of a distribution can be investigated by constructing
 histograms using the
 \Rcmd{hist} function. (More sophisticated alternatives
 such as smooth density estimates will be considered in
-Chapter~7.)
+\Sexpr{ch("DE")}.)
 \begin{figure}
 \begin{center}
 <<AItR-Forbes2000-marketvalue, echo = TRUE, fig = TRUE>>=
@@ -983,7 +1004,7 @@ variable on the right hand side. The tilde separates left and right hand
 side.
 Such a model formula can be passed to a model function (for example to
 the linear model function as explained in
-Chapter~5).
+\Sexpr{ch("MLR")}).
 The \Rcmd{plot} generic function implements a \Rclass{formula} method as well. Because
 the distributions of both market value and sales are skewed we choose to
 depict their logarithms. A raw scatterplot of $2000$ data points
@@ -994,7 +1015,8 @@ possible with the PDF graphics device) as shown in Figure~\ref{AItR:scatter}.
 \begin{figure}
 \begin{center}
 <<AItR-Forbes2000-marketvalue-sales, echo = TRUE, fig = TRUE>>=
-plot(log(marketvalue) ~ log(sales), data = Forbes2000, pch = ".")
+plot(log(marketvalue) ~ log(sales), data = Forbes2000,
+     pch = ".")
 @
 \caption{Raw scatterplot of the logarithms of market value and sales.
 \label{AItR:scatter-raw}}
@@ -1019,13 +1041,14 @@ Figure~\ref{AItR:box}.
 \begin{center}
 <<AItR-Forbes2000-country-plot, echo = TRUE, eval = FALSE>>=
 boxplot(log(marketvalue) ~ country, data =
-        subset(Forbes2000, country %in% c("United Kingdom", "Germany",
-                                          "India", "Turkey")),
+        subset(Forbes2000, country %in% c("United Kingdom",
+            "Germany", "India", "Turkey")),
         ylab = "log(marketvalue)", varwidth = TRUE)
 @
 <<AItR-Forbes2000-country-plot, echo = FALSE, fig = TRUE>>=
-tmp <- subset(Forbes2000, country %in% c("United Kingdom", "Germany",
-                                          "India", "Turkey"))
+tmp <- subset(Forbes2000,
+    country %in% c("United Kingdom", "Germany",
+                   "India", "Turkey"))
 tmp$country <- tmp$country[,drop = TRUE]
 boxplot(log(marketvalue) ~ country, data = tmp,
         ylab = "log(marketvalue)", varwidth = TRUE)

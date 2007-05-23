@@ -4,7 +4,8 @@
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -13,6 +14,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 
 
 ###################################################
@@ -29,9 +42,10 @@ options(SweaveHooks = list(rmai = function() { par(mai = mai * c(1,1,1,2))}))
 ###################################################
 data("planets", package = "HSAUR")
 library("scatterplot3d")
-scatterplot3d(log(planets$mass), log(planets$period), log(planets$eccen),
-              type = "h", angle = 55, scale.y = 0.7, pch =
-              16, y.ticklabs = seq(0, 10, by = 2), y.margin.add = 0.1)
+scatterplot3d(log(planets$mass), log(planets$period),
+    log(planets$eccen), type = "h", angle = 55,
+    pch = 16, y.ticklabs = seq(0, 10, by = 2),
+    y.margin.add = 0.1, scale.y = 0.7)
 
 
 ###################################################
@@ -43,7 +57,8 @@ n <- nrow(planet.dat)
 wss <- rep(0, 10)
 wss[1] <- (n - 1) * sum(apply(planet.dat, 2, var))
 for (i in 2:10)
-    wss[i] <- sum(kmeans(planet.dat, centers = i)$withinss)
+    wss[i] <- sum(kmeans(planet.dat,
+                         centers = i)$withinss)
 plot(1:10, wss, type = "b", xlab = "Number of groups",
      ylab = "Within groups sum of squares")
 
@@ -90,7 +105,8 @@ planet_mclust <- Mclust(planet.dat)
 ###################################################
 ### chunk number 10: CA-planets-mclust-plot
 ###################################################
-plot(planet_mclust, planet.dat, what = "BIC", col = "black", ylab = "-BIC")
+plot(planet_mclust, planet.dat, what = "BIC", col = "black",
+     ylab = "-BIC", ylim = c(0, 350))
 
 
 ###################################################
@@ -102,17 +118,18 @@ print(planet_mclust)
 ###################################################
 ### chunk number 12: CA-planets-mclust-scatter
 ###################################################
-x <- clPairs(planet.dat, classification = planet_mclust$classification, symbols =
-1:3, col = "black")
+clPairs(planet.dat,
+    classification = planet_mclust$classification,
+    symbols = 1:3, col = "black")
 
 
 ###################################################
 ### chunk number 13: CA-planets-mclust-scatterclust
 ###################################################
-scatterplot3d(log(planets$mass), log(planets$period), log(planets$eccen),
-              type = "h", angle = 55, scale.y = 0.7,
-              pch = planet_mclust$classification,
-              y.ticklabs = seq(0, 10, by = 2), y.margin.add = 0.1)
+scatterplot3d(log(planets$mass), log(planets$period),
+    log(planets$eccen), type = "h", angle = 55,
+    scale.y = 0.7, pch = planet_mclust$classification,
+    y.ticklabs = seq(0, 10, by = 2), y.margin.add = 0.1)
 
 
 ###################################################

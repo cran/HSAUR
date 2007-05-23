@@ -173,12 +173,13 @@
 \maketitle
 %%\VignetteIndexEntry{Errata}
 \setcounter{chapter}{15}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE}
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -187,13 +188,26 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 @
 \pagestyle{headings}
 \chapter[Errata]{Errata}
 The document gives a list of typos, errors, inconsistencies etc. which have been spotted.
 Moreover, small numeric output differences which are due to updated packages are reported here.
-To get a full list of differences run \Rcmd{R CMD check HSAUR} on the source package. All issues marked
-with \textbf{R1} have been silently fixed in the first reprint.
+To get a full list of differences run \Rcmd{R CMD check HSAUR} on the source package.
+All issues marked with \textbf{R1}, \textbf{R2} etc have been silently fixed
+in first reprint, second reprint etc.
 \section*{Preface}
 Typo in name of vignette for Chapter 1, should read
 <<pre-vignette, echo = TRUE, eval = FALSE>>=
@@ -218,7 +232,7 @@ or \Rcmd{chi-squared} throughout the chapter (\textbf{R1}).
 \item Reference \cite{HSAUR:Hothorn:2006:AmStat} updated (\textbf{R1})
 \end{itemize}
 \section{Analysis of Variance}
---nothing known--
+Figure 4.3 had wrong line types in legend (Beef and Cereal interchanged) (\textbf{R2}).
 \section{Multiple Linear Regression}
 \begin{itemize}
 \item
@@ -227,10 +241,16 @@ The corresponding coefficients and Figures in this chapter change accordingly (\
 \item
 Page 83: both \Rcmd{fitted} and \Rcmd{predict} can be used to compute fitted values, the later on
 can be applied to new unseen data as well (\textbf{R1}).
+\item Page 87: $\hat{y}_i$ instead of $\hat{y}$ in the definition of
+      the standardized residual.
 \end{itemize}
 \section{Logistic Regression and Generalised Linear Models}
-Function \Rcmd{myplot} (page 100): the \Rcmd{vfont} argument in \Rcmd{text} has been changed
+\begin{itemize}
+\item page 97: predictions are to be computed for \Rcmd{plasma\_glm\_2},
+               not \Rcmd{plasma\_glm\_1} (affects Figure~6.4) (\textbf{R2}).
+\item Function \Rcmd{myplot} (page 100): the \Rcmd{vfont} argument in \Rcmd{text} has been changed
 to \Rcmd{family = "HersheySerif"} (the resulting plots remain the same) (\textbf{R1}).
+\end{itemize}
 \section{Density Estimation}
 \begin{itemize}
 \item Page 121: small numeric differences for the output of \Rcmd{optim}
@@ -239,20 +259,30 @@ objects)
 \end{itemize}
 \section{Recursive Partitioning}
 \begin{itemize}
+\item Page 138: the probability for glaucoma is \Rcmd{predict(trees[[i]], newdata = GlaucomaM)[,1]}
+      and the code for converting average class probabilities in factors has to be reverted, too.
+      Affects Figure 8.4. (which is now in sync with the interpretation).
 \item Page 139: small differences in \Rcmd{predtab}
 \item Page 140: small differences in table at bottom of this page
 \item Reference \cite{HSAUR:Hothorn:2006:JCGS} updated (\textbf{R1})
+\item Page 142, Ex. 8.1.: regression tree, not classification tree.
 \end{itemize}
 \section{Survival Analysis}
-The name of the test statistic in the output of \Rcmd{surv\_test} has been changed to
+\begin{itemize}
+\item The name of the test statistic in the output of \Rcmd{surv\_test} has been changed to
 \Rcmd{chi-squared} (\textbf{R1}).
+\item Denominator $s$ was missing from $h(t)$ (page 147) (\textbf{R2}).
+\end{itemize}
 \section{Analysing Longitudinal Data I}
 Page 168, Figure 10.2: \Rcmd{summary} does not provide degrees of freedom and p-values
 in newer versions of \Rpackage{lme4}.
 \section{Analysing Longitudinal Data II}
 --nothing known--
 \section{Meta-Analysis}
---nothing known--
+\begin{itemize}
+\item Page 202: $\mu_i \sim \N(\mu, \tau^2)$, not $N(\mu, \tau^2)$ (\textbf{R2}).
+\item Page 207: square for \Rcmd{selogs} was missing (\textbf{R2}).
+\end{itemize}
 \section{Principal Component Analysis}
 --nothing known--
 \section{Multidimensional Scaling}
@@ -260,11 +290,13 @@ in newer versions of \Rpackage{lme4}.
 \section{Cluster Analysis}
 update to \Rpackage{mclust} version 3.0-0 (new plot method)
 \section*{Thanks}
-We would like to thank the following people for pointing out errors, typos etc and for
-making suggestions for improvements:
+We would like to thank the following people for pointing out errors,
+typos etc and for making suggestions for improvements:
 \begin{itemize}
 \item Tobias Verbeke
 \item Brian D. Ripley
+\item Yihui Xie
+\item Mike Cheung
 \end{itemize}
 \bibliographystyle{../LaTeXBibTeX/refstyle}
 \bibliography{../LaTeXBibTeX/HSAUR}

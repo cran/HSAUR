@@ -4,7 +4,8 @@
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -13,6 +14,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 
 
 ###################################################
@@ -76,13 +89,15 @@ binom.test(sum(greater), length(greater))$conf.int
 ### chunk number 9: CI-roomwidth-coin
 ###################################################
 library("coin")
-independence_test(y ~ unit, data = roomwidth, distribution = "exact")
+independence_test(y ~ unit, data = roomwidth,
+                  distribution = exact())
 
 
 ###################################################
 ### chunk number 10: CI-roomwidth-coin
 ###################################################
-wilcox_test(y ~ unit, data = roomwidth, distribution = "exact")
+wilcox_test(y ~ unit, data = roomwidth,
+            distribution = exact())
 
 
 ###################################################
@@ -160,8 +175,10 @@ cmh_test(classification ~ treatment | study, data = Lanza,
 ###################################################
 ### chunk number 20: CI-anomalies
 ###################################################
-anomalies <- as.table(matrix(c(235, 23, 3, 0, 41, 35, 8, 0, 20, 11, 11, 1, 2, 1, 3, 1),
-ncol = 4, dimnames = list(MD = 0:3, RA = 0:3)))
+anomalies <- c(235, 23, 3, 0, 41, 35, 8, 0,
+               20, 11, 11, 1, 2, 1, 3, 1)
+anomalies <- as.table(matrix(anomalies,
+    ncol = 4, dimnames = list(MD = 0:3, RA = 0:3)))
 anomalies
 
 

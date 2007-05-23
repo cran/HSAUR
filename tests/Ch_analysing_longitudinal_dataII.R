@@ -4,7 +4,8 @@
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
-options(prompt = "R> ", width = 63, # digits = 4,
+options(prompt = "R> ", continue = "+  ",
+    width = 63, # digits = 4,
     SweaveHooks = list(leftpar = function()
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
@@ -13,6 +14,18 @@ rm(HSAURpkg)
 ### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
 ### </FIXME>
+book <- TRUE
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+                "MDS", "CA"), 1:15)
+ch <- function(x, book = TRUE) {
+    ch <- refs[which(refs[,1] == x),]
+    if (book) {
+        return(paste("Chapter~\\\\ref{", ch[1], "}", sep = ""))
+    } else {
+        return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
+    }
+}
 
 
 ###################################################
@@ -28,8 +41,8 @@ data("BtheB", package = "HSAUR")
 BtheB$subject <- factor(rownames(BtheB))
 nobs <- nrow(BtheB)
 BtheB_long <- reshape(BtheB, idvar = "subject",
-                      varying = c("bdi.2m", "bdi.4m", "bdi.6m", "bdi.8m"),
-                      direction = "long")
+    varying = c("bdi.2m", "bdi.4m", "bdi.6m", "bdi.8m"),
+    direction = "long")
 BtheB_long$time <- rep(c(2, 4, 6, 8), rep(nobs, 4))
 
 
@@ -39,16 +52,16 @@ BtheB_long$time <- rep(c(2, 4, 6, 8), rep(nobs, 4))
 osub <- order(as.integer(BtheB_long$subject))
 BtheB_long <- BtheB_long[osub,]
 btb_gee <- gee(bdi ~ bdi.pre + treatment + length + drug,
-               data = BtheB_long, id = subject, family = gaussian,
-               corstr = "independence")
+    data = BtheB_long, id = subject, family = gaussian,
+    corstr = "independence")
 
 
 ###################################################
 ### chunk number 5: ALDII-BtheB-geefit-ex
 ###################################################
 btb_gee1 <- gee(bdi ~ bdi.pre + treatment + length + drug,
-                data = BtheB_long, id = subject, family = gaussian,
-                corstr = "exchangeable")
+    data = BtheB_long, id = subject, family = gaussian,
+    corstr = "exchangeable")
 
 
 ###################################################
@@ -75,14 +88,14 @@ resp$nstat <- as.numeric(resp$status == "good")
 ###################################################
 ### chunk number 9: ALDII-respiratory-fit
 ###################################################
-resp_glm <- glm(status ~ centre + treatment + sex + baseline + age,
-                data = resp, family = "binomial")
-resp_gee1 <- gee(nstat ~ centre + treatment + sex + baseline + age, data = resp,
-                 family = "binomial", id = subject, corstr = "independence",
-                 scale.fix = TRUE, scale.value = 1)
-resp_gee2 <- gee(nstat ~ centre + treatment + sex + baseline + age, data = resp,
-                 family = "binomial", id = subject, corstr = "exchangeable",
-                 scale.fix = TRUE, scale.value = 1)
+resp_glm <- glm(status ~ centre + treatment + sex + baseline +
+    age, data = resp, family = "binomial")
+resp_gee1 <- gee(nstat ~ centre + treatment + sex + baseline +
+    age, data = resp, family = "binomial", id = subject,
+    corstr = "independence", scale.fix = TRUE, scale.value = 1)
+resp_gee2 <- gee(nstat ~ centre + treatment + sex + baseline +
+    age, data = resp, family = "binomial", id = subject,
+    corstr = "exchangeable", scale.fix = TRUE, scale.value = 1)
 
 
 ###################################################
@@ -106,14 +119,17 @@ summary(resp_gee2)
 ###################################################
 ### chunk number 13: ALDII-resp-confint
 ###################################################
-se <- summary(resp_gee2)$coefficients["treatmenttreatment","Robust S.E."]
-coef(resp_gee2)["treatmenttreatment"] + c(-1, 1) * se * qnorm(0.975)
+se <- summary(resp_gee2)$coefficients["treatmenttreatment",
+                                      "Robust S.E."]
+coef(resp_gee2)["treatmenttreatment"] +
+    c(-1, 1) * se * qnorm(0.975)
 
 
 ###################################################
 ### chunk number 14: ALDII-resp-confint-exp
 ###################################################
-exp(coef(resp_gee2)["treatmenttreatment"] + c(-1, 1) * se * qnorm(0.975))
+exp(coef(resp_gee2)["treatmenttreatment"] +
+    c(-1, 1) * se * qnorm(0.975))
 
 
 ###################################################
@@ -158,17 +174,17 @@ boxplot(log(seizure.rate + 1) ~ period, data = progabide,
 ###################################################
 per <- rep(log(2),nrow(epilepsy))
 epilepsy$period <- as.numeric(epilepsy$period)
-epilepsy_glm <- glm(seizure.rate ~ base + age + treatment + offset(per),
-                    data = epilepsy, family = "poisson")
-epilepsy_gee1 <- gee(seizure.rate ~ base + age + treatment + offset(per),
-                     data = epilepsy, family = "poisson", id = subject, corstr = "independence",
-                     scale.fix = TRUE, scale.value = 1)
-epilepsy_gee2 <- gee(seizure.rate ~ base + age + treatment + offset(per),
-                     data = epilepsy, family = "poisson", id = subject, corstr = "exchangeable",
-                     scale.fix = TRUE, scale.value = 1)
-epilepsy_gee3 <- gee(seizure.rate ~ base + age + treatment + offset(per),
-                     data = epilepsy, family = "poisson", id = subject, corstr = "exchangeable",
-                     scale.fix = FALSE, scale.value = 1)
+fm <- seizure.rate ~ base + age + treatment + offset(per)
+epilepsy_glm <- glm(fm, data = epilepsy, family = "poisson")
+epilepsy_gee1 <- gee(fm, data = epilepsy, family = "poisson",
+    id = subject, corstr = "independence", scale.fix = TRUE,
+    scale.value = 1)
+epilepsy_gee2 <- gee(fm, data = epilepsy, family = "poisson",
+    id = subject, corstr = "exchangeable", scale.fix = TRUE,
+    scale.value = 1)
+epilepsy_gee3 <- gee(fm, data = epilepsy, family = "poisson",
+    id = subject, corstr = "exchangeable", scale.fix = FALSE,
+    scale.value = 1)
 
 
 ###################################################
