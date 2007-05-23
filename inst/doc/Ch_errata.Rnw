@@ -253,6 +253,7 @@ to \Rcmd{family = "HersheySerif"} (the resulting plots remain the same) (\textbf
 \end{itemize}
 \section{Density Estimation}
 \begin{itemize}
+\item Page 117: typo: in instead of is
 \item Page 121: small numeric differences for the output of \Rcmd{optim}
 \item update to \Rpackage{mclust} version 3.0-0 (new names of parameters in \Robject{mclust}
 objects)

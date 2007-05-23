@@ -37,7 +37,77 @@ x <- library("boot")
 
 
 ###################################################
-### chunk number 3: DE-faithful-density
+### chunk number 3: DE-kernel-figs
+###################################################
+rec <- function(x) (abs(x) < 1) * 0.5
+tri <- function(x) (abs(x) < 1) * (1 - abs(x))
+gauss <- function(x) 1/sqrt(2*pi) * exp(-(x^2)/2)
+x <- seq(from = -3, to = 3, by = 0.001)
+plot(x, rec(x), type = "l", ylim = c(0,1), lty = 1,
+     ylab = expression(K(x)))
+lines(x, tri(x), lty = 2)
+lines(x, gauss(x), lty = 3)
+legend(-3, 0.8, legend = c("Rectangular", "Triangular",
+       "Gaussian"), lty = 1:3, title = "kernel functions",
+       bty = "n")
+
+
+###################################################
+### chunk number 4: DE-options
+###################################################
+w <- options("width")$w
+options(width = 66)
+
+
+###################################################
+### chunk number 5: DE-x-bumps-data
+###################################################
+x <- c(0, 1, 1.1, 1.5, 1.9, 2.8, 2.9, 3.5)
+n <- length(x)
+
+
+###################################################
+### chunk number 6: DE-x-bumps-gaussian
+###################################################
+xgrid <- seq(from = min(x) - 1, to = max(x) + 1, by = 0.01)
+
+
+###################################################
+### chunk number 7: DE-x-bumps-bumps
+###################################################
+h <- 0.4
+bumps <- sapply(x, function(a) gauss((xgrid - a)/h)/(n * h))
+
+
+###################################################
+### chunk number 8: DE-reoptions
+###################################################
+options(width = w)
+
+
+###################################################
+### chunk number 9: DE-x-bumps
+###################################################
+plot(xgrid, rowSums(bumps), ylab = expression(hat(f)(x)),
+     type = "l", xlab = "x", lwd = 2)
+rug(x, lwd = 2)
+out <- apply(bumps, 2, function(b) lines(xgrid, b))
+
+
+###################################################
+### chunk number 10: DE-epakernel-fig
+###################################################
+epa <- function(x, y)
+    ((x^2 + y^2) < 1) * 2/pi * (1 - x^2 - y^2)
+x <- seq(from = -1.1, to = 1.1, by = 0.05)
+epavals <- sapply(x, function(a) epa(a, x))
+persp(x = x, y = x, z = epavals, xlab = "x", ylab = "y",
+      zlab = expression(K(x, y)), theta = -35, axes = TRUE,
+      box = TRUE)
+
+
+###################################################
+### chunk number 11: DE-faithful-density
 ###################################################
 data("faithful", package = "datasets")
 x <- faithful$waiting
@@ -60,7 +130,7 @@ rug(x)
 
 
 ###################################################
-### chunk number 4: DE-CYGOB1-contour
+### chunk number 12: DE-CYGOB1-contour
 ###################################################
 library("KernSmooth")
 data("CYGOB1", package = "HSAUR")
@@ -71,7 +141,7 @@ contour(x = CYGOB1d$x1, y = CYGOB1d$x2, z = CYGOB1d$fhat,
 
 
 ###################################################
-### chunk number 5: DE-CYGOB1-persp
+### chunk number 13: DE-CYGOB1-persp
 ###################################################
 persp(x = CYGOB1d$x1, y = CYGOB1d$x2, z = CYGOB1d$fhat,
       xlab = "log surface temperature",
@@ -81,7 +151,7 @@ persp(x = CYGOB1d$x1, y = CYGOB1d$x2, z = CYGOB1d$fhat,
 
 
 ###################################################
-### chunk number 6: DE-faithful-optim
+### chunk number 14: DE-faithful-optim
 ###################################################
 logL <- function(param, x) {
     d1 <- dnorm(x, mean = param[2], sd = param[3])
@@ -97,19 +167,19 @@ opp
 
 
 ###################################################
-### chunk number 7: DE-faithful-optim-print
+### chunk number 15: DE-faithful-optim-print
 ###################################################
 print(opp[names(opp) != "message"])
 
 
 ###################################################
-### chunk number 8: DE-attach-mclust
+### chunk number 16: DE-attach-mclust
 ###################################################
 library("mclust")
 
 
 ###################################################
-### chunk number 9: DE-faithful-mclust
+### chunk number 17: DE-faithful-mclust
 ###################################################
 library("mclust")
 mc <- Mclust(faithful$waiting)
@@ -117,33 +187,33 @@ mc
 
 
 ###################################################
-### chunk number 10: DE-faithful-mclust-mu
+### chunk number 18: DE-faithful-mclust-mu
 ###################################################
 mc$parameters$mean
 
 
 ###################################################
-### chunk number 11: DE-faithful-mclust-para
+### chunk number 19: DE-faithful-mclust-para
 ###################################################
 sqrt(mc$parameters$variance$sigmasq)
 
 
 ###################################################
-### chunk number 12: DE-faithful-flexmix
+### chunk number 20: DE-faithful-flexmix
 ###################################################
 library("flexmix")
 fl <- flexmix(waiting ~ 1, data = faithful, k = 2)
 
 
 ###################################################
-### chunk number 13: DE-faithful-flexmix-parameters
+### chunk number 21: DE-faithful-flexmix-parameters
 ###################################################
 parameters(fl, component = 1)
 parameters(fl, component = 2)
 
 
 ###################################################
-### chunk number 14: DE-faithful-2Dplot
+### chunk number 22: DE-faithful-2Dplot
 ###################################################
 opar <- as.list(opp$par)
 rx <- seq(from = 40, to = 110, by = 0.1)
@@ -162,7 +232,7 @@ legend(50, 0.06, lty = 1:2, bty = "n",
 
 
 ###################################################
-### chunk number 15: DE-faithful-boot
+### chunk number 23: DE-faithful-boot
 ###################################################
 library("boot")
 fit <- function(x, indx) {
@@ -176,7 +246,7 @@ fit <- function(x, indx) {
 
 
 ###################################################
-### chunk number 16: DE-faithful-bootrun
+### chunk number 24: DE-faithful-bootrun
 ###################################################
 bootparafile <- file.path(.find.package("HSAUR"), "cache", "DE-bootpara.rda")
 if (file.exists(bootparafile)) {
@@ -187,25 +257,25 @@ if (file.exists(bootparafile)) {
 
 
 ###################################################
-### chunk number 17: DE-faithful-p-ci
+### chunk number 25: DE-faithful-p-ci
 ###################################################
 boot.ci(bootpara, type = "bca", index = 1)
 
 
 ###################################################
-### chunk number 18: DE-faithful-mu1-ci
+### chunk number 26: DE-faithful-mu1-ci
 ###################################################
 boot.ci(bootpara, type = "bca", index = 2)
 
 
 ###################################################
-### chunk number 19: DE-faithful-mu2-ci
+### chunk number 27: DE-faithful-mu2-ci
 ###################################################
 boot.ci(bootpara, type = "bca", index = 3)
 
 
 ###################################################
-### chunk number 20: DE-bootplot
+### chunk number 28: DE-bootplot
 ###################################################
 bootplot <- function(b, index, main = "") {
     dens <- density(b$t[,index])
@@ -221,7 +291,7 @@ bootplot <- function(b, index, main = "") {
 
 
 ###################################################
-### chunk number 21: DE-faithful-boot-plot
+### chunk number 29: DE-faithful-boot-plot
 ###################################################
 layout(matrix(1:2, ncol = 2))
 bootplot(bootpara, 2, main = expression(mu[1]))

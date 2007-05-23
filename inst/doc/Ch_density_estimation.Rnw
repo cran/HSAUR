@@ -212,6 +212,90 @@ x <- library("boot")
 Clusters \label{DE}}
 \section{Introduction}
 \section{Density Estimation}
+The three kernel functions are implemented in \R{} as shown in lines 1--3 of
+Figure~\ref{DE-kernel-fig}. For some grid \Robject{x}, the kernel functions
+are plotted using the \R{} statements in lines 5--11 (Figure~\ref{DE-kernel-fig}).
+\numberSinput
+\begin{figure}
+\begin{center}
+<<DE-kernel-figs, echo = TRUE, fig = TRUE>>=
+rec <- function(x) (abs(x) < 1) * 0.5
+tri <- function(x) (abs(x) < 1) * (1 - abs(x))
+gauss <- function(x) 1/sqrt(2*pi) * exp(-(x^2)/2)
+x <- seq(from = -3, to = 3, by = 0.001)
+plot(x, rec(x), type = "l", ylim = c(0,1), lty = 1,
+     ylab = expression(K(x)))
+lines(x, tri(x), lty = 2)
+lines(x, gauss(x), lty = 3)
+legend(-3, 0.8, legend = c("Rectangular", "Triangular",
+       "Gaussian"), lty = 1:3, title = "kernel functions",
+       bty = "n")
+@
+\caption{Three commonly used kernel functions. \label{DE-kernel-fig}}
+\end{center}
+\end{figure}
+\rawSinput
+<<DE-options, echo = FALSE, results = hide>>=
+w <- options("width")$w
+options(width = 66)
+@
+The kernel estimator $\hat{f}$ is a sum of `bumps' placed at the observations. %'
+The kernel function determines the shape of the bumps while the
+window width $h$ determines their width.
+\index{Windows, in kernel density estimation}
+Figure~\ref{DE-bumps} \citep[redrawn from a similar plot in][]{HSAUR:Silverman1986}
+shows the individual bumps $n^{-1}h^{-1} K((x - x_i) / h)$, as well as the estimate $\hat{f}$
+obtained by adding them up for an artificial set of data points
+<<DE-x-bumps-data, echo = TRUE>>=
+x <- c(0, 1, 1.1, 1.5, 1.9, 2.8, 2.9, 3.5)
+n <- length(x)
+@
+For a grid
+<<DE-x-bumps-gaussian, echo = TRUE>>=
+xgrid <- seq(from = min(x) - 1, to = max(x) + 1, by = 0.01)
+@
+on the real line, we can compute the contribution of each measurement in
+\Robject{x}, with $h = 0.4$, by the Gaussian kernel (defined in
+Figure~\ref{DE-kernel-fig}, line 3) as follows;
+<<DE-x-bumps-bumps, echo = TRUE>>=
+h <- 0.4
+bumps <- sapply(x, function(a) gauss((xgrid - a)/h)/(n * h))
+@
+A plot of the individual bumps and their sum, the kernel density estimate
+$\hat{f}$, is shown in Figure~\ref{DE-bumps}.
+<<DE-reoptions, echo = FALSE, results = hide>>=
+options(width = w)
+@
+\numberSinput
+\begin{figure}
+\begin{center}
+<<DE-x-bumps, echo = TRUE, fig = TRUE, leftpar = TRUE>>=
+plot(xgrid, rowSums(bumps), ylab = expression(hat(f)(x)),
+     type = "l", xlab = "x", lwd = 2)
+rug(x, lwd = 2)
+out <- apply(bumps, 2, function(b) lines(xgrid, b))
+@
+\caption{Kernel estimate showing the contributions of Gaussian
+         kernels evaluated for the individual observations with bandwidth $h =
+         0.4$. \label{DE-bumps}}
+\end{center}
+\end{figure}
+\rawSinput
+\begin{figure}
+\begin{center}
+<<DE-epakernel-fig, echo = TRUE, fig = TRUE>>=
+epa <- function(x, y)
+    ((x^2 + y^2) < 1) * 2/pi * (1 - x^2 - y^2)
+x <- seq(from = -1.1, to = 1.1, by = 0.05)
+epavals <- sapply(x, function(a) epa(a, x))
+persp(x = x, y = x, z = epavals, xlab = "x", ylab = "y",
+      zlab = expression(K(x, y)), theta = -35, axes = TRUE,
+      box = TRUE)
+@
+\caption{Epanechnikov kernel for a grid between $(-1.1, -1.1)$ and $(1.1, 1.1)$.
+         \label{DE-epakernel-fig}}
+\end{center}
+\end{figure}
 \section{Analysis Using \R{}}
 \numberSinput
 \begin{figure}

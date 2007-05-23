@@ -207,7 +207,7 @@ book <- FALSE
 @
 \chapter{An Introduction to \R{} \label{AItR}}
 \setcounter{page}{1}
-\section{What Is \R{}?}
+\section{What is \R{}?}
 The \R{} system for statistical computing is an environment for
 data analysis and graphics.
 %% #Z
