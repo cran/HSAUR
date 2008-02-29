@@ -282,14 +282,21 @@ in newer versions of \Rpackage{lme4}.
 \section{Meta-Analysis}
 \begin{itemize}
 \item Page 202: $\mu_i \sim \N(\mu, \tau^2)$, not $N(\mu, \tau^2)$ (\textbf{R2}).
+\item Page 202: $W_i = 1/ (V_i + \hat{\tau}^2)$ since $V_i$ is the within-study variance.
 \item Page 207: square for \Rcmd{selogs} was missing (\textbf{R2}).
 \end{itemize}
 \section{Principal Component Analysis}
 --nothing known--
 \section{Multidimensional Scaling}
---nothing known--
+In the formula for $b_{ij}$ on page 231 the last term in the
+parentheses should have a plus sign not a minus sign.
 \section{Cluster Analysis}
-update to \Rpackage{mclust} version 3.0-0 (new plot method)
+\begin{itemize}
+\item update to \Rpackage{mclust} version 3.0-0 (new plot method)
+\item Page 248: the likelihood needs $|\Sigma_j|^{-1/2}$
+\item Page 248: $W_j$ is a $q \times q$ matrix
+\item Page 248: $\Sigma_j = \Sigma, j = 1, \dots, c$.
+\end{itemize}
 \section*{Thanks}
 We would like to thank the following people for pointing out errors,
 typos etc and for making suggestions for improvements:
@@ -298,6 +305,8 @@ typos etc and for making suggestions for improvements:
 \item Brian D. Ripley
 \item Yihui Xie
 \item Mike Cheung
+\item Lothar H{\"a}berle
+\item Radoslav Harman
 \end{itemize}
 \bibliographystyle{../LaTeXBibTeX/refstyle}
 \bibliography{../LaTeXBibTeX/HSAUR}

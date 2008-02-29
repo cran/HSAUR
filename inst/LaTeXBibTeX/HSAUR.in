@@ -1879,3 +1879,38 @@
     note = {\rR{} package version partyVERSION}
 }
 
+@article{HSAUR:Mazessetal1984,
+    author = {R. B. Mazess and W. W. Peppler and M. Gibbons},
+    title = {Total Body Composition by Dual Photon Absorptiometry},
+    year = 1984,
+    journal = {American Journal of Clinical Nutrition},
+    volume = 40,
+    pages = {834-839}
+}
+
+@book{HSAUR:Rawlingsetal1998,
+    author = {J. O. Rawlings and S. G. Pantula and A. D. Dickey},
+    title = {Applied Regression Analysis},
+    year = 1998,
+    publisher = {Springer-Verlag},
+    address = {New York}
+}
+
+@article{HSAUR:FrisonPocock1992,
+    author = {L. Frison and S. J. Pocock},
+    year = 1992,
+    title = {Repeated Measures in Clinical Trials: Analysis using Mean Summary Statistics 
+             and its Implications for Design}, 
+    journal = {Statistics in Medicine}, 
+    volume = 11, 
+    pages = {1685--1704}
+}
+
+@article{HSAUR:Matthewsetal1990,
+    author = {J. N. S. Matthews and D. G. Altman and M. J. Campbell and P. Royston},
+    year = 1990,
+    title = {Analysis of Serial Measurements in Medical Research}, 
+    journal = {British Medical Journal}, 
+    volume = {200}, 
+    pages = {230--235}
+}
