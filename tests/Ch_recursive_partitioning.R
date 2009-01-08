@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_recursive_partitioning.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,7 +31,7 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: RP-setup
+### code chunk number 2: RP-setup
 ###################################################
 library("vcd")
 library("lattice")
@@ -43,14 +47,14 @@ options(SweaveHooks = list(nullmai = function() { par(mai = rep(0, 4)) },
 
 
 ###################################################
-### chunk number 3: RP-Forbes-na
+### code chunk number 3: RP-Forbes-na
 ###################################################
 data("Forbes2000", package = "HSAUR")
 Forbes2000 <- subset(Forbes2000, !is.na(profits))
 
 
 ###################################################
-### chunk number 4: RP-Forbes-rpart
+### code chunk number 4: RP-Forbes-rpart
 ###################################################
 library("rpart")
 forbes_rpart <- rpart(profits ~ assets + marketvalue + sales, 
@@ -58,7 +62,7 @@ forbes_rpart <- rpart(profits ~ assets + marketvalue + sales,
 
 
 ###################################################
-### chunk number 5: RP-Forbes-initial
+### code chunk number 5: RP-Forbes-initial
 ###################################################
 plot(forbes_rpart, uniform = TRUE, margin = 0.1, branch = 0.5, 
      compress = TRUE)
@@ -66,21 +70,21 @@ text(forbes_rpart)
 
 
 ###################################################
-### chunk number 6: RP-Forbes-cp
+### code chunk number 6: RP-Forbes-cp
 ###################################################
 print(forbes_rpart$cptable)
 opt <- which.min(forbes_rpart$cptable[,"xerror"])
 
 
 ###################################################
-### chunk number 7: RP-Forbes-prune
+### code chunk number 7: RP-Forbes-prune
 ###################################################
 cp <- forbes_rpart$cptable[opt, "CP"]
 forbes_prune <- prune(forbes_rpart, cp = cp)
 
 
 ###################################################
-### chunk number 8: RP-Forbes-plot
+### code chunk number 8: RP-Forbes-plot
 ###################################################
 layout(matrix(1:2, nc = 1))
 plot(forbes_prune, uniform = TRUE, margin = 0.1, branch = 0.5, 
@@ -101,13 +105,13 @@ text(1:length(n), max(Forbes2000$profit) * 1.2,
 
 
 ###################################################
-### chunk number 9: RP-seed-again
+### code chunk number 9: RP-seed-again
 ###################################################
 set.seed(290875)
 
 
 ###################################################
-### chunk number 10: RP-glaucoma-rpart
+### code chunk number 10: RP-glaucoma-rpart
 ###################################################
 data("GlaucomaM", package = "ipred")
 glaucoma_rpart <- rpart(Class ~ ., data = GlaucomaM, 
@@ -119,7 +123,7 @@ glaucoma_prune <- prune(glaucoma_rpart, cp = cp)
 
 
 ###################################################
-### chunk number 11: RP-glaucoma-plot
+### code chunk number 11: RP-glaucoma-plot
 ###################################################
 layout(matrix(1:2, nc = 1))
 plot(glaucoma_prune, uniform = TRUE, margin = 0.1, branch = 0.5, 
@@ -133,7 +137,7 @@ mosaicplot(table(where, GlaucomaM$Class), main = "", xlab = "",
 
 
 ###################################################
-### chunk number 12: RP-glaucoma-cp
+### code chunk number 12: RP-glaucoma-cp
 ###################################################
 nsplitopt <- vector(mode = "integer", length = 25)
 for (i in 1:length(nsplitopt)) {
@@ -144,7 +148,7 @@ table(nsplitopt)
 
 
 ###################################################
-### chunk number 13: RP-glaucoma-bagg
+### code chunk number 13: RP-glaucoma-bagg
 ###################################################
 trees <- vector(mode = "list", length = 25)
 n <- nrow(GlaucomaM)
@@ -156,13 +160,13 @@ for (i in 1:length(trees))
 
 
 ###################################################
-### chunk number 14: RP-glaucoma-splits
+### code chunk number 14: RP-glaucoma-splits
 ###################################################
 table(sapply(trees, function(x) as.character(x$frame$var[1])))
 
 
 ###################################################
-### chunk number 15: RP-glaucoma-baggpred
+### code chunk number 15: RP-glaucoma-baggpred
 ###################################################
 classprob <- matrix(0, nrow = n, ncol = length(trees))
 for (i in 1:length(trees)) {
@@ -173,7 +177,7 @@ for (i in 1:length(trees)) {
 
 
 ###################################################
-### chunk number 16: RP-glaucoma-avg
+### code chunk number 16: RP-glaucoma-avg
 ###################################################
 avg <- rowMeans(classprob, na.rm = TRUE)
 predictions <- factor(ifelse(avg > 0.5, "glaucoma", "normal"))
@@ -182,19 +186,19 @@ predtab
 
 
 ###################################################
-### chunk number 17: RP-glaucoma-sens
+### code chunk number 17: RP-glaucoma-sens
 ###################################################
 round(predtab[1,1] / colSums(predtab)[1] * 100)
 
 
 ###################################################
-### chunk number 18: RP-glaucoma-spez
+### code chunk number 18: RP-glaucoma-spez
 ###################################################
 round(predtab[2,2] / colSums(predtab)[2] * 100)
 
 
 ###################################################
-### chunk number 19: RP-glaucoma-baggplot
+### code chunk number 19: RP-glaucoma-baggplot
 ###################################################
 library("lattice")
 gdata <- data.frame(avg = rep(avg, 2), 
@@ -213,27 +217,27 @@ print(xyplot(avg ~ obs | var, data = gdata,
 
 
 ###################################################
-### chunk number 20: RP-glaucoma-rf
+### code chunk number 20: RP-glaucoma-rf
 ###################################################
 library("randomForest")
 rf <- randomForest(Class ~ ., data = GlaucomaM)
 
 
 ###################################################
-### chunk number 21: RP-glaucoma-rf-oob
+### code chunk number 21: RP-glaucoma-rf-oob
 ###################################################
 table(predict(rf), GlaucomaM$Class)
 
 
 ###################################################
-### chunk number 22: RP-glaucoma-ctree
+### code chunk number 22: RP-glaucoma-ctree
 ###################################################
 library("party")
 glaucoma_ctree <- ctree(Class ~ ., data = GlaucomaM)
 
 
 ###################################################
-### chunk number 23: RP-glaucoma-ctree-plot
+### code chunk number 23: RP-glaucoma-ctree-plot
 ###################################################
 plot(glaucoma_ctree)
 

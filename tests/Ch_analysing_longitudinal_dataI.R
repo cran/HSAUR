@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_analysing_longitudinal_dataI.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,7 +31,7 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: ALDI-setup
+### code chunk number 2: ALDI-setup
 ###################################################
 library("Matrix")
 library("lme4")
@@ -35,7 +39,7 @@ residuals <- function(object) object@y - fitted(object)
 
 
 ###################################################
-### chunk number 3: ALDI-plot-BtheB
+### code chunk number 3: ALDI-plot-BtheB
 ###################################################
 data("BtheB", package = "HSAUR")
 layout(matrix(1:2, nrow = 1))
@@ -54,7 +58,7 @@ boxplot(btheb, main = "Beat the Blues", ylab = "BDI",
 
 
 ###################################################
-### chunk number 4: ALDI-long-BtheB
+### code chunk number 4: ALDI-long-BtheB
 ###################################################
 data("BtheB", package = "HSAUR")
 BtheB$subject <- factor(rownames(BtheB))
@@ -66,13 +70,13 @@ BtheB_long$time <- rep(c(2, 4, 6, 8), rep(nobs, 4))
 
 
 ###################################################
-### chunk number 5: ALDI-showlong-BtheB
+### code chunk number 5: ALDI-showlong-BtheB
 ###################################################
 subset(BtheB_long, subject %in% c("1", "2", "3"))
 
 
 ###################################################
-### chunk number 6: ALDI-fit-BtheB
+### code chunk number 6: ALDI-fit-BtheB
 ###################################################
 library("lme4")
 BtheB_lmer1 <- lmer(bdi ~ bdi.pre + time + treatment + drug + 
@@ -85,7 +89,7 @@ anova(BtheB_lmer1, BtheB_lmer2)
 
 
 ###################################################
-### chunk number 7: ALDI-summary-BtheB
+### code chunk number 7: ALDI-summary-BtheB
 ###################################################
 summary(BtheB_lmer1)
 

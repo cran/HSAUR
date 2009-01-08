@@ -1,8 +1,6 @@
 
 
 
-
-
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -187,6 +185,7 @@
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -503,7 +502,6 @@ and we obtain out-of-bag estimates for the prediction error via
 <<RP-glaucoma-rf-oob, echo = TRUE>>=
 table(predict(rf), GlaucomaM$Class)
 @
-
 
 
 

@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_errata.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,32 +31,14 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: pre-HSAUR-install eval=FALSE
-###################################################
-## install.packages("HSAUR")
-
-
-###################################################
-### chunk number 3: pre-HSAUR
-###################################################
-library("HSAUR")
-
-
-###################################################
-### chunk number 4: pre-vignette eval=FALSE
+### code chunk number 2: pre-vignette (eval = FALSE)
 ###################################################
 ## vignette("Ch_introduction_to_R", package = "HSAUR")
 
 
 ###################################################
-### chunk number 5: pre-vignette-source eval=FALSE
+### code chunk number 3: pre-vignette (eval = FALSE)
 ###################################################
 ## edit(vignette("Ch_introduction_to_R", package = "HSAUR"))
-
-
-###################################################
-### chunk number 6: pre-vignette-source eval=FALSE
-###################################################
-## vignette(package = "HSAUR")
 
 

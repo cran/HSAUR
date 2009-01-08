@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_analysis_of_variance.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,7 +31,7 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: ANOVA-weightgain-mean-var
+### code chunk number 2: ANOVA-weightgain-mean-var
 ###################################################
 data("weightgain", package = "HSAUR")
 tapply(weightgain$weightgain, 
@@ -37,32 +41,32 @@ tapply(weightgain$weightgain,
 
 
 ###################################################
-### chunk number 3: ANOVA-weightgain-plot
+### code chunk number 3: ANOVA-weightgain-plot
 ###################################################
 plot.design(weightgain)
 
 
 ###################################################
-### chunk number 4: ANOVA-weightgain-aov
+### code chunk number 4: ANOVA-weightgain-aov
 ###################################################
 wg_aov <- aov(weightgain ~ source * type, data = weightgain)
 
 
 ###################################################
-### chunk number 5: ANOVA-weightgain-aov-summary
+### code chunk number 5: ANOVA-weightgain-aov-summary
 ###################################################
 summary(wg_aov)
 
 
 ###################################################
-### chunk number 6: ANOVA-weightgain-iplot eval=FALSE
+### code chunk number 6: ANOVA-weightgain-iplot (eval = FALSE)
 ###################################################
 ## interaction.plot(weightgain$type, weightgain$source, 
 ##                  weightgain$weightgain) 
 
 
 ###################################################
-### chunk number 7: ANOVA-weightgain-iplot-nice
+### code chunk number 7: ANOVA-weightgain-iplot-nice
 ###################################################
 interaction.plot(weightgain$type, weightgain$source, weightgain$weightgain,
 legend = FALSE)
@@ -71,87 +75,87 @@ legend(1.5, 95, legend = levels(weightgain$source), title = "weightgain$source",
 
 
 ###################################################
-### chunk number 8: ANOVA-weightgain-coef
+### code chunk number 8: ANOVA-weightgain-coef
 ###################################################
 coef(wg_aov)
 
 
 ###################################################
-### chunk number 9: ANOVA-weightgain-contrasts
+### code chunk number 9: ANOVA-weightgain-contrasts
 ###################################################
 options("contrasts")
 
 
 ###################################################
-### chunk number 10: ANOVA-weightgain-coef-sum
+### code chunk number 10: ANOVA-weightgain-coef-sum
 ###################################################
 coef(aov(weightgain ~ source + type + source:type, 
     data = weightgain, contrasts = list(source = contr.sum)))
 
 
 ###################################################
-### chunk number 11: ANOVA-foster
+### code chunk number 11: ANOVA-foster
 ###################################################
 data("foster", package = "HSAUR")
 
 
 ###################################################
-### chunk number 12: ANOVA-foster-plot
+### code chunk number 12: ANOVA-foster-plot
 ###################################################
 plot.design(foster)
 
 
 ###################################################
-### chunk number 13: ANOVA-foster-aov-one eval=FALSE
+### code chunk number 13: ANOVA-foster-aov-one (eval = FALSE)
 ###################################################
 ## summary(aov(weight ~ litgen * motgen, data = foster))
 
 
 ###################################################
-### chunk number 14: ANOVA-foster-aov-one
+### code chunk number 14: ANOVA-foster-aov-one
 ###################################################
 summary(aov(weight ~ litgen * motgen, data = foster))
 
 
 ###################################################
-### chunk number 15: ANOVA-foster-aov-two eval=FALSE
+### code chunk number 15: ANOVA-foster-aov-two (eval = FALSE)
 ###################################################
 ## summary(aov(weight ~ motgen * litgen, data = foster))
 
 
 ###################################################
-### chunk number 16: ANOVA-foster-aov-two
+### code chunk number 16: ANOVA-foster-aov-two
 ###################################################
 summary(aov(weight ~ motgen * litgen, data = foster))
 
 
 ###################################################
-### chunk number 17: ANOVA-weightgain-again eval=FALSE
+### code chunk number 17: ANOVA-weightgain-again (eval = FALSE)
 ###################################################
 ## summary(aov(weightgain ~ type * source, data = weightgain))
 
 
 ###################################################
-### chunk number 18: ANOVA-foster-aov
+### code chunk number 18: ANOVA-foster-aov
 ###################################################
 foster_aov <- aov(weight ~ litgen * motgen, data = foster)
 
 
 ###################################################
-### chunk number 19: ANOVA-foster-tukeyHSD
+### code chunk number 19: ANOVA-foster-tukeyHSD
 ###################################################
 foster_hsd <- TukeyHSD(foster_aov, "motgen")
 foster_hsd
 
 
 ###################################################
-### chunk number 20: ANOVA-foster-tukeyHSDplot
+### code chunk number 20: ANOVA-foster-tukeyHSDplot
 ###################################################
 plot(foster_hsd)
 
 
 ###################################################
-### chunk number 21: ANOVA-water-manova
+### code chunk number 21: ANOVA-water-manova
 ###################################################
 data("water", package = "HSAUR")
 summary(manova(cbind(hardness, mortality) ~ location, 
@@ -159,14 +163,14 @@ summary(manova(cbind(hardness, mortality) ~ location,
 
 
 ###################################################
-### chunk number 22: ANOVA-water-means
+### code chunk number 22: ANOVA-water-means
 ###################################################
 tapply(water$hardness, water$location, mean)
 tapply(water$mortality, water$location, mean)
 
 
 ###################################################
-### chunk number 23: ANOVA-skulls-data
+### code chunk number 23: ANOVA-skulls-data
 ###################################################
 data("skulls", package = "HSAUR")
 means <- aggregate(skulls[,c("mb", "bh", "bl", "nh")], 
@@ -175,7 +179,7 @@ means
 
 
 ###################################################
-### chunk number 24: ANOVA-skulls-fig
+### code chunk number 24: ANOVA-skulls-fig
 ###################################################
 pairs(means[,-1],
     panel = function(x, y) {
@@ -184,7 +188,7 @@ pairs(means[,-1],
 
 
 ###################################################
-### chunk number 25: ANOVA-skulls-manova
+### code chunk number 25: ANOVA-skulls-manova
 ###################################################
 skulls_manova <- manova(cbind(mb, bh, bl, nh) ~ epoch, 
                         data = skulls)
@@ -195,13 +199,13 @@ summary(skulls_manova, test = "Roy")
 
 
 ###################################################
-### chunk number 26: ANOVA-skulls-manova2
+### code chunk number 26: ANOVA-skulls-manova2
 ###################################################
 summary.aov(skulls_manova)
 
 
 ###################################################
-### chunk number 27: ANOVA-skulls-manova3
+### code chunk number 27: ANOVA-skulls-manova3
 ###################################################
 summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls, 
                subset = epoch %in% c("c4000BC", "c3300BC")))

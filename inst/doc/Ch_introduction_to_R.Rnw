@@ -1,7 +1,5 @@
 
 
-
-
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -186,6 +184,7 @@
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -1081,11 +1080,12 @@ plot(log(marketvalue) ~ log(sales), data = Forbes2000,
 \end{center}
 \end{figure}
 
-%%% R CMD build will receive an error from texi2dvi because of pdf version
-%%% 1.4 used here -- exclude this piece of code
 \begin{figure}
 \begin{center}
-\includegraphics{figures/marketvalue-sales}
+<<AItR-Forbes2000-marketvalue-sales-shading, echo = TRUE, fig = TRUE>>=
+plot(log(marketvalue) ~ log(sales), data = Forbes2000, 
+     col = rgb(0,0,0,0.1), pch = 16)
+@
 \caption{Scatterplot with transparent shading of points 
          of the logarithms of market value and sales.
 \label{AItR:scatter}}

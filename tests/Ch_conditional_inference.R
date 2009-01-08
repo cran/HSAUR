@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_conditional_inference.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,7 +31,7 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: CI-roomwidth-ties
+### code chunk number 2: CI-roomwidth-ties
 ###################################################
 data("roomwidth", package = "HSAUR")
 nobs <- table(roomwidth$unit)
@@ -36,7 +40,7 @@ library("coin")
 
 
 ###################################################
-### chunk number 3: CI-roomwidth-data
+### code chunk number 3: CI-roomwidth-data
 ###################################################
 data("roomwidth", package = "HSAUR")
 convert <- ifelse(roomwidth$unit == "feet", 1, 3.28)
@@ -46,14 +50,14 @@ y <- roomwidth$width * convert
 
 
 ###################################################
-### chunk number 4: CI-roomwidth-teststat
+### code chunk number 4: CI-roomwidth-teststat
 ###################################################
 T <- mean(y[feet]) - mean(y[metre])
 T
 
 
 ###################################################
-### chunk number 5: CI-roomwidth-permutation
+### code chunk number 5: CI-roomwidth-permutation
 ###################################################
 meandiffs <- double(9999)
 for (i in 1:length(meandiffs)) {   
@@ -63,7 +67,7 @@ for (i in 1:length(meandiffs)) {
 
 
 ###################################################
-### chunk number 6: CI-roomwidth-plot
+### code chunk number 6: CI-roomwidth-plot
 ###################################################
 hist(meandiffs)
 abline(v = T, lty = 2)  
@@ -71,20 +75,20 @@ abline(v = -T, lty = 2)
 
 
 ###################################################
-### chunk number 7: CI-roomwidth-pvalue
+### code chunk number 7: CI-roomwidth-pvalue
 ###################################################
 greater <- abs(meandiffs) > abs(T)
 mean(greater)
 
 
 ###################################################
-### chunk number 8: CI-roomwidth-pvalue
+### code chunk number 8: CI-roomwidth-pvalue
 ###################################################
 binom.test(sum(greater), length(greater))$conf.int
 
 
 ###################################################
-### chunk number 9: CI-roomwidth-coin
+### code chunk number 9: CI-roomwidth-coin
 ###################################################
 library("coin")
 independence_test(y ~ unit, data = roomwidth, 
@@ -92,41 +96,41 @@ independence_test(y ~ unit, data = roomwidth,
 
 
 ###################################################
-### chunk number 10: CI-roomwidth-coin
+### code chunk number 10: CI-roomwidth-coin
 ###################################################
 wilcox_test(y ~ unit, data = roomwidth, 
             distribution = exact())
 
 
 ###################################################
-### chunk number 11: CI-suicides-ft
+### code chunk number 11: CI-suicides-ft
 ###################################################
 data("suicides", package = "HSAUR")
 fisher.test(suicides)
 
 
 ###################################################
-### chunk number 12: CI-suicides-chisq
+### code chunk number 12: CI-suicides-chisq
 ###################################################
 ftp <- round(fisher.test(suicides)$p.value, 3)
 ctp <- round(chisq.test(suicides)$p.value, 3)
 
 
 ###################################################
-### chunk number 13: CI-Lanza-data
+### code chunk number 13: CI-Lanza-data
 ###################################################
 data("Lanza", package = "HSAUR")
 xtabs(~ treatment + classification + study, data = Lanza)
 
 
 ###################################################
-### chunk number 14: CI-width
+### code chunk number 14: CI-width
 ###################################################
 options(width = 65)
 
 
 ###################################################
-### chunk number 15: CI-Lanza-singleI
+### code chunk number 15: CI-Lanza-singleI
 ###################################################
 library("coin")
 cmh_test(classification ~ treatment, data = Lanza, 
@@ -135,7 +139,7 @@ cmh_test(classification ~ treatment, data = Lanza,
 
 
 ###################################################
-### chunk number 16: CI-Lanza-singleII
+### code chunk number 16: CI-Lanza-singleII
 ###################################################
 cmh_test(classification ~ treatment, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)),
@@ -143,7 +147,7 @@ cmh_test(classification ~ treatment, data = Lanza,
 
 
 ###################################################
-### chunk number 17: CI-Lanza-singleIIa
+### code chunk number 17: CI-Lanza-singleIIa
 ###################################################
 p <- cmh_test(classification ~ treatment, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)),
@@ -153,7 +157,7 @@ pvalue(p)
 
 
 ###################################################
-### chunk number 18: CI-Lanza-singleIII-IV
+### code chunk number 18: CI-Lanza-singleIII-IV
 ###################################################
 cmh_test(classification ~ treatment, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)),
@@ -164,14 +168,14 @@ cmh_test(classification ~ treatment, data = Lanza,
 
 
 ###################################################
-### chunk number 19: CI-Lanza-all
+### code chunk number 19: CI-Lanza-all
 ###################################################
 cmh_test(classification ~ treatment | study, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)))
 
 
 ###################################################
-### chunk number 20: CI-anomalies
+### code chunk number 20: CI-anomalies
 ###################################################
 anomalies <- c(235, 23, 3, 0, 41, 35, 8, 0, 
                20, 11, 11, 1, 2, 1, 3, 1)
@@ -181,13 +185,13 @@ anomalies
 
 
 ###################################################
-### chunk number 21: CI-anomalies-mh
+### code chunk number 21: CI-anomalies-mh
 ###################################################
 mh_test(anomalies)
 
 
 ###################################################
-### chunk number 22: CI-anomalies-ordered
+### code chunk number 22: CI-anomalies-ordered
 ###################################################
 mh_test(anomalies, scores = list(c(0, 1, 2, 3)))
 

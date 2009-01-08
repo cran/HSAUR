@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_meta_analysis.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,7 +31,7 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: MA-smoking-OR
+### code chunk number 2: MA-smoking-OR
 ###################################################
 library("rmeta")
 data("smoking", package = "HSAUR")
@@ -37,19 +41,19 @@ smokingOR <- meta.MH(smoking[["tt"]], smoking[["tc"]],
 
 
 ###################################################
-### chunk number 3: MA-smoking-OR-summary
+### code chunk number 3: MA-smoking-OR-summary
 ###################################################
 summary(smokingOR)
 
 
 ###################################################
-### chunk number 4: MA-smoking-OR-plot
+### code chunk number 4: MA-smoking-OR-plot
 ###################################################
 plot(smokingOR, ylab = "")
 
 
 ###################################################
-### chunk number 5: MA-smoking-random
+### code chunk number 5: MA-smoking-random
 ###################################################
 smokingDSL <- meta.DSL(smoking[["tt"]], smoking[["tc"]], 
                      smoking[["qt"]], smoking[["qc"]],
@@ -58,7 +62,7 @@ print(smokingDSL)
 
 
 ###################################################
-### chunk number 6: MA-BCG-odds
+### code chunk number 6: MA-BCG-odds
 ###################################################
 data("BCG", package = "HSAUR")
 BCG_OR <- meta.MH(BCG[["BCGVacc"]], BCG[["NoVacc"]],
@@ -70,19 +74,19 @@ BCG_DSL <- meta.DSL(BCG[["BCGVacc"]], BCG[["NoVacc"]],
 
 
 ###################################################
-### chunk number 7: MA-BCGOR-summary
+### code chunk number 7: MA-BCGOR-summary
 ###################################################
 summary(BCG_OR)
 
 
 ###################################################
-### chunk number 8: MA-BCGDSL-summary
+### code chunk number 8: MA-BCGDSL-summary
 ###################################################
 summary(BCG_DSL)
 
 
 ###################################################
-### chunk number 9: BCG-studyweights
+### code chunk number 9: BCG-studyweights
 ###################################################
 studyweights <- 1 / (BCG_DSL$tau2 + BCG_DSL$selogs^2)
 y <- BCG_DSL$logs
@@ -91,20 +95,20 @@ BCG_mod <- lm(y ~ Latitude + Year, data = BCG,
 
 
 ###################################################
-### chunk number 10: MA-mod-summary
+### code chunk number 10: MA-mod-summary
 ###################################################
 summary(BCG_mod)
 
 
 ###################################################
-### chunk number 11: BCG-Latitude-plot
+### code chunk number 11: BCG-Latitude-plot
 ###################################################
 plot(y ~ Latitude, data = BCG, ylab = "Estimated log-OR")
 abline(lm(y ~ Latitude, data = BCG, weights = studyweights))
 
 
 ###################################################
-### chunk number 12: MA-funnel-ex
+### code chunk number 12: MA-funnel-ex
 ###################################################
 set.seed(290875)
 sigma <- seq(from = 1/10, to = 1, length.out = 35)
@@ -117,7 +121,7 @@ plot(y[gr], 1/(sigma[gr]), xlim = range(y),
 
 
 ###################################################
-### chunk number 13: MA-smoking-funnel
+### code chunk number 13: MA-smoking-funnel
 ###################################################
 funnelplot(smokingDSL$logs, smokingDSL$selogs, 
            summ = smokingDSL$logDSL, xlim = c(-1.7, 1.7))

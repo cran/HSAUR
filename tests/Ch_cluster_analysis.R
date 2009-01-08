@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_cluster_analysis.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,7 +31,7 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: thissetup
+### code chunk number 2: thissetup
 ###################################################
 library("mclust")
 library("mvtnorm")
@@ -36,7 +40,7 @@ options(SweaveHooks = list(rmai = function() { par(mai = mai * c(1,1,1,2))}))
 
 
 ###################################################
-### chunk number 3: CA-planets-scatter
+### code chunk number 3: CA-planets-scatter
 ###################################################
 data("planets", package = "HSAUR")
 library("scatterplot3d")
@@ -47,7 +51,7 @@ scatterplot3d(log(planets$mass), log(planets$period),
 
 
 ###################################################
-### chunk number 4: CA-planet-ss
+### code chunk number 4: CA-planet-ss
 ###################################################
 rge <- apply(planets, 2, max) - apply(planets, 2, min)
 planet.dat <- sweep(planets, 2, rge, FUN = "/")
@@ -62,14 +66,14 @@ plot(1:10, wss, type = "b", xlab = "Number of groups",
 
 
 ###################################################
-### chunk number 5: CA-planets-kmeans3
+### code chunk number 5: CA-planets-kmeans3
 ###################################################
 planet_kmeans3 <- kmeans(planet.dat, centers = 3)
 table(planet_kmeans3$cluster)
 
 
 ###################################################
-### chunk number 6: CA-planets-ccent
+### code chunk number 6: CA-planets-ccent
 ###################################################
 ccent <- function(cl) {
     f <- function(i) colMeans(planets[cl == i,])
@@ -80,13 +84,13 @@ ccent <- function(cl) {
 
 
 ###################################################
-### chunk number 7: CA-planets--kmeans3-ccent
+### code chunk number 7: CA-planets--kmeans3-ccent
 ###################################################
 ccent(planet_kmeans3$cluster)
 
 
 ###################################################
-### chunk number 8: CA-planets-kmeans5
+### code chunk number 8: CA-planets-kmeans5
 ###################################################
 planet_kmeans5 <- kmeans(planet.dat, centers = 5)
 table(planet_kmeans5$cluster)
@@ -94,27 +98,27 @@ ccent(planet_kmeans5$cluster)
 
 
 ###################################################
-### chunk number 9: CA-planets-mclust
+### code chunk number 9: CA-planets-mclust
 ###################################################
 library("mclust")
 planet_mclust <- Mclust(planet.dat)
 
 
 ###################################################
-### chunk number 10: CA-planets-mclust-plot
+### code chunk number 10: CA-planets-mclust-plot
 ###################################################
 plot(planet_mclust, planet.dat, what = "BIC", col = "black", 
      ylab = "-BIC", ylim = c(0, 350))  
 
 
 ###################################################
-### chunk number 11: CA-planets-mclust-print
+### code chunk number 11: CA-planets-mclust-print
 ###################################################
 print(planet_mclust)
 
 
 ###################################################
-### chunk number 12: CA-planets-mclust-scatter
+### code chunk number 12: CA-planets-mclust-scatter
 ###################################################
 clPairs(planet.dat, 
     classification = planet_mclust$classification, 
@@ -122,7 +126,7 @@ clPairs(planet.dat,
 
 
 ###################################################
-### chunk number 13: CA-planets-mclust-scatterclust
+### code chunk number 13: CA-planets-mclust-scatterclust
 ###################################################
 scatterplot3d(log(planets$mass), log(planets$period), 
     log(planets$eccen), type = "h", angle = 55, 
@@ -131,7 +135,7 @@ scatterplot3d(log(planets$mass), log(planets$period),
 
 
 ###################################################
-### chunk number 14: CA-planets-mclust-mu
+### code chunk number 14: CA-planets-mclust-mu
 ###################################################
 table(planet_mclust$classification)
 ccent(planet_mclust$classification)

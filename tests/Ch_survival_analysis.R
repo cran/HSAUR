@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_survival_analysis.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,7 +31,7 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: SA-setup
+### code chunk number 2: SA-setup
 ###################################################
 x <- library("survival")
 x <- library("coin")
@@ -35,7 +39,7 @@ x <- library("party")
 
 
 ###################################################
-### chunk number 3: SA-glioma-KM
+### code chunk number 3: SA-glioma-KM
 ###################################################
 data("glioma", package = "coin")
 library("survival")
@@ -54,13 +58,13 @@ plot(survfit(Surv(time, event) ~ group, data = g4),
 
 
 ###################################################
-### chunk number 4: SA-glioma-logrank
+### code chunk number 4: SA-glioma-logrank
 ###################################################
 survdiff(Surv(time, event) ~ group, data = g3)
 
 
 ###################################################
-### chunk number 5: SA-glioma-exact
+### code chunk number 5: SA-glioma-exact
 ###################################################
 library("coin")
 surv_test(Surv(time, event) ~ group, data = g3, 
@@ -68,21 +72,21 @@ surv_test(Surv(time, event) ~ group, data = g3,
 
 
 ###################################################
-### chunk number 6: SA-glioma-g4
+### code chunk number 6: SA-glioma-g4
 ###################################################
 surv_test(Surv(time, event) ~ group, data = g4, 
                   distribution = "exact")
 
 
 ###################################################
-### chunk number 7: SA-glioma-hist
+### code chunk number 7: SA-glioma-hist
 ###################################################
 surv_test(Surv(time, event) ~ group | histology, data = glioma,
           distribution = approximate(B = 10000))
 
 
 ###################################################
-### chunk number 8: SA-GBSG2-plot
+### code chunk number 8: SA-GBSG2-plot
 ###################################################
 data("GBSG2", package = "ipred")
 plot(survfit(Surv(time, cens) ~ horTh, data = GBSG2), 
@@ -93,39 +97,39 @@ legend(250, 0.2, legend = c("yes", "no"), lty = c(2, 1),
 
 
 ###################################################
-### chunk number 9: SA-GBSG2-coxph
+### code chunk number 9: SA-GBSG2-coxph
 ###################################################
 GBSG2_coxph <- coxph(Surv(time, cens) ~ ., data = GBSG2)
 
 
 ###################################################
-### chunk number 10: SA-GBSG2-coxph-ci
+### code chunk number 10: SA-GBSG2-coxph-ci
 ###################################################
 ci <- confint(GBSG2_coxph)
 exp(cbind(coef(GBSG2_coxph), ci))["horThyes",]
 
 
 ###################################################
-### chunk number 11: GBSG2-coxph-summary
+### code chunk number 11: GBSG2-coxph-summary
 ###################################################
 summary(GBSG2_coxph)
 
 
 ###################################################
-### chunk number 12: SA-GBSG2-zph
+### code chunk number 12: SA-GBSG2-zph
 ###################################################
 GBSG2_zph <- cox.zph(GBSG2_coxph)
 GBSG2_zph
 
 
 ###################################################
-### chunk number 13: SA-GBSG2-zph-plot
+### code chunk number 13: SA-GBSG2-zph-plot
 ###################################################
 plot(GBSG2_zph, var = "age")
 
 
 ###################################################
-### chunk number 14: SA-GBSG2-Martingal
+### code chunk number 14: SA-GBSG2-Martingal
 ###################################################
 layout(matrix(1:3, ncol = 3))
 res <- residuals(GBSG2_coxph)
@@ -141,13 +145,13 @@ abline(h = 0, lty = 3)
 
 
 ###################################################
-### chunk number 15: SA-GBSG2-ctree
+### code chunk number 15: SA-GBSG2-ctree
 ###################################################
 GBSG2_ctree <- ctree(Surv(time, cens) ~ ., data = GBSG2)
 
 
 ###################################################
-### chunk number 16: SA-GBSG2-ctree-plot
+### code chunk number 16: SA-GBSG2-ctree-plot
 ###################################################
 plot(GBSG2_ctree)
 

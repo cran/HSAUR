@@ -1,8 +1,6 @@
 
 
 
-
-
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -187,6 +185,7 @@
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -243,7 +242,6 @@ to specify the structure of the working correlation matrix. Here
 we will fit an independence structure and then an exchangeable 
 structure. The \R{} code for fitting generalised estimation equations to the
 \Robject{BtheB\_long} data (as constructed in 
-
 Chapter 10,
 
 

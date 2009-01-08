@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_analysing_longitudinal_dataII.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,13 +31,13 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: ALDII-gee
+### code chunk number 2: ALDII-gee
 ###################################################
 library("gee")
 
 
 ###################################################
-### chunk number 3: ALDII-BtheB-data
+### code chunk number 3: ALDII-BtheB-data
 ###################################################
 data("BtheB", package = "HSAUR")
 BtheB$subject <- factor(rownames(BtheB))
@@ -45,7 +49,7 @@ BtheB_long$time <- rep(c(2, 4, 6, 8), rep(nobs, 4))
 
 
 ###################################################
-### chunk number 4: ALDII-BtheB-geefit-indep
+### code chunk number 4: ALDII-BtheB-geefit-indep
 ###################################################
 osub <- order(as.integer(BtheB_long$subject))
 BtheB_long <- BtheB_long[osub,]
@@ -55,7 +59,7 @@ btb_gee <- gee(bdi ~ bdi.pre + treatment + length + drug,
 
 
 ###################################################
-### chunk number 5: ALDII-BtheB-geefit-ex
+### code chunk number 5: ALDII-BtheB-geefit-ex
 ###################################################
 btb_gee1 <- gee(bdi ~ bdi.pre + treatment + length + drug, 
     data = BtheB_long, id = subject, family = gaussian,
@@ -63,19 +67,19 @@ btb_gee1 <- gee(bdi ~ bdi.pre + treatment + length + drug,
 
 
 ###################################################
-### chunk number 6: ALDII-BtheB-geesummary
+### code chunk number 6: ALDII-BtheB-geesummary
 ###################################################
 summary(btb_gee)
 
 
 ###################################################
-### chunk number 7: ALDII-BtheB-gee1summary
+### code chunk number 7: ALDII-BtheB-gee1summary
 ###################################################
 summary(btb_gee1)
 
 
 ###################################################
-### chunk number 8: ALDII-respiratory-data
+### code chunk number 8: ALDII-respiratory-data
 ###################################################
 data("respiratory", package = "HSAUR")
 resp <- subset(respiratory, month > "0")
@@ -84,7 +88,7 @@ resp$nstat <- as.numeric(resp$status == "good")
 
 
 ###################################################
-### chunk number 9: ALDII-respiratory-fit
+### code chunk number 9: ALDII-respiratory-fit
 ###################################################
 resp_glm <- glm(status ~ centre + treatment + sex + baseline + 
     age, data = resp, family = "binomial")
@@ -97,25 +101,25 @@ resp_gee2 <- gee(nstat ~ centre + treatment + sex + baseline +
 
 
 ###################################################
-### chunk number 10: ALDII-resp-glm-summary
+### code chunk number 10: ALDII-resp-glm-summary
 ###################################################
 summary(resp_glm)
 
 
 ###################################################
-### chunk number 11: ALDII-resp-gee1summary
+### code chunk number 11: ALDII-resp-gee1summary
 ###################################################
 summary(resp_gee1)
 
 
 ###################################################
-### chunk number 12: ALDII-resp-gee2-summary
+### code chunk number 12: ALDII-resp-gee2-summary
 ###################################################
 summary(resp_gee2)
 
 
 ###################################################
-### chunk number 13: ALDII-resp-confint
+### code chunk number 13: ALDII-resp-confint
 ###################################################
 se <- summary(resp_gee2)$coefficients["treatmenttreatment",
                                       "Robust S.E."]
@@ -124,14 +128,14 @@ coef(resp_gee2)["treatmenttreatment"] +
 
 
 ###################################################
-### chunk number 14: ALDII-resp-confint-exp
+### code chunk number 14: ALDII-resp-confint-exp
 ###################################################
 exp(coef(resp_gee2)["treatmenttreatment"] + 
     c(-1, 1) * se * qnorm(0.975))
 
 
 ###################################################
-### chunk number 15: ALDII-epilepsy
+### code chunk number 15: ALDII-epilepsy
 ###################################################
 data("epilepsy", package = "HSAUR")
 itp <- interaction(epilepsy$treatment, epilepsy$period)
@@ -140,7 +144,7 @@ tapply(epilepsy$seizure.rate, itp, var)
 
 
 ###################################################
-### chunk number 16: ALDII-plot1
+### code chunk number 16: ALDII-plot1
 ###################################################
 layout(matrix(1:2, nrow = 1))
 ylim <- range(epilepsy$seizure.rate)
@@ -155,7 +159,7 @@ boxplot(seizure.rate ~ period, data = progabide,
 
 
 ###################################################
-### chunk number 17: ALDII-plot2
+### code chunk number 17: ALDII-plot2
 ###################################################
 layout(matrix(1:2, nrow = 1))
 ylim <- range(log(epilepsy$seizure.rate + 1))
@@ -168,7 +172,7 @@ boxplot(log(seizure.rate + 1) ~ period, data = progabide,
 
 
 ###################################################
-### chunk number 18: ALDII-epilepsy-gee
+### code chunk number 18: ALDII-epilepsy-gee
 ###################################################
 per <- rep(log(2),nrow(epilepsy))
 epilepsy$period <- as.numeric(epilepsy$period)
@@ -186,25 +190,25 @@ epilepsy_gee3 <- gee(fm, data = epilepsy, family = "poisson",
 
 
 ###################################################
-### chunk number 19: ALDII-espilepsy-glm-summary
+### code chunk number 19: ALDII-espilepsy-glm-summary
 ###################################################
 summary(epilepsy_glm)
 
 
 ###################################################
-### chunk number 20: ALDII-espilepsy-gee1-summary
+### code chunk number 20: ALDII-espilepsy-gee1-summary
 ###################################################
 summary(epilepsy_gee1)
 
 
 ###################################################
-### chunk number 21: ALDII-espilepsy-gee2-summary
+### code chunk number 21: ALDII-espilepsy-gee2-summary
 ###################################################
 summary(epilepsy_gee2)
 
 
 ###################################################
-### chunk number 22: ALDII-espilepsy-gee3-summary
+### code chunk number 22: ALDII-espilepsy-gee3-summary
 ###################################################
 summary(epilepsy_gee3)
 

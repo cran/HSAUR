@@ -1,8 +1,12 @@
+### R code from vignette source 'Ch_simple_inference.Rnw'
+### Encoding: UTF-8
+
 ###################################################
-### chunk number 1: setup
+### code chunk number 1: setup
 ###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
+if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
     width = 63, # digits = 4, 
@@ -27,32 +31,32 @@ ch <- function(x, book = TRUE) {
 
 
 ###################################################
-### chunk number 2: SI-setup
+### code chunk number 2: SI-setup
 ###################################################
 library("vcd")
 
 
 ###################################################
-### chunk number 3: SI-roomwidth-data
+### code chunk number 3: SI-roomwidth-data
 ###################################################
 data("roomwidth", package = "HSAUR")
 
 
 ###################################################
-### chunk number 4: SI-roomwidth-convert
+### code chunk number 4: SI-roomwidth-convert
 ###################################################
 convert <- ifelse(roomwidth$unit == "feet", 1, 3.28)
 
 
 ###################################################
-### chunk number 5: SI-roomwidth-summary
+### code chunk number 5: SI-roomwidth-summary
 ###################################################
 tapply(roomwidth$width * convert, roomwidth$unit, summary)
 tapply(roomwidth$width * convert, roomwidth$unit, sd)
 
 
 ###################################################
-### chunk number 6: SI-roomwidth-boxplot
+### code chunk number 6: SI-roomwidth-boxplot
 ###################################################
 layout(matrix(c(1,2,1,3), nrow = 2, ncol = 2, byrow = FALSE))
 boxplot(I(width * convert) ~ unit, data = roomwidth,
@@ -69,54 +73,54 @@ qqline(roomwidth$width[!feet])
 
 
 ###################################################
-### chunk number 7: SI-roomwidth-formula
+### code chunk number 7: SI-roomwidth-formula
 ###################################################
 I(width * convert) ~ unit
 
 
 ###################################################
-### chunk number 8: SI-roomwidth-tt-T-hide
+### code chunk number 8: SI-roomwidth-tt-T-hide
 ###################################################
 tt <- t.test(I(width * convert) ~ unit, data = roomwidth, 
              var.equal = TRUE)
 
 
 ###################################################
-### chunk number 9: SI-roomwidth-tt-T
+### code chunk number 9: SI-roomwidth-tt-T
 ###################################################
 t.test(I(width * convert) ~ unit, data = roomwidth, 
        var.equal = TRUE)
 
 
 ###################################################
-### chunk number 10: SI-roomwidth-tt-F
+### code chunk number 10: SI-roomwidth-tt-F
 ###################################################
 t.test(I(width * convert) ~ unit, data = roomwidth, 
        var.equal = FALSE)
 
 
 ###################################################
-### chunk number 11: SI-roomwidth-wt
+### code chunk number 11: SI-roomwidth-wt
 ###################################################
 wilcox.test(I(width * convert) ~ unit, data = roomwidth, 
             conf.int = TRUE)
 
 
 ###################################################
-### chunk number 12: SI-roomwidth-wt-hide
+### code chunk number 12: SI-roomwidth-wt-hide
 ###################################################
 pwt <- round(wilcox.test(I(width * convert) ~ unit, data =
              roomwidth)$p.value, 3)
 
 
 ###################################################
-### chunk number 13: SI-waves-data
+### code chunk number 13: SI-waves-data
 ###################################################
 data("waves", package = "HSAUR")
 
 
 ###################################################
-### chunk number 14: SI-wavese-boxplot
+### code chunk number 14: SI-wavese-boxplot
 ###################################################
 mooringdiff <- waves$method1 - waves$method2
 layout(matrix(1:2, ncol = 2))
@@ -128,31 +132,31 @@ qqline(mooringdiff)
 
 
 ###################################################
-### chunk number 15: SI-waves-tt
+### code chunk number 15: SI-waves-tt
 ###################################################
 t.test(mooringdiff)
 
 
 ###################################################
-### chunk number 16: SI-waves-wt
+### code chunk number 16: SI-waves-wt
 ###################################################
 pwt <- round(wilcox.test(mooringdiff)$p.value, 3)
 
 
 ###################################################
-### chunk number 17: SI-waves-wt
+### code chunk number 17: SI-waves-wt
 ###################################################
 wilcox.test(mooringdiff)
 
 
 ###################################################
-### chunk number 18: SI-water-data
+### code chunk number 18: SI-water-data
 ###################################################
 data("water", package = "HSAUR")
 
 
 ###################################################
-### chunk number 19: SI-water-plot
+### code chunk number 19: SI-water-plot
 ###################################################
 nf <- layout(matrix(c(2, 0, 1, 3), 2, 2, byrow = TRUE),
              c(2, 1), c(1, 2), TRUE)
@@ -166,64 +170,64 @@ boxplot(water$mortality)
 
 
 ###################################################
-### chunk number 20: SI-water-cor
+### code chunk number 20: SI-water-cor
 ###################################################
 cor.test(~ mortality + hardness, data = water)
 
 
 ###################################################
-### chunk number 21: SI-water-cor
+### code chunk number 21: SI-water-cor
 ###################################################
 cr <- round(cor.test(~ mortality + hardness, data = water)$estimate, 3)
 
 
 ###################################################
-### chunk number 22: SI-pistonrings-chisq-hide
+### code chunk number 22: SI-pistonrings-chisq-hide
 ###################################################
 chisqt <- chisq.test(pistonrings)
 
 
 ###################################################
-### chunk number 23: SI-pistonrings-chisq
+### code chunk number 23: SI-pistonrings-chisq
 ###################################################
 data("pistonrings", package = "HSAUR")
 chisq.test(pistonrings)
 
 
 ###################################################
-### chunk number 24: SI-pistonrings-resid
+### code chunk number 24: SI-pistonrings-resid
 ###################################################
 chisq.test(pistonrings)$residuals
 
 
 ###################################################
-### chunk number 25: SI-assoc-plot
+### code chunk number 25: SI-assoc-plot
 ###################################################
 library("vcd")
 assoc(pistonrings)
 
 
 ###################################################
-### chunk number 26: SI-rearrests-data
+### code chunk number 26: SI-rearrests-data
 ###################################################
 data("rearrests", package = "HSAUR")
 rearrests
 
 
 ###################################################
-### chunk number 27: SI-rearrests-mcnemar
+### code chunk number 27: SI-rearrests-mcnemar
 ###################################################
 mcs <- round(mcnemar.test(rearrests, correct = FALSE)$statistic, 3)
 
 
 ###################################################
-### chunk number 28: SI-arrests-mcnemar
+### code chunk number 28: SI-arrests-mcnemar
 ###################################################
 mcnemar.test(rearrests, correct = FALSE)
 
 
 ###################################################
-### chunk number 29: SI-arrests-binom
+### code chunk number 29: SI-arrests-binom
 ###################################################
 binom.test(rearrests[2], n = sum(rearrests[c(2,3)]))
 
