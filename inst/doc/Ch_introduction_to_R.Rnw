@@ -367,7 +367,7 @@ for (i in 1:(nrows-1)) {
     cat("\\\\ \n", file = "tables/rec.tex", append = TRUE)
 }
 rest <- pkgs[((nrows-1) * colwidth + 1):length(pkgs)]
-cat(paste(rest, " & "), file = "tables/rec.tex", append = TRUE)
+cat(paste(rest, collapse = " & "), file = "tables/rec.tex", append = TRUE)
 cat(paste(rep(" ", colwidth - length(rest)), collapse = " & "), "\\\\ \n",
     file = "tables/rec.tex", append = TRUE)
 cat("\\end{tabular}\n", file = "tables/rec.tex", append = TRUE)
