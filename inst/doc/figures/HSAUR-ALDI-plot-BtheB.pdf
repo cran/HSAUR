@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172357)
-/ModDate (D:20080229172357)
+/CreationDate (D:20090109111123)
+/ModDate (D:20090109111123)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,23 +17,15 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
@@ -143,9 +135,17 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 72.13 47.52 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 95.60 47.52 Tm (2) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 119.06 47.52 Tm (4) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 142.53 47.52 Tm (6) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 166.00 47.52 Tm (8) Tj
 ET
 59.04 79.20 m 59.04 215.05 l S
@@ -157,17 +157,31 @@ ET
 59.04 215.05 m 51.84 215.05 l S
 BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 75.86 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 99.70 Tm (10) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 126.87 Tm (20) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 154.04 Tm (30) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 181.21 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 208.38 Tm (50) Tj
 ET
 Q q 0.00 0.00 216.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
-/F3 1 Tf 14.00 0.00 -0.00 14.00 67.72 253.45 Tm (Treated as usual) Tj
+/F3 1 Tf 14.00 0.00 -0.00 14.00 67.72 253.45 Tm [(T) 80 (reated as usual)] TJ
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 77.39 18.72 Tm (Time \(in months\)) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 141.20 Tm (BDI) Tj
 ET
 Q q
@@ -242,9 +256,9 @@ S
 S
 BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 335.44 220.60 Tm (l) Tj 0 Tr
+ET
 2.25 w
 [] 0 d
-ET
 352.48 100.94 m 371.25 100.94 l S
 0.75 w
 [ 3.00 5.00] 0 d
@@ -262,10 +276,12 @@ ET
 S
 BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 358.90 155.40 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 358.90 158.11 Tm (l) Tj 0 Tr
+ET
 2.25 w
 [] 0 d
-ET
 375.95 103.65 m 394.72 103.65 l S
 0.75 w
 [ 3.00 5.00] 0 d
@@ -297,9 +313,17 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 288.13 47.52 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 311.60 47.52 Tm (2) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 335.06 47.52 Tm (4) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 358.53 47.52 Tm (6) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 382.00 47.52 Tm (8) Tj
 ET
 275.04 79.20 m 275.04 215.05 l S
@@ -311,17 +335,31 @@ ET
 275.04 215.05 m 267.84 215.05 l S
 BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 75.86 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 99.70 Tm (10) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 126.87 Tm (20) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 154.04 Tm (30) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 181.21 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 208.38 Tm (50) Tj
 ET
 Q q 216.00 0.00 216.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F3 1 Tf 14.00 0.00 -0.00 14.00 289.78 253.45 Tm (Beat the Blues) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 293.39 18.72 Tm (Time \(in months\)) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 228.96 141.20 Tm (BDI) Tj
 ET
 Q q
@@ -340,14 +378,14 @@ S
 Q
 endstream
 endobj
-8 0 obj
-6350
+7 0 obj
+6496
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 288]
@@ -356,11 +394,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R >>
+/Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -369,34 +407,42 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
+9 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F1
+/BaseFont /ZapfDingbats
+>>
+endobj
 10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 11 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F3
 /BaseFont /Helvetica-Bold
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
 0 12
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000006798 00000 n 
-0000006881 00000 n 
+0000006861 00000 n 
+0000006944 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000006778 00000 n 
-0000006985 00000 n 
-0000007242 00000 n 
-0000007339 00000 n 
+0000000292 00000 n 
+0000006841 00000 n 
+0000007048 00000 n 
+0000007305 00000 n 
+0000007388 00000 n 
+0000007485 00000 n 
 trailer
 <<
 /Size 12
@@ -404,5 +450,5 @@ trailer
 /Root 2 0 R
 >>
 startxref
-7441
+7587
 %%EOF

@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172358)
-/ModDate (D:20080229172358)
+/CreationDate (D:20090109111125)
+/ModDate (D:20090109111125)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,23 +17,15 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
@@ -55,10 +47,20 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 86.72 47.52 Tm (-15) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 143.96 47.52 Tm (-10) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 204.54 47.52 Tm (-5) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 265.29 47.52 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 322.53 47.52 Tm (5) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 376.44 47.52 Tm (10) Tj
 ET
 59.04 84.53 m 59.04 361.87 l S
@@ -70,10 +72,20 @@ ET
 59.04 361.87 m 51.84 361.87 l S
 BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 76.36 Tm (J-I) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 129.49 Tm (J-B) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 186.29 Tm (I-B) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 240.43 Tm (J-A) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 297.23 Tm (I-A) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 350.36 Tm (B-A) Tj
 ET
 Q q 59.04 73.44 342.72 299.52 re W n
@@ -122,9 +134,13 @@ Q q 59.04 73.44 342.72 299.52 re W n
 Q q
 BT
 0.000 0.000 0.000 rg
-/F3 1 Tf 14.00 0.00 -0.00 14.00 118.75 406.09 Tm (95% family-wise confidence level) Tj
+/F3 1 Tf 14.00 0.00 -0.00 14.00 118.75 406.09 Tm [(95% famil) 15 (y-wise confidence le) 15 (vel)] TJ
+ET
+BT
 /F3 1 Tf 14.00 0.00 -0.00 14.00 230.40 388.81 Tm () Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 132.20 18.72 Tm (Differences in mean levels of motgen) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 132.20 18.72 Tm [(Diff) 30 (erences in mean le) 30 (v) 25 (els of motgen)] TJ
 ET
 Q q
 0.000 0.000 0.000 RG
@@ -142,14 +158,14 @@ S
 Q
 endstream
 endobj
-8 0 obj
-2789
+7 0 obj
+2895
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 432]
@@ -158,11 +174,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R >>
+/Font <</F2 9 0 R /F3 10 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -171,40 +187,39 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj <<
+9 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
-11 0 obj <<
+10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F3
 /BaseFont /Helvetica-Bold
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
-0 12
+0 11
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000003237 00000 n 
-0000003320 00000 n 
+0000003260 00000 n 
+0000003343 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000003217 00000 n 
-0000003424 00000 n 
-0000003681 00000 n 
-0000003778 00000 n 
+0000000292 00000 n 
+0000003240 00000 n 
+0000003435 00000 n 
+0000003692 00000 n 
+0000003788 00000 n 
 trailer
 <<
-/Size 12
+/Size 11
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-3880
+3890
 %%EOF

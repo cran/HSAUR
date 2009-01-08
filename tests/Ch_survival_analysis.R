@@ -5,18 +5,16 @@ rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
-    width = 63, # digits = 4,
-    SweaveHooks = list(leftpar = function()
+    width = 63, # digits = 4, 
+    SweaveHooks = list(leftpar = function() 
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
-### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
-### </FIXME>
 book <- TRUE
-refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
-                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM", 
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA", 
                 "MDS", "CA"), 1:15)
 ch <- function(x, book = TRUE) {
     ch <- refs[which(refs[,1] == x),]
@@ -43,15 +41,15 @@ data("glioma", package = "coin")
 library("survival")
 layout(matrix(1:2, ncol = 2))
 g3 <- subset(glioma, histology == "Grade3")
-plot(survfit(Surv(time, event) ~ group, data = g3),
-     main = "Grade III Glioma", lty = c(2, 1),
+plot(survfit(Surv(time, event) ~ group, data = g3), 
+     main = "Grade III Glioma", lty = c(2, 1), 
      ylab = "Probability", xlab = "Survival Time in Month",
      legend.bty = "n", legend.text = c("Control", "Treated")
 )
 g4 <- subset(glioma, histology == "GBM")
-plot(survfit(Surv(time, event) ~ group, data = g4),
-     main = "Grade IV Glioma", ylab = "Probability",
-     lty = c(2, 1), xlab = "Survival Time in Month",
+plot(survfit(Surv(time, event) ~ group, data = g4), 
+     main = "Grade IV Glioma", ylab = "Probability", 
+     lty = c(2, 1), xlab = "Survival Time in Month", 
      xlim = c(0, max(glioma$time) * 1.05))
 
 
@@ -65,14 +63,14 @@ survdiff(Surv(time, event) ~ group, data = g3)
 ### chunk number 5: SA-glioma-exact
 ###################################################
 library("coin")
-surv_test(Surv(time, event) ~ group, data = g3,
+surv_test(Surv(time, event) ~ group, data = g3, 
           distribution = "exact")
 
 
 ###################################################
 ### chunk number 6: SA-glioma-g4
 ###################################################
-surv_test(Surv(time, event) ~ group, data = g4,
+surv_test(Surv(time, event) ~ group, data = g4, 
                   distribution = "exact")
 
 
@@ -87,10 +85,10 @@ surv_test(Surv(time, event) ~ group | histology, data = glioma,
 ### chunk number 8: SA-GBSG2-plot
 ###################################################
 data("GBSG2", package = "ipred")
-plot(survfit(Surv(time, cens) ~ horTh, data = GBSG2),
-     lty = 1:2, mark.time = FALSE, ylab = "Probability",
+plot(survfit(Surv(time, cens) ~ horTh, data = GBSG2), 
+     lty = 1:2, mark.time = FALSE,  ylab = "Probability", 
      xlab = "Survival Time in Days")
-legend(250, 0.2, legend = c("yes", "no"), lty = c(2, 1),
+legend(250, 0.2, legend = c("yes", "no"), lty = c(2, 1), 
        title = "Hormonal Therapy", bty = "n")
 
 
@@ -131,13 +129,13 @@ plot(GBSG2_zph, var = "age")
 ###################################################
 layout(matrix(1:3, ncol = 3))
 res <- residuals(GBSG2_coxph)
-plot(res ~ age, data = GBSG2, ylim = c(-2.5, 1.5),
+plot(res ~ age, data = GBSG2, ylim = c(-2.5, 1.5), 
      pch = ".", ylab = "Martingale Residuals")
 abline(h = 0, lty = 3)
-plot(res ~ pnodes, data = GBSG2, ylim = c(-2.5, 1.5),
+plot(res ~ pnodes, data = GBSG2, ylim = c(-2.5, 1.5), 
      pch = ".", ylab = "")
 abline(h = 0, lty = 3)
-plot(res ~ log(progrec), data = GBSG2, ylim = c(-2.5, 1.5),
+plot(res ~ log(progrec), data = GBSG2, ylim = c(-2.5, 1.5), 
      pch = ".", ylab = "")
 abline(h = 0, lty = 3)
 

@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172400)
-/ModDate (D:20080229172400)
+/CreationDate (D:20090109111127)
+/ModDate (D:20090109111127)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,23 +17,15 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
@@ -81,27 +73,61 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 10.00 0.00 -0.00 10.00 51.63 69.12 Tm (-3) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 92.74 69.12 Tm (-2) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 133.85 69.12 Tm (-1) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 176.49 69.12 Tm ( 0) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 217.60 69.12 Tm ( 1) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 258.72 69.12 Tm ( 2) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 299.83 69.12 Tm ( 3) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 48.96 78.83 Tm (-5) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 48.96 117.68 Tm (-4) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 48.96 156.53 Tm (-3) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 48.96 195.38 Tm (-2) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 48.96 234.23 Tm (-1) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 48.96 274.60 Tm ( 0) Tj
 ET
 Q q 44.64 73.44 342.72 299.52 re W n
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 10.00 0.00 -0.00 10.00 318.40 82.14 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 329.59 98.76 Tm (2) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 340.78 115.38 Tm (4) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 351.97 132.00 Tm (6) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 363.16 148.61 Tm (8) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 374.35 165.23 Tm (10) Tj
 ET
 0.000 0.000 0.000 RG
@@ -131,7 +157,7 @@ S
 Q q
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 0.00 12.00 -12.00 0.00 406.08 116.18 Tm (log\(planets$period\)) Tj
+/F2 1 Tf 0.00 12.00 -12.00 0.00 406.08 116.18 Tm [(log\(planets$per) -15 (iod\))] TJ
 ET
 Q q 44.64 73.44 342.72 299.52 re W n
 0.000 0.000 0.000 RG
@@ -269,100 +295,286 @@ S
 142.43 189.74 m 142.43 93.62 l S
 0.000 0.000 0.000 rg
 BT
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 282.74 276.34 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 317.22 320.26 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 210.41 252.05 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 216.27 321.41 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 303.85 304.41 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 320.42 298.18 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 259.21 273.45 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 316.70 321.23 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 220.48 303.50 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 279.21 297.84 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 335.69 280.74 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 304.28 278.76 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 301.15 308.71 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 304.32 292.26 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 236.69 274.11 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 226.44 259.54 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 277.73 290.31 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 282.03 309.57 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 275.63 318.43 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 319.50 296.53 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 212.74 291.57 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 93.83 265.67 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 267.74 309.06 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 266.70 275.53 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 255.15 224.99 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 290.96 158.97 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 277.91 302.14 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 239.02 270.21 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 215.18 282.99 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 206.64 206.97 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 236.41 316.71 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 242.98 312.54 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 307.38 295.40 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 252.07 220.41 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 280.89 315.69 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 301.67 315.31 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 213.32 303.06 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 212.07 238.38 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 217.14 270.72 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 236.78 264.49 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 231.91 292.20 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 220.55 295.65 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 226.00 174.51 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 251.17 265.62 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 231.65 301.42 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 231.83 286.30 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 219.94 290.18 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 282.54 222.30 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 265.31 284.92 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 210.27 286.95 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 242.98 265.06 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 258.30 265.52 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 208.92 284.95 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 227.62 266.94 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 326.40 289.38 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 289.71 308.40 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 251.52 257.56 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 237.91 266.32 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 252.46 280.58 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 238.20 275.05 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 202.67 297.12 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 252.54 285.00 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 210.94 272.58 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 255.04 290.78 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 206.48 275.15 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 286.73 280.13 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 260.05 312.43 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 300.93 269.93 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 139.67 262.69 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 277.21 230.65 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 196.24 231.56 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 226.88 220.89 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 284.35 285.20 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 217.79 292.15 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 134.75 265.77 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 197.90 203.48 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 172.92 253.61 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 164.85 255.13 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 246.02 121.39 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 250.13 179.48 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 189.74 162.27 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 181.85 247.42 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 153.40 268.95 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 191.79 174.54 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 299.28 244.02 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 198.90 214.42 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 127.67 193.49 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 214.37 217.74 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 170.41 136.92 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 154.52 170.18 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 242.81 134.16 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 158.70 106.67 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 126.90 133.40 Tm (l) Tj 0 Tr
-/F1 1 Tf 2 Tr 7.48 0 0 7.48 139.47 187.15 Tm (l) Tj 0 Tr
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 282.74 276.34 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 317.22 320.26 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 210.41 252.05 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 216.27 321.41 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 303.85 304.41 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 320.42 298.18 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 259.21 273.45 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 316.70 321.23 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 220.48 303.50 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 279.21 297.84 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 335.69 280.74 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 304.28 278.76 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 301.15 308.71 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 304.32 292.26 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 236.69 274.11 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 226.44 259.54 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 277.73 290.31 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 282.03 309.57 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 275.63 318.43 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 319.50 296.53 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 212.74 291.57 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 93.83 265.67 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 267.74 309.06 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 266.70 275.53 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 255.15 224.99 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 290.96 158.97 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 277.91 302.14 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 239.02 270.21 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 215.18 282.99 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 206.64 206.97 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 236.41 316.71 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 242.98 312.54 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 307.38 295.40 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 252.07 220.41 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 280.89 315.69 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 301.67 315.31 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 213.32 303.06 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 212.07 238.38 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 217.14 270.72 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 236.78 264.49 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 231.91 292.20 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 220.55 295.65 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 226.00 174.51 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 251.17 265.62 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 231.65 301.42 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 231.83 286.30 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 219.94 290.18 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 282.54 222.30 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 265.31 284.92 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 210.27 286.95 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 242.98 265.06 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 258.30 265.52 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 208.92 284.95 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 227.62 266.94 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 326.40 289.38 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 289.71 308.40 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 251.52 257.56 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 237.91 266.32 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 252.46 280.58 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 238.20 275.05 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 202.67 297.12 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 252.54 285.00 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 210.94 272.58 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 255.04 290.78 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 206.48 275.15 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 286.73 280.13 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 260.05 312.43 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 300.93 269.93 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 139.67 262.69 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 277.21 230.65 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 196.24 231.56 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 226.88 220.89 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 284.35 285.20 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 217.79 292.15 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 134.75 265.77 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 197.90 203.48 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 172.92 253.61 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 164.85 255.13 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 246.02 121.39 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 250.13 179.48 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 189.74 162.27 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 181.85 247.42 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 153.40 268.95 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 191.79 174.54 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 299.28 244.02 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 198.90 214.42 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 127.67 193.49 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 214.37 217.74 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 170.41 136.92 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 154.52 170.18 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 242.81 134.16 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 158.70 106.67 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 126.90 133.40 Tm (l) Tj 0 Tr
+ET
+BT
+/F1 1 Tf 0 Tr 7.48 0 0 7.48 139.47 187.15 Tm (l) Tj 0 Tr
 ET
 57.33 278.77 m
 304.00 278.77 l
@@ -376,14 +588,14 @@ S
 Q
 endstream
 endobj
-8 0 obj
-11904
+7 0 obj
+12573
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 432]
@@ -392,11 +604,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R >>
+/Font << /F1 9 0 R /F2 10 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -405,26 +617,34 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
+9 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F1
+/BaseFont /ZapfDingbats
+>>
+endobj
 10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
 0 11
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000012353 00000 n 
-0000012436 00000 n 
+0000012939 00000 n 
+0000013022 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000012332 00000 n 
-0000012529 00000 n 
-0000012786 00000 n 
+0000000292 00000 n 
+0000012918 00000 n 
+0000013115 00000 n 
+0000013372 00000 n 
+0000013455 00000 n 
 trailer
 <<
 /Size 11
@@ -432,5 +652,5 @@ trailer
 /Root 2 0 R
 >>
 startxref
-12883
+13552
 %%EOF

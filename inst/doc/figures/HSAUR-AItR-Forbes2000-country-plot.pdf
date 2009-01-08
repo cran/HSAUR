@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172420)
-/ModDate (D:20080229172420)
+/CreationDate (D:20090109111155)
+/ModDate (D:20090109111155)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,23 +17,15 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
@@ -112,11 +104,23 @@ S
 S
 BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 346.44 358.32 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 346.44 359.27 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 346.44 333.47 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 346.44 345.79 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 346.44 330.32 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 346.44 358.55 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 7.48 0 0 7.48 346.44 81.94 Tm (l) Tj 0 Tr
 ET
 Q q
@@ -133,9 +137,15 @@ Q q
 349.40 73.44 m 349.40 66.24 l S
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 12.00 0.00 -0.00 12.00 86.67 47.52 Tm (Germany) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 86.67 47.52 Tm [(Ger) -25 (man) 15 (y)] TJ
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 177.73 47.52 Tm (India) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 252.60 47.52 Tm (Turkey) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 252.60 47.52 Tm [(T) 120 (ur) -15 (k) 20 (e) 20 (y)] TJ
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 306.72 47.52 Tm (United Kingdom) Tj
 ET
 59.04 89.10 m 59.04 316.99 l S
@@ -145,14 +155,20 @@ ET
 59.04 316.99 m 51.84 316.99 l S
 BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 82.26 Tm (-2) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 161.73 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 237.69 Tm (2) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 313.65 Tm (4) Tj
 ET
 Q q
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 178.70 Tm (log\(marketvalue\)) Tj
+/F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 178.70 Tm [(log\(mar) -15 (k) 20 (etv) 25 (alue\))] TJ
 ET
 Q q
 0.000 0.000 0.000 RG
@@ -170,14 +186,14 @@ S
 Q
 endstream
 endobj
-8 0 obj
-2800
+7 0 obj
+2936
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 432]
@@ -186,11 +202,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R >>
+/Font << /F1 9 0 R /F2 10 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -199,26 +215,34 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
+9 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F1
+/BaseFont /ZapfDingbats
+>>
+endobj
 10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
 0 11
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000003248 00000 n 
-0000003331 00000 n 
+0000003301 00000 n 
+0000003384 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000003228 00000 n 
-0000003424 00000 n 
-0000003681 00000 n 
+0000000292 00000 n 
+0000003281 00000 n 
+0000003477 00000 n 
+0000003734 00000 n 
+0000003817 00000 n 
 trailer
 <<
 /Size 11
@@ -226,5 +250,5 @@ trailer
 /Root 2 0 R
 >>
 startxref
-3778
+3914
 %%EOF

@@ -1,7 +1,6 @@
-
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE} 
-
-<<setup, echo = FALSE, results = hide>>=
+###################################################
+### chunk number 1: setup
+###################################################
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
@@ -12,9 +11,7 @@ options(prompt = "R> ", continue = "+  ",
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
-### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
-### </FIXME>
 book <- TRUE
 refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM", 
                 "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA", 
@@ -27,6 +24,17 @@ ch <- function(x, book = TRUE) {
         return(paste("Chapter~\\\\ref{", ch[2], "}", sep = ""))
     }
 }
-@
 
-\pagestyle{headings}
+
+###################################################
+### chunk number 2: pre-vignette eval=FALSE
+###################################################
+## vignette("Ch_introduction_to_R", package = "HSAUR")
+
+
+###################################################
+### chunk number 3: pre-vignette eval=FALSE
+###################################################
+## edit(vignette("Ch_introduction_to_R", package = "HSAUR"))
+
+

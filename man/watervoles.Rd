@@ -13,7 +13,7 @@
   A dissimilarity matrix for the following 14 variables, i.e,
   areas:
   \code{Surrey},
-  \code{Shropshire}, \newline
+  \code{Shropshire},
   \code{Yorkshire},
   \code{Perthshire},
   \code{Aberdeen},

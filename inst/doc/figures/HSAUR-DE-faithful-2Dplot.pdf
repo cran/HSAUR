@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172412)
-/ModDate (D:20080229172412)
+/CreationDate (D:20090109111144)
+/ModDate (D:20090109111144)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,30 +17,24 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
 Q q
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 12.00 0.00 -0.00 12.00 171.30 18.72 Tm (Waiting times \(in min.\)) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 171.30 18.72 Tm [(W) 40 (aiting times \(in min.\))] TJ
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 203.20 Tm (Density) Tj
 ET
 Q q
@@ -62,12 +56,26 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 65.06 47.52 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 110.39 47.52 Tm (50) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 155.73 47.52 Tm (60) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 201.06 47.52 Tm (70) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 246.39 47.52 Tm (80) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 291.73 47.52 Tm (90) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 333.73 47.52 Tm (100) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 379.06 47.52 Tm (110) Tj
 ET
 59.04 84.53 m 59.04 361.87 l S
@@ -80,11 +88,23 @@ ET
 59.04 361.87 m 51.84 361.87 l S
 BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 72.86 Tm (0.00) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 119.08 Tm (0.01) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 165.30 Tm (0.02) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 211.52 Tm (0.03) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 257.75 Tm (0.04) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 303.97 Tm (0.05) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 350.19 Tm (0.06) Tj
 ET
 Q q 59.04 73.44 342.72 299.52 re W n
@@ -1523,20 +1543,22 @@ S
 127.87 333.07 m 149.47 333.07 l S
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 12.00 0.00 -0.00 12.00 160.27 343.16 Tm (Fitted two-component mixture density) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 160.27 328.76 Tm (Fitted single normal density) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 160.27 343.16 Tm [(Fitted tw) 10 (o-component mixture density)] TJ
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 160.27 328.76 Tm [(Fitted single nor) -25 (mal density)] TJ
 ET
 Q
 endstream
 endobj
-8 0 obj
-24449
+7 0 obj
+24564
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 432]
@@ -1545,11 +1567,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R >>
+/Font <</F2 9 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -1558,32 +1580,31 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj <<
+9 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
-0 11
+0 10
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000024898 00000 n 
-0000024981 00000 n 
+0000024930 00000 n 
+0000025013 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000024877 00000 n 
-0000025074 00000 n 
-0000025331 00000 n 
+0000000292 00000 n 
+0000024909 00000 n 
+0000025094 00000 n 
+0000025351 00000 n 
 trailer
 <<
-/Size 11
+/Size 10
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-25428
+25447
 %%EOF

@@ -5,18 +5,16 @@ rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
-    width = 63, # digits = 4,
-    SweaveHooks = list(leftpar = function()
+    width = 63, # digits = 4, 
+    SweaveHooks = list(leftpar = function() 
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
-### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
-### </FIXME>
 book <- TRUE
-refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
-                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM", 
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA", 
                 "MDS", "CA"), 1:15)
 ch <- function(x, book = TRUE) {
     ch <- refs[which(refs[,1] == x),]
@@ -58,8 +56,8 @@ T
 ### chunk number 5: CI-roomwidth-permutation
 ###################################################
 meandiffs <- double(9999)
-for (i in 1:length(meandiffs)) {
-    sy <- sample(y)
+for (i in 1:length(meandiffs)) {   
+    sy <- sample(y)   
     meandiffs[i] <- mean(sy[feet]) - mean(sy[metre])
 }
 
@@ -68,8 +66,8 @@ for (i in 1:length(meandiffs)) {
 ### chunk number 6: CI-roomwidth-plot
 ###################################################
 hist(meandiffs)
-abline(v = T, lty = 2)
-abline(v = -T, lty = 2)
+abline(v = T, lty = 2)  
+abline(v = -T, lty = 2) 
 
 
 ###################################################
@@ -89,14 +87,14 @@ binom.test(sum(greater), length(greater))$conf.int
 ### chunk number 9: CI-roomwidth-coin
 ###################################################
 library("coin")
-independence_test(y ~ unit, data = roomwidth,
+independence_test(y ~ unit, data = roomwidth, 
                   distribution = exact())
 
 
 ###################################################
 ### chunk number 10: CI-roomwidth-coin
 ###################################################
-wilcox_test(y ~ unit, data = roomwidth,
+wilcox_test(y ~ unit, data = roomwidth, 
             distribution = exact())
 
 
@@ -131,7 +129,7 @@ options(width = 65)
 ### chunk number 15: CI-Lanza-singleI
 ###################################################
 library("coin")
-cmh_test(classification ~ treatment, data = Lanza,
+cmh_test(classification ~ treatment, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)),
          subset = Lanza$study == "I")
 
@@ -139,7 +137,7 @@ cmh_test(classification ~ treatment, data = Lanza,
 ###################################################
 ### chunk number 16: CI-Lanza-singleII
 ###################################################
-cmh_test(classification ~ treatment, data = Lanza,
+cmh_test(classification ~ treatment, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)),
          subset = Lanza$study == "II")
 
@@ -147,7 +145,7 @@ cmh_test(classification ~ treatment, data = Lanza,
 ###################################################
 ### chunk number 17: CI-Lanza-singleIIa
 ###################################################
-p <- cmh_test(classification ~ treatment, data = Lanza,
+p <- cmh_test(classification ~ treatment, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)),
          subset = Lanza$study == "II", distribution =
          approximate(B = 19999))
@@ -157,10 +155,10 @@ pvalue(p)
 ###################################################
 ### chunk number 18: CI-Lanza-singleIII-IV
 ###################################################
-cmh_test(classification ~ treatment, data = Lanza,
+cmh_test(classification ~ treatment, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)),
          subset = Lanza$study == "III")
-cmh_test(classification ~ treatment, data = Lanza,
+cmh_test(classification ~ treatment, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)),
          subset = Lanza$study == "IV")
 
@@ -168,14 +166,14 @@ cmh_test(classification ~ treatment, data = Lanza,
 ###################################################
 ### chunk number 19: CI-Lanza-all
 ###################################################
-cmh_test(classification ~ treatment | study, data = Lanza,
+cmh_test(classification ~ treatment | study, data = Lanza, 
          scores = list(classification = c(0, 1, 6, 17, 30)))
 
 
 ###################################################
 ### chunk number 20: CI-anomalies
 ###################################################
-anomalies <- c(235, 23, 3, 0, 41, 35, 8, 0,
+anomalies <- c(235, 23, 3, 0, 41, 35, 8, 0, 
                20, 11, 11, 1, 2, 1, 3, 1)
 anomalies <- as.table(matrix(anomalies,
     ncol = 4, dimnames = list(MD = 0:3, RA = 0:3)))

@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172425)
-/ModDate (D:20080229172425)
+/CreationDate (D:20090109111200)
+/ModDate (D:20090109111200)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,23 +17,15 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
@@ -53,25 +45,43 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 94.23 47.52 Tm (-0.2) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 166.84 47.52 Tm (0.0) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 235.95 47.52 Tm (0.2) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 305.06 47.52 Tm (0.4) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 374.16 47.52 Tm (0.6) Tj
 ET
-59.04 100.68 m 59.04 340.46 l S
-59.04 100.68 m 51.84 100.68 l S
-59.04 148.64 m 51.84 148.64 l S
-59.04 196.60 m 51.84 196.60 l S
-59.04 244.55 m 51.84 244.55 l S
-59.04 292.51 m 51.84 292.51 l S
-59.04 340.46 m 51.84 340.46 l S
+59.04 105.94 m 59.04 345.72 l S
+59.04 105.94 m 51.84 105.94 l S
+59.04 153.89 m 51.84 153.89 l S
+59.04 201.85 m 51.84 201.85 l S
+59.04 249.80 m 51.84 249.80 l S
+59.04 297.76 m 51.84 297.76 l S
+59.04 345.72 m 51.84 345.72 l S
 BT
-/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 88.84 Tm (-0.2) Tj
-/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 136.80 Tm (-0.1) Tj
-/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 188.26 Tm (0.0) Tj
-/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 236.21 Tm (0.1) Tj
-/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 284.17 Tm (0.2) Tj
-/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 332.12 Tm (0.3) Tj
+/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 94.09 Tm (-0.3) Tj
+ET
+BT
+/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 142.05 Tm (-0.2) Tj
+ET
+BT
+/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 190.00 Tm (-0.1) Tj
+ET
+BT
+/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 241.46 Tm (0.0) Tj
+ET
+BT
+/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 289.42 Tm (0.1) Tj
+ET
+BT
+/F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 337.38 Tm (0.2) Tj
 ET
 59.04 73.44 m
 401.76 73.44 l
@@ -83,37 +93,65 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 196.05 18.72 Tm (Coordinate 1) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 188.85 Tm (Coordinate 2) Tj
 ET
 Q q 59.04 73.44 342.72 299.52 re W n
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 12.00 0.00 -0.00 12.00 74.43 81.40 Tm (Surrey) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 106.90 137.41 Tm (Shropshire) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 67.89 155.93 Tm (Yorkshire) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 74.32 163.37 Tm (Perthshire) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 62.96 225.63 Tm (Aberdeen) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 83.77 229.61 Tm (Elean Gamhna) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 181.27 271.36 Tm (Alps) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 142.63 358.88 Tm (Yugoslavia) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 151.81 190.62 Tm (Germany) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 141.79 197.83 Tm (Norway) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 161.05 220.69 Tm (Pyrenees I) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 323.07 179.62 Tm (Pyrenees II) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 253.15 121.44 Tm (North Spain) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 254.36 170.64 Tm (South Spain) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 74.43 358.73 Tm [(Surre) 20 (y)] TJ
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 106.90 302.63 Tm (Shropshire) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 67.89 282.03 Tm [(Y) 140 (or) -15 (kshire)] TJ
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 74.32 274.59 Tm [(P) 50 (er) -40 (thshire)] TJ
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 62.96 212.34 Tm (Aberdeen) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 83.77 208.17 Tm (Elean Gamhna) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 181.27 168.90 Tm (Alps) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 142.63 81.55 Tm [(Y) 110 (ugosla) 20 (via)] TJ
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 151.81 249.50 Tm [(Ger) -25 (man) 15 (y)] TJ
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 141.79 242.52 Tm [(Norw) 15 (a) 30 (y)] TJ
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 161.05 219.66 Tm (Pyrenees I) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 323.07 260.73 Tm (Pyrenees II) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 253.15 318.60 Tm [(Nor) -40 (th Spain)] TJ
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 254.36 269.40 Tm (South Spain) Tj
 ET
 Q
 endstream
 endobj
-8 0 obj
-2328
+7 0 obj
+2559
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 432]
@@ -122,11 +160,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R >>
+/Font <</F2 9 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -135,32 +173,31 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj <<
+9 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
-0 11
+0 10
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000002776 00000 n 
-0000002859 00000 n 
+0000002924 00000 n 
+0000003007 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000002756 00000 n 
-0000002952 00000 n 
-0000003209 00000 n 
+0000000292 00000 n 
+0000002904 00000 n 
+0000003088 00000 n 
+0000003345 00000 n 
 trailer
 <<
-/Size 11
+/Size 10
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-3306
+3441
 %%EOF

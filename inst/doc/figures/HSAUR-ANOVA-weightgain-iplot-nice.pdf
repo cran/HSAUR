@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172358)
-/ModDate (D:20080229172358)
+/CreationDate (D:20090109111124)
+/ModDate (D:20090109111124)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,23 +17,15 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
@@ -63,9 +55,17 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 88.53 Tm (80) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 155.19 Tm (85) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 221.86 Tm (90) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 288.53 Tm (95) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 351.86 Tm (100) Tj
 ET
 59.04 73.44 m
@@ -77,8 +77,10 @@ S
 Q q
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 12.00 0.00 -0.00 12.00 187.10 18.72 Tm (weightgain$type) Tj
-/F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 137.61 Tm (mean of  weightgain$weightgain) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 187.10 18.72 Tm [(w) 10 (eightgain$type)] TJ
+ET
+BT
+/F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 137.61 Tm [(mean of  w) 10 (eightgain$w) 10 (eightgain)] TJ
 ET
 Q q 59.04 73.44 342.72 299.52 re W n
 0.000 0.000 0.000 RG
@@ -94,7 +96,9 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 85.84 47.52 Tm (High) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 351.71 47.52 Tm (Low) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 351.71 47.52 Tm [(Lo) 15 (w)] TJ
 ET
 Q q 59.04 73.44 342.72 299.52 re W n
 0.000 0.000 0.000 RG
@@ -109,21 +113,25 @@ Q q 59.04 73.44 342.72 299.52 re W n
 251.89 252.00 m 273.49 252.00 l S
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 12.00 0.00 -0.00 12.00 233.10 280.80 Tm (weightgain$source) Tj
+/F2 1 Tf 12.00 0.00 -0.00 12.00 233.10 280.80 Tm [(w) 10 (eightgain$source)] TJ
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 284.29 262.09 Tm (Beef) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 284.29 247.69 Tm (Cereal) Tj
 ET
 Q
 endstream
 endobj
-8 0 obj
-1610
+7 0 obj
+1696
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 432]
@@ -132,11 +140,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R >>
+/Font <</F2 9 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -145,32 +153,31 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj <<
+9 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
-0 11
+0 10
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000002058 00000 n 
-0000002141 00000 n 
+0000002061 00000 n 
+0000002144 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000002038 00000 n 
-0000002234 00000 n 
-0000002491 00000 n 
+0000000292 00000 n 
+0000002041 00000 n 
+0000002225 00000 n 
+0000002482 00000 n 
 trailer
 <<
-/Size 11
+/Size 10
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-2588
+2578
 %%EOF

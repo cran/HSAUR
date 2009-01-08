@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172437)
-/ModDate (D:20080229172437)
+/CreationDate (D:20090109111217)
+/ModDate (D:20090109111217)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,23 +17,15 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
@@ -59,8 +51,14 @@ ET
 S
 BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 67.87 195.65 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 73.83 160.31 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 61.91 150.87 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 69.36 196.94 Tm (l) Tj 0 Tr
 ET
 165.63 108.59 m
@@ -101,7 +99,11 @@ S
 S
 BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 76.80 138.48 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 105.10 150.32 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 105.10 126.82 Tm (l) Tj 0 Tr
 ET
 231.15 112.11 m
@@ -116,9 +118,17 @@ S
 S
 BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 112.54 181.40 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 187.00 117.76 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 58.93 184.92 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 60.42 153.84 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 182.53 152.91 Tm (l) Tj 0 Tr
 ET
 254.98 71.03 m
@@ -136,8 +146,14 @@ ET
 S
 BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 69.36 190.47 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 58.93 200.83 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 85.74 177.89 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 112.54 177.52 Tm (l) Tj 0 Tr
 ET
 70.33 160.77 m
@@ -157,6 +173,8 @@ S
 S
 BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 87.23 126.64 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 55.96 181.59 Tm (l) Tj 0 Tr
 ET
 208.82 85.65 m
@@ -184,9 +202,17 @@ ET
 S
 BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 66.38 179.18 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 67.87 129.78 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 119.99 156.98 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 58.93 230.25 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 67.87 139.22 Tm (l) Tj 0 Tr
 ET
 150.74 121.54 m
@@ -201,9 +227,17 @@ S
 S
 BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 158.71 156.24 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 152.75 179.55 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 66.38 150.69 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 131.90 166.05 Tm (l) Tj 0 Tr
+ET
+BT
 /F1 1 Tf 1 Tr 6.21 0 0 6.21 152.75 178.81 Tm (l) Tj 0 Tr
 ET
 68.84 168.91 m
@@ -256,12 +290,26 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 10.00 0.00 -0.00 10.00 46.70 39.44 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 73.70 39.44 Tm (20) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 103.48 39.44 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 133.27 39.44 Tm (60) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 163.05 39.44 Tm (80) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 190.05 39.44 Tm (100) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 219.83 39.44 Tm (120) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 249.62 39.44 Tm (140) Tj
 ET
 49.00 86.79 m 49.00 234.81 l S
@@ -272,9 +320,17 @@ ET
 49.00 234.81 m 43.03 234.81 l S
 BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 34.66 75.67 Tm (1200) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 34.66 112.68 Tm (1400) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 34.66 149.68 Tm (1600) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 34.66 186.68 Tm (1800) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 34.66 223.69 Tm (2000) Tj
 ET
 49.00 60.96 m
@@ -287,7 +343,9 @@ Q q 0.00 0.00 288.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 10.00 0.00 -0.00 10.00 135.39 15.54 Tm (hardness) Tj
-/F2 1 Tf 0.00 10.00 -10.00 0.00 10.76 130.89 Tm (mortality) Tj
+ET
+BT
+/F2 1 Tf 0.00 10.00 -10.00 0.00 10.76 130.89 Tm [(mor) -40 (tality)] TJ
 ET
 Q q 49.00 60.96 213.90 178.04 re W n
 0.000 0.000 0.000 RG
@@ -298,24 +356,30 @@ Q q 49.00 60.96 213.90 178.04 re W n
 10.00 M
 49.00 175.12 m 262.90 89.38 l S
 BT
-/F1 1 Tf 1 Tr 6.21 0 0 6.21 216.38 224.89 Tm (l) Tj 0 Tr
+/F1 1 Tf 1 Tr 6.21 0 0 6.21 220.87 224.89 Tm (l) Tj 0 Tr
 ET
-218.84 218.58 m
-221.86 213.35 l
-215.82 213.35 l
-218.84 218.58 l
+223.32 218.58 m
+226.34 213.35 l
+220.31 213.35 l
+223.32 218.58 l
 S
 BT
 0.000 0.000 0.000 rg
-/F2 1 Tf 10.00 0.00 -0.00 10.00 232.29 223.45 Tm (North) Tj
+/F2 1 Tf 10.00 0.00 -0.00 10.00 232.29 223.45 Tm [(Nor) -40 (th)] TJ
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 232.29 211.50 Tm (South) Tj
 ET
 Q q 49.00 348.96 213.90 34.04 re W n
 Q q 0.00 288.00 288.00 144.00 re W n
 BT
 0.000 0.000 0.000 rg
-/F3 1 Tf 12.00 0.00 -0.00 12.00 71.72 403.19 Tm (Histogram of water$hardness) Tj
-/F2 1 Tf 10.00 0.00 -0.00 10.00 120.46 303.54 Tm (water$hardness) Tj
+/F3 1 Tf 12.00 0.00 -0.00 12.00 71.72 403.19 Tm [(Histogram of water$har) 20 (dness)] TJ
+ET
+BT
+/F2 1 Tf 10.00 0.00 -0.00 10.00 120.46 303.54 Tm [(w) 15 (ater$hardness)] TJ
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 10.76 342.36 Tm (Frequency) Tj
 ET
 Q q
@@ -337,12 +401,26 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 10.00 0.00 -0.00 10.00 54.15 327.44 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 79.66 327.44 Tm (20) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 107.95 327.44 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 136.25 327.44 Tm (60) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 164.54 327.44 Tm (80) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 190.05 327.44 Tm (100) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 218.35 327.44 Tm (120) Tj
+ET
+BT
 /F2 1 Tf 10.00 0.00 -0.00 10.00 246.64 327.44 Tm (140) Tj
 ET
 49.00 350.22 m 49.00 381.74 l S
@@ -354,6 +432,8 @@ ET
 49.00 381.74 m 43.03 381.74 l S
 BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 34.66 347.44 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 34.66 363.57 Tm (15) Tj
 ET
 Q q 49.00 348.96 213.90 34.04 re W n
@@ -409,9 +489,17 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 0.00 10.00 -10.00 0.00 322.66 75.67 Tm (1200) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 322.66 112.68 Tm (1400) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 322.66 149.68 Tm (1600) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 322.66 186.68 Tm (1800) Tj
+ET
+BT
 /F2 1 Tf 0.00 10.00 -10.00 0.00 322.66 223.69 Tm (2000) Tj
 ET
 337.00 60.96 m
@@ -423,14 +511,14 @@ S
 Q
 endstream
 endobj
-8 0 obj
-8633
+7 0 obj
+8955
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 432]
@@ -439,11 +527,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R >>
+/Font << /F1 9 0 R /F2 10 0 R /F3 11 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -452,34 +540,42 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
+9 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/Name /F1
+/BaseFont /ZapfDingbats
+>>
+endobj
 10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 11 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F3
 /BaseFont /Helvetica-Bold
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
 0 12
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000009081 00000 n 
-0000009164 00000 n 
+0000009320 00000 n 
+0000009403 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000009061 00000 n 
-0000009268 00000 n 
-0000009525 00000 n 
-0000009622 00000 n 
+0000000292 00000 n 
+0000009300 00000 n 
+0000009507 00000 n 
+0000009764 00000 n 
+0000009847 00000 n 
+0000009944 00000 n 
 trailer
 <<
 /Size 12
@@ -487,5 +583,5 @@ trailer
 /Root 2 0 R
 >>
 startxref
-9724
+10046
 %%EOF

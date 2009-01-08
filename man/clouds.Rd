@@ -49,7 +49,7 @@ on the basis that a measured suitability criterion (\code{SNE}).
 \source{
 
     W. L. Woodley, J. Simpson, R. Biondini and J. Berkeley (1977),
-    Rainfall results 1970-75: {F}lorida area cumulus experiment.
+    Rainfall results 1970-75: Florida area cumulus experiment.
     \emph{Science} \bold{195}, 735--742.
 
     R. D. Cook and S. Weisberg (1980), Characterizations of an 

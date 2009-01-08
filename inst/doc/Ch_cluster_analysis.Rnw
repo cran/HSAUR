@@ -1,12 +1,14 @@
 
 
 
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
 
 %%% keeps `sweave' from adding `\usepackage{Sweave}': DO NOT REMOVE
-%\usepackage{Sweave}
+%\usepackage{Sweave} 
 
 
 \RequirePackage[T1]{fontenc}
@@ -35,7 +37,7 @@
   \renewenvironment{Schunk}{\begin{figure}[ht] }{\caption{\nextcaption}
   \end{figure} }
   \DefineVerbatimEnvironment{Sinput}{Verbatim}{frame = topline}
-  \DefineVerbatimEnvironment{Soutput}{Verbatim}{frame = bottomline,
+  \DefineVerbatimEnvironment{Soutput}{Verbatim}{frame = bottomline, 
                                                 samepage = true,
                                                 fontfamily=courier,
                                                 fontshape=it,
@@ -47,7 +49,7 @@
 \DefineVerbatimEnvironment{Sinput}
 {Verbatim}
 {
-%% numbers=left
+%%  numbers=left
 }
 
 \newcommand{\numberSinput}{
@@ -83,29 +85,29 @@
 
 %%% other symbols
 \newcommand{\file}[1]{\hbox{\rm\texttt{#1}}}
-%%\newcommand{\stress}[1]{\index{#1}\textit{#1}}
-\newcommand{\stress}[1]{\textit{#1}}
+%%\newcommand{\stress}[1]{\index{#1}\textit{#1}} 
+\newcommand{\stress}[1]{\textit{#1}} 
 \newcommand{\booktitle}[1]{`#1'} %%'
 
 %%% Math symbols
-\newcommand{\E}{\mathsf{E}}
-\newcommand{\Var}{\mathsf{Var}}
-\newcommand{\Cov}{\mathsf{Cov}}
-\newcommand{\Cor}{\mathsf{Cor}}
-\newcommand{\x}{\mathbf{x}}
-\newcommand{\y}{\mathbf{y}}
+\newcommand{\E}{\mathsf{E}}   
+\newcommand{\Var}{\mathsf{Var}}   
+\newcommand{\Cov}{\mathsf{Cov}}   
+\newcommand{\Cor}{\mathsf{Cor}}   
+\newcommand{\x}{\mathbf{x}}   
+\newcommand{\y}{\mathbf{y}}   
 \renewcommand{\a}{\mathbf{a}}
-\newcommand{\W}{\mathbf{W}}
-\newcommand{\C}{\mathbf{C}}
-\renewcommand{\H}{\mathbf{H}}
-\newcommand{\X}{\mathbf{X}}
-\newcommand{\B}{\mathbf{B}}
-\newcommand{\V}{\mathbf{V}}
-\newcommand{\I}{\mathbf{I}}
-\newcommand{\D}{\mathbf{D}}
-\newcommand{\bS}{\mathbf{S}}
-\newcommand{\N}{\mathcal{N}}
-\renewcommand{\P}{\mathsf{P}}
+\newcommand{\W}{\mathbf{W}}   
+\newcommand{\C}{\mathbf{C}}   
+\renewcommand{\H}{\mathbf{H}}   
+\newcommand{\X}{\mathbf{X}}   
+\newcommand{\B}{\mathbf{B}}   
+\newcommand{\V}{\mathbf{V}}   
+\newcommand{\I}{\mathbf{I}}   
+\newcommand{\D}{\mathbf{D}}   
+\newcommand{\bS}{\mathbf{S}}   
+\newcommand{\N}{\mathcal{N}}   
+\renewcommand{\P}{\mathsf{P}}   
 \usepackage{amstext}
 
 %%% links
@@ -164,34 +166,39 @@
 %%% hyphenations
 \hyphenation{drop-out}
 
-%%% new bidirectional quotes need
+%%% new bidirectional quotes need 
 \usepackage[utf8]{inputenc}
 \begin{document}
+
 %% Title page
+
 \title{A Handbook of Statistical Analyses Using \R}
+
 \author{Brian S. Everitt and Torsten Hothorn}
+
 \maketitle
 %%\VignetteIndexEntry{Chapter Cluster Analysis}
 %%\VignetteDepends{scatterplot3d}
 \setcounter{chapter}{14}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
+
+
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE} 
+
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
-    width = 63, # digits = 4,
-    SweaveHooks = list(leftpar = function()
+    width = 63, # digits = 4, 
+    SweaveHooks = list(leftpar = function() 
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
-### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
-### </FIXME>
 book <- TRUE
-refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
-                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM", 
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA", 
                 "MDS", "CA"), 1:15)
 ch <- function(x, book = TRUE) {
     ch <- refs[which(refs[,1] == x),]
@@ -202,31 +209,44 @@ ch <- function(x, book = TRUE) {
     }
 }
 @
+
 \pagestyle{headings}
+
 <<thissetup, echo = FALSE, results = hide>>=
 library("mclust")
 library("mvtnorm")
 mai <- par("mai")
 options(SweaveHooks = list(rmai = function() { par(mai = mai * c(1,1,1,2))}))
 @
-\chapter[Cluster Analysis]{Cluster Analysis: Classifying the Exoplanets \label{CA}}
+
+\chapter[Cluster Analysis]{Cluster Analysis: Classifying the Exoplanets  \label{CA}}
+
 \section{Introduction}
+
+
+
 \section{Cluster Analysis}
+
+
 \section{Analysis Using \R{}}
+
+
 \begin{figure}
 \begin{center}
 <<CA-planets-scatter, echo = TRUE, fig = TRUE, rmai = TRUE>>=
 data("planets", package = "HSAUR")
 library("scatterplot3d")
-scatterplot3d(log(planets$mass), log(planets$period),
-    log(planets$eccen), type = "h", angle = 55,
-    pch = 16, y.ticklabs = seq(0, 10, by = 2),
+scatterplot3d(log(planets$mass), log(planets$period), 
+    log(planets$eccen), type = "h", angle = 55, 
+    pch = 16, y.ticklabs = seq(0, 10, by = 2), 
     y.margin.add = 0.1, scale.y = 0.7)
 @
 \caption{3D scatterplot of the logarithms of the three variables available
          for each of the exoplanets. \label{CA-planets-scatter}}
 \end{center}
 \end{figure}
+
+
 \begin{figure}
 \begin{center}
 <<CA-planet-ss, echo = TRUE, fig = TRUE>>=
@@ -236,7 +256,7 @@ n <- nrow(planet.dat)
 wss <- rep(0, 10)
 wss[1] <- (n - 1) * sum(apply(planet.dat, 2, var))
 for (i in 2:10)
-    wss[i] <- sum(kmeans(planet.dat,
+    wss[i] <- sum(kmeans(planet.dat, 
                          centers = i)$withinss)
 plot(1:10, wss, type = "b", xlab = "Number of groups",
      ylab = "Within groups sum of squares")
@@ -245,17 +265,18 @@ plot(1:10, wss, type = "b", xlab = "Number of groups",
          the exoplanet data. \label{CA-planets-ss}}
 \end{center}
 \end{figure}
-Sadly Figure~\ref{CA-planets-ss} gives no completely convincing verdict on
-the number of groups we should consider, but using a little imagination
+
+Sadly Figure~\ref{CA-planets-ss} gives no completely convincing verdict on 
+the number of groups we should consider, but using a little imagination 
 `little elbows' can be spotted at the three and five group solutions. %%'
-We can find the number of planets in each group
+We can find the number of planets in each group 
 using
 <<CA-planets-kmeans3, echo = TRUE>>=
 planet_kmeans3 <- kmeans(planet.dat, centers = 3)
 table(planet_kmeans3$cluster)
 @
 The centers of the clusters for the untransformed data can be computed using
-a small convenience function
+a small convenience function 
 <<CA-planets-ccent, echo = TRUE>>=
 ccent <- function(cl) {
     f <- function(i) colMeans(planets[cl == i,])
@@ -265,7 +286,7 @@ ccent <- function(cl) {
 }
 @
 which, applied to the three cluster solution obtained by $k$-means gets
-<<CA-planets--kmeans3-ccent, echo = TRUE>>=
+<<CA-planets--kmeans3-ccent, echo = TRUE>>=  
 ccent(planet_kmeans3$cluster)
 @
 @
@@ -275,14 +296,17 @@ planet_kmeans5 <- kmeans(planet.dat, centers = 5)
 table(planet_kmeans5$cluster)
 ccent(planet_kmeans5$cluster)
 @
+
+
 \subsection{Model-based Clustering in \R{}}
+
 We now proceed to apply model-based clustering to the planets data.
-\R{} functions for model-based clustering are available in package
+\R{} functions for model-based clustering are available in package 
 \Rpackage{mclust} \citep{PKG:mclust,HSAUR:FraleyRaftery2002}.
-Here we use the \Rcmd{Mclust} function since this
+Here we use the \Rcmd{Mclust} function since this 
 selects both the most appropriate model for the data \stress{and}
-the optimal number of groups based on the values of the BIC
-computed over several models and a range of
+the optimal number of groups based on the values of the BIC 
+computed over several models and a range of 
 values for number of groups. The necessary code is:
 <<CA-planets-mclust, echo = TRUE>>=
 library("mclust")
@@ -292,15 +316,15 @@ and we first examine a plot of BIC values using
 \begin{figure}
 \begin{center}
 <<CA-planets-mclust-plot, echo = TRUE, fig = TRUE>>=
-plot(planet_mclust, planet.dat, what = "BIC", col = "black",
-     ylab = "-BIC", ylim = c(0, 350))
+plot(planet_mclust, planet.dat, what = "BIC", col = "black", 
+     ylab = "-BIC", ylim = c(0, 350))  
 @
 \caption{Plot of BIC values for a variety of models and a range of number of
 clusters. \label{CA-mclust1}}
 \end{center}
 \end{figure}
-The resulting diagram is shown in Figure~\ref{CA-mclust1}.
-In this diagram the numbers refer
+The resulting diagram is shown in Figure~\ref{CA-mclust1}. 
+In this diagram the numbers refer 
 to different model assumptions about the shape of clusters:
 \begin{enumerate}
 \item Spherical, equal volume,
@@ -310,6 +334,7 @@ to different model assumptions about the shape of clusters:
 \item Ellipsoidal, equal volume, shape and orientation,
 \item Ellipsoidal, varying volume, shape and orientation.
 \end{enumerate}
+
 The BIC selects model $4$ (diagonal varying volume and varying shape) with
 three clusters as the best solution as can be
 seen from the \Rcmd{print} output:
@@ -317,32 +342,35 @@ seen from the \Rcmd{print} output:
 print(planet_mclust)
 @
 This solution can be shown graphically as a scatterplot matrix
-The plot is shown in Figure~\ref{CA-planets-mclust-scatter}.
+The plot is shown in Figure~\ref{CA-planets-mclust-scatter}. 
 Figure~\ref{CA-planets-mclust-scatterclust} depicts the clustering solution
 in the three-dimensional space.
 \begin{figure}
 \begin{center}
 <<CA-planets-mclust-scatter, echo = TRUE, fig = TRUE, results = hide>>=
-clPairs(planet.dat,
-    classification = planet_mclust$classification,
+clPairs(planet.dat, 
+    classification = planet_mclust$classification, 
     symbols = 1:3, col = "black")
 @
 \caption{Scatterplot matrix of planets data showing a three cluster solution
          from \Rcmd{Mclust}. \label{CA-planets-mclust-scatter}}
 \end{center}
 \end{figure}
+
 \begin{figure}
 \begin{center}
 <<CA-planets-mclust-scatterclust, echo = TRUE, fig = TRUE, rmai = TRUE>>=
-scatterplot3d(log(planets$mass), log(planets$period),
-    log(planets$eccen), type = "h", angle = 55,
-    scale.y = 0.7, pch = planet_mclust$classification,
+scatterplot3d(log(planets$mass), log(planets$period), 
+    log(planets$eccen), type = "h", angle = 55, 
+    scale.y = 0.7, pch = planet_mclust$classification, 
     y.ticklabs = seq(0, 10, by = 2), y.margin.add = 0.1)
 @
 \caption{3D scatterplot of planets data showing a three cluster solution
          from \Rcmd{Mclust}. \label{CA-planets-mclust-scatterclust}}
 \end{center}
 \end{figure}
+
+
 The number of planets in each cluster and the mean vectors of the three clusters
 for the untransformed data can now be inspected by using
 <<CA-planets-mclust-mu, echo = TRUE>>=
@@ -350,12 +378,14 @@ table(planet_mclust$classification)
 ccent(planet_mclust$classification)
 @
 Cluster 1 consists of planets about the same size as Jupiter
-with very short periods and eccentricities (similar to the first
-cluster of the $k$-means solution). Cluster 2 consists of slightly
-larger planets with moderate periods and large eccentricities,
-and cluster 3 contains the very large planets with very large
+with very short periods and eccentricities (similar to the first 
+cluster of the $k$-means solution). Cluster 2 consists of slightly 
+larger planets with moderate periods and large eccentricities,   
+and cluster 3 contains the very large planets with very large    
 periods. These two clusters do not match those found by the $k$-means
 approach.
-\bibliographystyle{../LaTeXBibTeX/refstyle}
-\bibliography{../LaTeXBibTeX/HSAUR}
+
+
+\bibliographystyle{LaTeXBibTeX/refstyle}
+\bibliography{LaTeXBibTeX/HSAUR}   
 \end{document}

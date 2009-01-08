@@ -1,12 +1,14 @@
 
 
 
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
 
 %%% keeps `sweave' from adding `\usepackage{Sweave}': DO NOT REMOVE
-%\usepackage{Sweave}
+%\usepackage{Sweave} 
 
 
 \RequirePackage[T1]{fontenc}
@@ -35,7 +37,7 @@
   \renewenvironment{Schunk}{\begin{figure}[ht] }{\caption{\nextcaption}
   \end{figure} }
   \DefineVerbatimEnvironment{Sinput}{Verbatim}{frame = topline}
-  \DefineVerbatimEnvironment{Soutput}{Verbatim}{frame = bottomline,
+  \DefineVerbatimEnvironment{Soutput}{Verbatim}{frame = bottomline, 
                                                 samepage = true,
                                                 fontfamily=courier,
                                                 fontshape=it,
@@ -47,7 +49,7 @@
 \DefineVerbatimEnvironment{Sinput}
 {Verbatim}
 {
-%% numbers=left
+%%  numbers=left
 }
 
 \newcommand{\numberSinput}{
@@ -83,29 +85,29 @@
 
 %%% other symbols
 \newcommand{\file}[1]{\hbox{\rm\texttt{#1}}}
-%%\newcommand{\stress}[1]{\index{#1}\textit{#1}}
-\newcommand{\stress}[1]{\textit{#1}}
+%%\newcommand{\stress}[1]{\index{#1}\textit{#1}} 
+\newcommand{\stress}[1]{\textit{#1}} 
 \newcommand{\booktitle}[1]{`#1'} %%'
 
 %%% Math symbols
-\newcommand{\E}{\mathsf{E}}
-\newcommand{\Var}{\mathsf{Var}}
-\newcommand{\Cov}{\mathsf{Cov}}
-\newcommand{\Cor}{\mathsf{Cor}}
-\newcommand{\x}{\mathbf{x}}
-\newcommand{\y}{\mathbf{y}}
+\newcommand{\E}{\mathsf{E}}   
+\newcommand{\Var}{\mathsf{Var}}   
+\newcommand{\Cov}{\mathsf{Cov}}   
+\newcommand{\Cor}{\mathsf{Cor}}   
+\newcommand{\x}{\mathbf{x}}   
+\newcommand{\y}{\mathbf{y}}   
 \renewcommand{\a}{\mathbf{a}}
-\newcommand{\W}{\mathbf{W}}
-\newcommand{\C}{\mathbf{C}}
-\renewcommand{\H}{\mathbf{H}}
-\newcommand{\X}{\mathbf{X}}
-\newcommand{\B}{\mathbf{B}}
-\newcommand{\V}{\mathbf{V}}
-\newcommand{\I}{\mathbf{I}}
-\newcommand{\D}{\mathbf{D}}
-\newcommand{\bS}{\mathbf{S}}
-\newcommand{\N}{\mathcal{N}}
-\renewcommand{\P}{\mathsf{P}}
+\newcommand{\W}{\mathbf{W}}   
+\newcommand{\C}{\mathbf{C}}   
+\renewcommand{\H}{\mathbf{H}}   
+\newcommand{\X}{\mathbf{X}}   
+\newcommand{\B}{\mathbf{B}}   
+\newcommand{\V}{\mathbf{V}}   
+\newcommand{\I}{\mathbf{I}}   
+\newcommand{\D}{\mathbf{D}}   
+\newcommand{\bS}{\mathbf{S}}   
+\newcommand{\N}{\mathcal{N}}   
+\renewcommand{\P}{\mathsf{P}}   
 \usepackage{amstext}
 
 %%% links
@@ -164,34 +166,39 @@
 %%% hyphenations
 \hyphenation{drop-out}
 
-%%% new bidirectional quotes need
+%%% new bidirectional quotes need 
 \usepackage[utf8]{inputenc}
 \begin{document}
+
 %% Title page
+
 \title{A Handbook of Statistical Analyses Using \R}
+
 \author{Brian S. Everitt and Torsten Hothorn}
+
 \maketitle
 %%\VignetteIndexEntry{Chapter Analysing Longitudinal Data I}
 %%\VignetteDepends{lme4}
 \setcounter{chapter}{9}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
+
+
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE} 
+
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
-    width = 63, # digits = 4,
-    SweaveHooks = list(leftpar = function()
+    width = 63, # digits = 4, 
+    SweaveHooks = list(leftpar = function() 
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
-### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
-### </FIXME>
 book <- TRUE
-refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
-                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM", 
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA", 
                 "MDS", "CA"), 1:15)
 ch <- function(x, book = TRUE) {
     ch <- refs[which(refs[,1] == x),]
@@ -202,91 +209,105 @@ ch <- function(x, book = TRUE) {
     }
 }
 @
+
 \pagestyle{headings}
+
 <<ALDI-setup, echo = FALSE, results = hide>>=
 library("Matrix")
 library("lme4")
-### fix bug in lme4 0.9975-1 (for the time being)
 residuals <- function(object) object@y - fitted(object)
 @
-\chapter[Analysing Longitudinal Data I]{Analysing Longitudinal Data I:
+
+\chapter[Analysing Longitudinal Data I]{Analysing Longitudinal Data I: 
          Computerised Delivery of Cognitive
          Behavioural Therapy--Beat the Blues \label{ALDI}}
+
 \section{Introduction}
+
+
+
 \section{Analysing Longitudinal Data}
+
+
 \section{Analysis Using \R{}}
+
+
 \begin{figure}
 \begin{center}
 <<ALDI-plot-BtheB, echo = TRUE, fig = TRUE, height = 4>>=
 data("BtheB", package = "HSAUR")
 layout(matrix(1:2, nrow = 1))
-ylim <- range(BtheB[,grep("bdi", names(BtheB))],
+ylim <- range(BtheB[,grep("bdi", names(BtheB))], 
               na.rm = TRUE)
 tau <- subset(BtheB, treatment == "TAU")[,
     grep("bdi", names(BtheB))]
-boxplot(tau, main = "Treated as usual", ylab = "BDI",
-        xlab = "Time (in months)", names = c(0, 2, 4, 6, 8),
+boxplot(tau, main = "Treated as usual", ylab = "BDI", 
+        xlab = "Time (in months)", names = c(0, 2, 4, 6, 8), 
         ylim = ylim)
 btheb <- subset(BtheB, treatment == "BtheB")[,
     grep("bdi", names(BtheB))]
-boxplot(btheb, main = "Beat the Blues", ylab = "BDI",
-        xlab = "Time (in months)", names = c(0, 2, 4, 6, 8),
+boxplot(btheb, main = "Beat the Blues", ylab = "BDI", 
+        xlab = "Time (in months)", names = c(0, 2, 4, 6, 8), 
         ylim = ylim)
 @
-\caption{Boxplots for the repeated measures by treatment group for the
+\caption{Boxplots for the repeated measures by treatment group for the 
          \Robject{BtheB} data. \label{ALDI:boxplots}}
 \end{center}
 \end{figure}
-We shall fit both random intercept and random intercept and
+
+
+We shall fit both random intercept and random intercept and 
 slope models to the data including the baseline BDI values
-(\Robject{pre.bdi}), \Robject{treatment} group,
-\Robject{drug} and \Robject{length} as fixed effect covariates. Linear mixed
-effects models are fitted in \R{} by using the \Rcmd{lmer} function
+(\Robject{pre.bdi}), \Robject{treatment} group, 
+\Robject{drug} and \Robject{length} as fixed effect covariates. Linear mixed 
+effects models are fitted in \R{} by using the \Rcmd{lmer} function 
 contained in the \Rpackage{lme4} package
 \citep{PKG:lme4,HSAUR:PinheiroBates2000,HSAUR:Bates2005},
-but an essential first step is to rearrange the data from the
+but an essential first step is to rearrange the data from the 
 `wide form' in which they appear in the \Robject{BtheB} data frame %%'
 into the `long form' in which each separate repeated measurement %%'
 and associated covariate values appear as a separate row in a
-\Rclass{data.frame}.
+\Rclass{data.frame}. 
 This rearrangement can be made using the following code:
 <<ALDI-long-BtheB, echo = TRUE>>=
 data("BtheB", package = "HSAUR")
 BtheB$subject <- factor(rownames(BtheB))
 nobs <- nrow(BtheB)
-BtheB_long <- reshape(BtheB, idvar = "subject",
+BtheB_long <- reshape(BtheB, idvar = "subject", 
     varying = c("bdi.2m", "bdi.4m", "bdi.6m", "bdi.8m"),
-    direction = "long")
-BtheB_long$time <- rep(c(2, 4, 6, 8), rep(nobs, 4))
+    direction = "long") 
+BtheB_long$time <- rep(c(2, 4, 6, 8), rep(nobs, 4)) 
 @
 such that the data are now in the form (here shown for the first three
 subjects)
 <<ALDI-showlong-BtheB, echo = TRUE>>=
 subset(BtheB_long, subject %in% c("1", "2", "3"))
 @
-The resulting \Rclass{data.frame} \Robject{BtheB\_long} contains a number
-of missing values
+The resulting \Rclass{data.frame} \Robject{BtheB\_long} contains a number 
+of missing values 
 \index{Missing values}
-and in applying the \Rcmd{lmer} function these
-will be dropped. But notice it is only the missing values
-that are removed, \stress{not} participants that have at least
-one missing value. All the available data is used in the model
-fitting process. The \Rcmd{lmer} function is used in a similar way to
+and in applying the \Rcmd{lmer} function these 
+will be dropped. But notice it is only the missing values 
+that are removed, \stress{not} participants that have at least 
+one missing value. All the available data is used in the model 
+fitting process. The \Rcmd{lmer} function is used in a similar way to 
 the \Rcmd{lm} function met in Chapter~\ref{MLR}
-with the addition of a random term to identify the source of the
-repeated measurements, here \Robject{subject}. We can fit the two
-models (\ref{ALDI:ModelA}) and (\ref{ALDI:ModelB}) and test which is most
+with the addition of a random term to identify the source of the 
+repeated measurements, here \Robject{subject}. We can fit the two 
+models (\ref{ALDI:ModelA}) and (\ref{ALDI:ModelB}) and test which is most 
 appropriate using
 <<ALDI-fit-BtheB, echo = TRUE>>=
 library("lme4")
-BtheB_lmer1 <- lmer(bdi ~ bdi.pre + time + treatment + drug +
-    length + (1 | subject), data = BtheB_long,
+BtheB_lmer1 <- lmer(bdi ~ bdi.pre + time + treatment + drug + 
+    length + (1 | subject), data = BtheB_long, 
     method = "ML", na.action = na.omit)
-BtheB_lmer2 <- lmer(bdi ~ bdi.pre + time + treatment + drug +
-    length + (time | subject), data = BtheB_long,
-    method = "ML", na.action = na.omit)
+BtheB_lmer2 <- lmer(bdi ~ bdi.pre + time + treatment + drug + 
+    length + (time | subject), data = BtheB_long, 
+    method = "ML", na.action = na.omit)   
 anova(BtheB_lmer1, BtheB_lmer2)
 @
+
+
 %% <FIXME> summary() does not report p-values anymore: recompute or update the text!!! </FIXME>
 \renewcommand{\nextcaption}{\R{} output of the linear mixed-effects model fit
                             for the \Robject{BtheB} data.
@@ -296,10 +317,14 @@ anova(BtheB_lmer1, BtheB_lmer2)
 summary(BtheB_lmer1)
 @
 \SchunkRaw
+
 %%% <FIXME>
 %%% The plot does not work in the vignette -> ranef-method for lmer is not
 %%% found.
 %%% </FIXME>
-\bibliographystyle{../LaTeXBibTeX/refstyle}
-\bibliography{../LaTeXBibTeX/HSAUR}
+
+
+
+\bibliographystyle{LaTeXBibTeX/refstyle}
+\bibliography{LaTeXBibTeX/HSAUR}
 \end{document}

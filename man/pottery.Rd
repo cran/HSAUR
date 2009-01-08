@@ -32,7 +32,7 @@
 \source{
 
     A. Tubb and N. J. Parker and G. Nickless (1980),
-    The analysis of {Romano-British} pottery by atomic
+    The analysis of Romano-British pottery by atomic
     absorption spectrophotometry. \emph{Archaeometry}, \bold{22}, 
     153--171.
 

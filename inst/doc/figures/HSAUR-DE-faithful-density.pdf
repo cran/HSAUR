@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172411)
-/ModDate (D:20080229172411)
+/CreationDate (D:20090109111143)
+/ModDate (D:20090109111143)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,23 +17,15 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
@@ -41,7 +33,11 @@ Q q 0.00 0.00 144.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F3 1 Tf 10.00 0.00 -0.00 10.00 42.87 264.93 Tm (Gaussian kernel) Tj
-/F2 1 Tf 8.00 0.00 -0.00 8.00 42.10 12.36 Tm (Waiting times \(in min.\)) Tj
+ET
+BT
+/F2 1 Tf 8.00 0.00 -0.00 8.00 42.10 12.36 Tm [(W) 40 (aiting times \(in min.\))] TJ
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 8.55 129.86 Tm (Frequency) Tj
 ET
 Q q
@@ -62,8 +58,14 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 8.00 0.00 -0.00 8.00 37.67 31.36 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 8.00 0.00 -0.00 8.00 63.93 31.36 Tm (60) Tj
+ET
+BT
 /F2 1 Tf 8.00 0.00 -0.00 8.00 90.18 31.36 Tm (80) Tj
+ET
+BT
 /F2 1 Tf 8.00 0.00 -0.00 8.00 114.22 31.36 Tm (100) Tj
 ET
 38.97 55.90 m 38.97 239.58 l S
@@ -74,9 +76,17 @@ ET
 38.97 239.58 m 34.21 239.58 l S
 BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 27.56 48.11 Tm (0.00) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 27.56 94.03 Tm (0.01) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 27.56 139.96 Tm (0.02) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 27.56 185.88 Tm (0.03) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 27.56 231.80 Tm (0.04) Tj
 ET
 Q q 38.97 48.47 85.08 200.56 re W n
@@ -621,7 +631,6 @@ Q q
 1 J
 1 j
 10.00 M
-46.06 48.47 m 115.64 48.47 l S
 46.06 48.47 m 46.06 51.02 l S
 48.68 48.47 m 48.68 51.02 l S
 48.68 48.47 m 48.68 51.02 l S
@@ -899,7 +908,11 @@ Q q 144.00 0.00 144.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F3 1 Tf 10.00 0.00 -0.00 10.00 180.49 264.93 Tm (Rectangular kernel) Tj
-/F2 1 Tf 8.00 0.00 -0.00 8.00 186.10 12.36 Tm (Waiting times \(in min.\)) Tj
+ET
+BT
+/F2 1 Tf 8.00 0.00 -0.00 8.00 186.10 12.36 Tm [(W) 40 (aiting times \(in min.\))] TJ
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 152.55 129.86 Tm (Frequency) Tj
 ET
 Q q
@@ -920,8 +933,14 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 8.00 0.00 -0.00 8.00 181.67 31.36 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 8.00 0.00 -0.00 8.00 207.93 31.36 Tm (60) Tj
+ET
+BT
 /F2 1 Tf 8.00 0.00 -0.00 8.00 234.18 31.36 Tm (80) Tj
+ET
+BT
 /F2 1 Tf 8.00 0.00 -0.00 8.00 258.22 31.36 Tm (100) Tj
 ET
 182.97 55.90 m 182.97 239.58 l S
@@ -932,9 +951,17 @@ ET
 182.97 239.58 m 178.21 239.58 l S
 BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 171.56 48.11 Tm (0.00) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 171.56 94.03 Tm (0.01) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 171.56 139.96 Tm (0.02) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 171.56 185.88 Tm (0.03) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 171.56 231.80 Tm (0.04) Tj
 ET
 Q q 182.97 48.47 85.08 200.56 re W n
@@ -1479,7 +1506,6 @@ Q q
 1 J
 1 j
 10.00 M
-190.06 48.47 m 259.64 48.47 l S
 190.06 48.47 m 190.06 51.02 l S
 192.68 48.47 m 192.68 51.02 l S
 192.68 48.47 m 192.68 51.02 l S
@@ -1756,8 +1782,12 @@ Q q 326.97 48.47 85.08 200.56 re W n
 Q q 288.00 0.00 144.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
-/F3 1 Tf 10.00 0.00 -0.00 10.00 329.33 264.93 Tm (Triangular kernel) Tj
-/F2 1 Tf 8.00 0.00 -0.00 8.00 330.10 12.36 Tm (Waiting times \(in min.\)) Tj
+/F3 1 Tf 10.00 0.00 -0.00 10.00 329.33 264.93 Tm [(T) 80 (riangular kernel)] TJ
+ET
+BT
+/F2 1 Tf 8.00 0.00 -0.00 8.00 330.10 12.36 Tm [(W) 40 (aiting times \(in min.\))] TJ
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 296.55 129.86 Tm (Frequency) Tj
 ET
 Q q
@@ -1778,8 +1808,14 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 8.00 0.00 -0.00 8.00 325.67 31.36 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 8.00 0.00 -0.00 8.00 351.93 31.36 Tm (60) Tj
+ET
+BT
 /F2 1 Tf 8.00 0.00 -0.00 8.00 378.18 31.36 Tm (80) Tj
+ET
+BT
 /F2 1 Tf 8.00 0.00 -0.00 8.00 402.22 31.36 Tm (100) Tj
 ET
 326.97 55.90 m 326.97 239.58 l S
@@ -1790,9 +1826,17 @@ ET
 326.97 239.58 m 322.21 239.58 l S
 BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 315.56 48.11 Tm (0.00) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 315.56 94.03 Tm (0.01) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 315.56 139.96 Tm (0.02) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 315.56 185.88 Tm (0.03) Tj
+ET
+BT
 /F2 1 Tf 0.00 8.00 -8.00 0.00 315.56 231.80 Tm (0.04) Tj
 ET
 Q q 326.97 48.47 85.08 200.56 re W n
@@ -2337,7 +2381,6 @@ Q q
 1 J
 1 j
 10.00 M
-334.06 48.47 m 403.64 48.47 l S
 334.06 48.47 m 334.06 51.02 l S
 336.68 48.47 m 336.68 51.02 l S
 336.68 48.47 m 336.68 51.02 l S
@@ -2613,14 +2656,14 @@ Q q
 Q
 endstream
 endobj
-8 0 obj
-54948
+7 0 obj
+55047
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 288]
@@ -2629,11 +2672,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R >>
+/Font <</F2 9 0 R /F3 10 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -2642,40 +2685,39 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj <<
+9 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
-11 0 obj <<
+10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F3
 /BaseFont /Helvetica-Bold
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
-0 12
+0 11
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000055397 00000 n 
-0000055480 00000 n 
+0000055413 00000 n 
+0000055496 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000055376 00000 n 
-0000055584 00000 n 
-0000055841 00000 n 
-0000055938 00000 n 
+0000000292 00000 n 
+0000055392 00000 n 
+0000055588 00000 n 
+0000055845 00000 n 
+0000055941 00000 n 
 trailer
 <<
-/Size 12
+/Size 11
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-56040
+56043
 %%EOF

@@ -5,18 +5,16 @@ rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
-    width = 63, # digits = 4,
-    SweaveHooks = list(leftpar = function()
+    width = 63, # digits = 4, 
+    SweaveHooks = list(leftpar = function() 
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
-### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
-### </FIXME>
 book <- TRUE
-refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
-                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM", 
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA", 
                 "MDS", "CA"), 1:15)
 ch <- function(x, book = TRUE) {
     ch <- refs[which(refs[,1] == x),]
@@ -51,7 +49,7 @@ BtheB_long$time <- rep(c(2, 4, 6, 8), rep(nobs, 4))
 ###################################################
 osub <- order(as.integer(BtheB_long$subject))
 BtheB_long <- BtheB_long[osub,]
-btb_gee <- gee(bdi ~ bdi.pre + treatment + length + drug,
+btb_gee <- gee(bdi ~ bdi.pre + treatment + length + drug, 
     data = BtheB_long, id = subject, family = gaussian,
     corstr = "independence")
 
@@ -59,7 +57,7 @@ btb_gee <- gee(bdi ~ bdi.pre + treatment + length + drug,
 ###################################################
 ### chunk number 5: ALDII-BtheB-geefit-ex
 ###################################################
-btb_gee1 <- gee(bdi ~ bdi.pre + treatment + length + drug,
+btb_gee1 <- gee(bdi ~ bdi.pre + treatment + length + drug, 
     data = BtheB_long, id = subject, family = gaussian,
     corstr = "exchangeable")
 
@@ -88,13 +86,13 @@ resp$nstat <- as.numeric(resp$status == "good")
 ###################################################
 ### chunk number 9: ALDII-respiratory-fit
 ###################################################
-resp_glm <- glm(status ~ centre + treatment + sex + baseline +
+resp_glm <- glm(status ~ centre + treatment + sex + baseline + 
     age, data = resp, family = "binomial")
-resp_gee1 <- gee(nstat ~ centre + treatment + sex + baseline +
-    age, data = resp, family = "binomial", id = subject,
+resp_gee1 <- gee(nstat ~ centre + treatment + sex + baseline + 
+    age, data = resp, family = "binomial", id = subject, 
     corstr = "independence", scale.fix = TRUE, scale.value = 1)
-resp_gee2 <- gee(nstat ~ centre + treatment + sex + baseline +
-    age, data = resp, family = "binomial", id = subject,
+resp_gee2 <- gee(nstat ~ centre + treatment + sex + baseline + 
+    age, data = resp, family = "binomial", id = subject, 
     corstr = "exchangeable", scale.fix = TRUE, scale.value = 1)
 
 
@@ -121,14 +119,14 @@ summary(resp_gee2)
 ###################################################
 se <- summary(resp_gee2)$coefficients["treatmenttreatment",
                                       "Robust S.E."]
-coef(resp_gee2)["treatmenttreatment"] +
+coef(resp_gee2)["treatmenttreatment"] +  
     c(-1, 1) * se * qnorm(0.975)
 
 
 ###################################################
 ### chunk number 14: ALDII-resp-confint-exp
 ###################################################
-exp(coef(resp_gee2)["treatmenttreatment"] +
+exp(coef(resp_gee2)["treatmenttreatment"] + 
     c(-1, 1) * se * qnorm(0.975))
 
 
@@ -149,10 +147,10 @@ ylim <- range(epilepsy$seizure.rate)
 placebo <- subset(epilepsy, treatment == "placebo")
 progabide <- subset(epilepsy, treatment == "Progabide")
 boxplot(seizure.rate ~ period, data = placebo,
-        ylab = "Number of seizures",
+        ylab = "Number of seizures", 
         xlab = "Period", ylim = ylim, main = "Placebo")
 boxplot(seizure.rate ~ period, data = progabide,
-        main = "Progabide", ylab = "Number of seizures",
+        main  = "Progabide", ylab = "Number of seizures", 
         xlab = "Period", ylim = ylim)
 
 
@@ -162,10 +160,10 @@ boxplot(seizure.rate ~ period, data = progabide,
 layout(matrix(1:2, nrow = 1))
 ylim <- range(log(epilepsy$seizure.rate + 1))
 boxplot(log(seizure.rate + 1) ~ period, data = placebo,
-        main = "Placebo", ylab = "Log number of seizures",
+        main = "Placebo", ylab = "Log number of seizures", 
         xlab = "Period", ylim = ylim)
 boxplot(log(seizure.rate + 1) ~ period, data = progabide,
-        main = "Progabide", ylab = "Log number of seizures",
+        main = "Progabide", ylab = "Log number of seizures", 
         xlab = "Period", ylim = ylim)
 
 
@@ -176,14 +174,14 @@ per <- rep(log(2),nrow(epilepsy))
 epilepsy$period <- as.numeric(epilepsy$period)
 fm <- seizure.rate ~ base + age + treatment + offset(per)
 epilepsy_glm <- glm(fm, data = epilepsy, family = "poisson")
-epilepsy_gee1 <- gee(fm, data = epilepsy, family = "poisson",
-    id = subject, corstr = "independence", scale.fix = TRUE,
+epilepsy_gee1 <- gee(fm, data = epilepsy, family = "poisson", 
+    id = subject, corstr = "independence", scale.fix = TRUE, 
     scale.value = 1)
-epilepsy_gee2 <- gee(fm, data = epilepsy, family = "poisson",
-    id = subject, corstr = "exchangeable", scale.fix = TRUE,
+epilepsy_gee2 <- gee(fm, data = epilepsy, family = "poisson", 
+    id = subject, corstr = "exchangeable", scale.fix = TRUE, 
     scale.value = 1)
-epilepsy_gee3 <- gee(fm, data = epilepsy, family = "poisson",
-    id = subject, corstr = "exchangeable", scale.fix = FALSE,
+epilepsy_gee3 <- gee(fm, data = epilepsy, family = "poisson", 
+    id = subject, corstr = "exchangeable", scale.fix = FALSE, 
     scale.value = 1)
 
 

@@ -5,18 +5,16 @@ rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
-    width = 63, # digits = 4,
-    SweaveHooks = list(leftpar = function()
+    width = 63, # digits = 4, 
+    SweaveHooks = list(leftpar = function() 
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
-### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
-### </FIXME>
 book <- TRUE
-refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
-                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM", 
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA", 
                 "MDS", "CA"), 1:15)
 ch <- function(x, book = TRUE) {
     ch <- refs[which(refs[,1] == x),]
@@ -32,9 +30,9 @@ ch <- function(x, book = TRUE) {
 ### chunk number 2: ANOVA-weightgain-mean-var
 ###################################################
 data("weightgain", package = "HSAUR")
-tapply(weightgain$weightgain,
+tapply(weightgain$weightgain, 
        list(weightgain$source, weightgain$type), mean)
-tapply(weightgain$weightgain,
+tapply(weightgain$weightgain, 
        list(weightgain$source, weightgain$type), sd)
 
 
@@ -59,8 +57,8 @@ summary(wg_aov)
 ###################################################
 ### chunk number 6: ANOVA-weightgain-iplot eval=FALSE
 ###################################################
-## interaction.plot(weightgain$type, weightgain$source,
-##                  weightgain$weightgain)
+## interaction.plot(weightgain$type, weightgain$source, 
+##                  weightgain$weightgain) 
 
 
 ###################################################
@@ -68,7 +66,7 @@ summary(wg_aov)
 ###################################################
 interaction.plot(weightgain$type, weightgain$source, weightgain$weightgain,
 legend = FALSE)
-legend(1.5, 95, legend = levels(weightgain$source), title = "weightgain$source",
+legend(1.5, 95, legend = levels(weightgain$source), title = "weightgain$source", 
        lty = c(2,1), bty = "n")
 
 
@@ -87,7 +85,7 @@ options("contrasts")
 ###################################################
 ### chunk number 10: ANOVA-weightgain-coef-sum
 ###################################################
-coef(aov(weightgain ~ source + type + source:type,
+coef(aov(weightgain ~ source + type + source:type, 
     data = weightgain, contrasts = list(source = contr.sum)))
 
 
@@ -156,7 +154,7 @@ plot(foster_hsd)
 ### chunk number 21: ANOVA-water-manova
 ###################################################
 data("water", package = "HSAUR")
-summary(manova(cbind(hardness, mortality) ~ location,
+summary(manova(cbind(hardness, mortality) ~ location, 
     data = water), test = "Hotelling-Lawley")
 
 
@@ -171,7 +169,7 @@ tapply(water$mortality, water$location, mean)
 ### chunk number 23: ANOVA-skulls-data
 ###################################################
 data("skulls", package = "HSAUR")
-means <- aggregate(skulls[,c("mb", "bh", "bl", "nh")],
+means <- aggregate(skulls[,c("mb", "bh", "bl", "nh")], 
                    list(epoch = skulls$epoch), mean)
 means
 
@@ -188,10 +186,10 @@ pairs(means[,-1],
 ###################################################
 ### chunk number 25: ANOVA-skulls-manova
 ###################################################
-skulls_manova <- manova(cbind(mb, bh, bl, nh) ~ epoch,
+skulls_manova <- manova(cbind(mb, bh, bl, nh) ~ epoch, 
                         data = skulls)
 summary(skulls_manova, test = "Pillai")
-summary(skulls_manova, test = "Wilks")
+summary(skulls_manova, test = "Wilks") 
 summary(skulls_manova, test = "Hotelling-Lawley")
 summary(skulls_manova, test = "Roy")
 
@@ -205,13 +203,13 @@ summary.aov(skulls_manova)
 ###################################################
 ### chunk number 27: ANOVA-skulls-manova3
 ###################################################
-summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls,
+summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls, 
                subset = epoch %in% c("c4000BC", "c3300BC")))
-summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls,
+summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls, 
                subset = epoch %in% c("c4000BC", "c1850BC")))
-summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls,
+summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls, 
                subset = epoch %in% c("c4000BC", "c200BC")))
-summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls,
+summary(manova(cbind(mb, bh, bl, nh) ~ epoch, data = skulls, 
                subset = epoch %in% c("c4000BC", "cAD150")))
 
 

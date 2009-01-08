@@ -1,11 +1,11 @@
-%PDF-1.1
+%PDF-1.4
 %Å‚Å„ÅœÅ”\r
 1 0 obj
 <<
-/CreationDate (D:20080229172439)
-/ModDate (D:20080229172439)
+/CreationDate (D:20090109111219)
+/ModDate (D:20090109111219)
 /Title (R Graphics Output)
-/Producer (R 2.6.2)
+/Producer (R 2.9.0)
 /Creator (R)
 >>
 endobj
@@ -17,23 +17,15 @@ endobj
 endobj
 5 0 obj
 <<
-/Type /Font
-/Subtype /Type1
-/Name /F1
-/BaseFont /ZapfDingbats
+/Type /Page
+/Parent 3 0 R
+/Contents 6 0 R
+/Resources 4 0 R
 >>
 endobj
 6 0 obj
 <<
-/Type /Page
-/Parent 3 0 R
-/Contents 7 0 R
-/Resources 4 0 R
->>
-endobj
-7 0 obj
-<<
-/Length 8 0 R
+/Length 7 0 R
 >>
 stream
 q
@@ -56,8 +48,14 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 55.70 47.52 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 87.69 47.52 Tm (20) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 123.00 47.52 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 158.32 47.52 Tm (60) Tj
 ET
 59.04 79.20 m 59.04 223.20 l S
@@ -69,10 +67,20 @@ ET
 59.04 223.20 m 51.84 223.20 l S
 BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 70.86 Tm (0.0) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 99.66 Tm (0.2) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 128.46 Tm (0.4) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 157.26 Tm (0.6) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 186.06 Tm (0.8) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 41.76 214.86 Tm (1.0) Tj
 ET
 59.04 73.44 m
@@ -85,7 +93,11 @@ Q q 0.00 0.00 216.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F3 1 Tf 14.00 0.00 -0.00 14.00 68.71 253.45 Tm (Grade III Glioma) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 61.66 18.72 Tm (Survival Time in Month) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 61.36 18.72 Tm [(Sur) -30 (viv) 25 (al Time in Month)] TJ
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 12.96 123.19 Tm (Probability) Tj
 ET
 Q q 59.04 73.44 126.72 155.52 re W n
@@ -146,7 +158,9 @@ S
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 108.58 94.96 Tm (Control) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 108.58 80.56 Tm (Treated) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 108.58 80.56 Tm [(T) 120 (reated)] TJ
 ET
 Q q 275.04 73.44 126.72 155.52 re W n
 Q q
@@ -168,8 +182,14 @@ Q q
 BT
 0.000 0.000 0.000 rg
 /F2 1 Tf 12.00 0.00 -0.00 12.00 271.70 47.52 Tm (0) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 303.35 47.52 Tm (20) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 338.33 47.52 Tm (40) Tj
+ET
+BT
 /F2 1 Tf 12.00 0.00 -0.00 12.00 373.31 47.52 Tm (60) Tj
 ET
 275.04 79.20 m 275.04 223.20 l S
@@ -181,10 +201,20 @@ ET
 275.04 223.20 m 267.84 223.20 l S
 BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 70.86 Tm (0.0) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 99.66 Tm (0.2) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 128.46 Tm (0.4) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 157.26 Tm (0.6) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 186.06 Tm (0.8) Tj
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 257.76 214.86 Tm (1.0) Tj
 ET
 275.04 73.44 m
@@ -197,7 +227,11 @@ Q q 216.00 0.00 216.00 288.00 re W n
 BT
 0.000 0.000 0.000 rg
 /F3 1 Tf 14.00 0.00 -0.00 14.00 283.93 253.45 Tm (Grade IV Glioma) Tj
-/F2 1 Tf 12.00 0.00 -0.00 12.00 277.66 18.72 Tm (Survival Time in Month) Tj
+ET
+BT
+/F2 1 Tf 12.00 0.00 -0.00 12.00 277.36 18.72 Tm [(Sur) -30 (viv) 25 (al Time in Month)] TJ
+ET
+BT
 /F2 1 Tf 0.00 12.00 -12.00 0.00 228.96 123.19 Tm (Probability) Tj
 ET
 Q q 275.04 73.44 126.72 155.52 re W n
@@ -248,14 +282,14 @@ S
 Q
 endstream
 endobj
-8 0 obj
-5131
+7 0 obj
+5296
 endobj
 3 0 obj
 <<
 /Type /Pages
 /Kids [
-6 0 R
+5 0 R
 ]
 /Count 1
 /MediaBox [0 0 432 288]
@@ -264,11 +298,11 @@ endobj
 4 0 obj
 <<
 /ProcSet [/PDF /Text]
-/Font << /F1 5 0 R /F2 10 0 R /F3 11 0 R >>
+/Font <</F2 9 0 R /F3 10 0 R >>
 /ExtGState << >>
 >>
 endobj
-9 0 obj
+8 0 obj
 <<
 /Type /Encoding
 /BaseEncoding /WinAnsiEncoding
@@ -277,40 +311,39 @@ endobj
 /dieresis /.notdef /ring /cedilla /.notdef /hungarumlaut /ogonek /caron /space]
 >>
 endobj
-10 0 obj <<
+9 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F2
 /BaseFont /Helvetica
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
-11 0 obj <<
+10 0 obj <<
 /Type /Font
 /Subtype /Type1
 /Name /F3
 /BaseFont /Helvetica-Bold
-/Encoding 9 0 R
+/Encoding 8 0 R
 >> endobj
 xref
-0 12
+0 11
 0000000000 65535 f 
 0000000021 00000 n 
 0000000163 00000 n 
-0000005579 00000 n 
-0000005662 00000 n 
+0000005661 00000 n 
+0000005744 00000 n 
 0000000212 00000 n 
-0000000295 00000 n 
-0000000375 00000 n 
-0000005559 00000 n 
-0000005766 00000 n 
-0000006023 00000 n 
-0000006120 00000 n 
+0000000292 00000 n 
+0000005641 00000 n 
+0000005836 00000 n 
+0000006093 00000 n 
+0000006189 00000 n 
 trailer
 <<
-/Size 12
+/Size 11
 /Info 1 0 R
 /Root 2 0 R
 >>
 startxref
-6222
+6291
 %%EOF

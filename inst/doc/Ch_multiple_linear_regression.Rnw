@@ -1,12 +1,14 @@
 
 
 
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
 
 %%% keeps `sweave' from adding `\usepackage{Sweave}': DO NOT REMOVE
-%\usepackage{Sweave}
+%\usepackage{Sweave} 
 
 
 \RequirePackage[T1]{fontenc}
@@ -35,7 +37,7 @@
   \renewenvironment{Schunk}{\begin{figure}[ht] }{\caption{\nextcaption}
   \end{figure} }
   \DefineVerbatimEnvironment{Sinput}{Verbatim}{frame = topline}
-  \DefineVerbatimEnvironment{Soutput}{Verbatim}{frame = bottomline,
+  \DefineVerbatimEnvironment{Soutput}{Verbatim}{frame = bottomline, 
                                                 samepage = true,
                                                 fontfamily=courier,
                                                 fontshape=it,
@@ -47,7 +49,7 @@
 \DefineVerbatimEnvironment{Sinput}
 {Verbatim}
 {
-%% numbers=left
+%%  numbers=left
 }
 
 \newcommand{\numberSinput}{
@@ -83,29 +85,29 @@
 
 %%% other symbols
 \newcommand{\file}[1]{\hbox{\rm\texttt{#1}}}
-%%\newcommand{\stress}[1]{\index{#1}\textit{#1}}
-\newcommand{\stress}[1]{\textit{#1}}
+%%\newcommand{\stress}[1]{\index{#1}\textit{#1}} 
+\newcommand{\stress}[1]{\textit{#1}} 
 \newcommand{\booktitle}[1]{`#1'} %%'
 
 %%% Math symbols
-\newcommand{\E}{\mathsf{E}}
-\newcommand{\Var}{\mathsf{Var}}
-\newcommand{\Cov}{\mathsf{Cov}}
-\newcommand{\Cor}{\mathsf{Cor}}
-\newcommand{\x}{\mathbf{x}}
-\newcommand{\y}{\mathbf{y}}
+\newcommand{\E}{\mathsf{E}}   
+\newcommand{\Var}{\mathsf{Var}}   
+\newcommand{\Cov}{\mathsf{Cov}}   
+\newcommand{\Cor}{\mathsf{Cor}}   
+\newcommand{\x}{\mathbf{x}}   
+\newcommand{\y}{\mathbf{y}}   
 \renewcommand{\a}{\mathbf{a}}
-\newcommand{\W}{\mathbf{W}}
-\newcommand{\C}{\mathbf{C}}
-\renewcommand{\H}{\mathbf{H}}
-\newcommand{\X}{\mathbf{X}}
-\newcommand{\B}{\mathbf{B}}
-\newcommand{\V}{\mathbf{V}}
-\newcommand{\I}{\mathbf{I}}
-\newcommand{\D}{\mathbf{D}}
-\newcommand{\bS}{\mathbf{S}}
-\newcommand{\N}{\mathcal{N}}
-\renewcommand{\P}{\mathsf{P}}
+\newcommand{\W}{\mathbf{W}}   
+\newcommand{\C}{\mathbf{C}}   
+\renewcommand{\H}{\mathbf{H}}   
+\newcommand{\X}{\mathbf{X}}   
+\newcommand{\B}{\mathbf{B}}   
+\newcommand{\V}{\mathbf{V}}   
+\newcommand{\I}{\mathbf{I}}   
+\newcommand{\D}{\mathbf{D}}   
+\newcommand{\bS}{\mathbf{S}}   
+\newcommand{\N}{\mathcal{N}}   
+\renewcommand{\P}{\mathsf{P}}   
 \usepackage{amstext}
 
 %%% links
@@ -164,33 +166,38 @@
 %%% hyphenations
 \hyphenation{drop-out}
 
-%%% new bidirectional quotes need
+%%% new bidirectional quotes need 
 \usepackage[utf8]{inputenc}
 \begin{document}
+
 %% Title page
+
 \title{A Handbook of Statistical Analyses Using \R}
+
 \author{Brian S. Everitt and Torsten Hothorn}
+
 \maketitle
 %%\VignetteIndexEntry{Multiple Linear Regression}
 \setcounter{chapter}{4}
-\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE}
+
+
+\SweaveOpts{prefix.string=figures/HSAUR,eps=FALSE,keep.source=TRUE} 
+
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
 if (!file.exists("tables")) dir.create("tables")
 set.seed(290875)
 options(prompt = "R> ", continue = "+  ",
-    width = 63, # digits = 4,
-    SweaveHooks = list(leftpar = function()
+    width = 63, # digits = 4, 
+    SweaveHooks = list(leftpar = function() 
         par(mai = par("mai") * c(1, 1.05, 1, 1))))
 HSAURpkg <- require("HSAUR")
 if (!HSAURpkg) stop("cannot load package ", sQuote("HSAUR"))
 rm(HSAURpkg)
-### </FIXME> hm, R-2.4.0 --vanilla seems to need this
 a <- Sys.setlocale("LC_ALL", "C")
-### </FIXME>
 book <- TRUE
-refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM",
-                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA",
+refs <- cbind(c("AItR", "SI", "CI", "ANOVA", "MLR", "GLM", 
+                "DE", "RP", "SA", "ALDI", "ALDII", "MA", "PCA", 
                 "MDS", "CA"), 1:15)
 ch <- function(x, book = TRUE) {
     ch <- refs[which(refs[,1] == x),]
@@ -201,26 +208,37 @@ ch <- function(x, book = TRUE) {
     }
 }
 @
+
 \pagestyle{headings}
-\chapter[Multiple Linear Regression]{Multiple Linear Regression: \ Cloud Seeding \label{MLR}}
+
+\chapter[Multiple Linear Regression]{Multiple Linear Regression: \                                     Cloud Seeding \label{MLR}}
+
 \section{Introduction}
+
+
 \index{Cloud seeding}
+
 \section{Multiple Linear Regression}
 \index{Linear models|(}
+
+
 \section{Analysis Using \R{}}
+
+
 \begin{figure}
 \begin{center}
 <<MLR-clouds-boxplots, echo = TRUE, fig = TRUE, height = 9>>=
 data("clouds", package = "HSAUR")
 layout(matrix(1:2, nrow = 2))
-bxpseeding <- boxplot(rainfall ~ seeding, data = clouds,
+bxpseeding <- boxplot(rainfall ~ seeding, data = clouds, 
     ylab = "Rainfall", xlab = "Seeding")
-bxpecho <- boxplot(rainfall ~ echomotion, data = clouds,
+bxpecho <- boxplot(rainfall ~ echomotion, data = clouds, 
     ylab = "Rainfall", xlab = "Echo Motion")
 @
 \caption{Boxplots of \Robject{rainfall}. \label{MLR-rainfall-boxplot}}
 \end{center}
 \end{figure}
+
 \begin{figure}
 \begin{center}
 <<MLR-clouds-scatterplots, echo = TRUE, fig = TRUE, width = 7, height = 7>>=
@@ -234,22 +252,25 @@ plot(rainfall ~ prewetness, data = clouds)
 covariates. \label{MLR-rainfall-scplot}}
 \end{center}
 \end{figure}
-Both the boxplots (Figure~\ref{MLR-rainfall-boxplot}) and the scatterplots
-(Figure~\ref{MLR-rainfall-scplot}) show some evidence
+
+Both the boxplots (Figure~\ref{MLR-rainfall-boxplot}) and the scatterplots 
+(Figure~\ref{MLR-rainfall-scplot}) show some evidence 
 of outliers. The row names of the extreme observations in the
 \Robject{clouds} \Rclass{data.frame} can be identified via
 <<MLR-clouds-outliers, echo = TRUE>>=
-rownames(clouds)[clouds$rainfall %in% c(bxpseeding$out,
+rownames(clouds)[clouds$rainfall %in% c(bxpseeding$out, 
                                         bxpecho$out)]
 @
-where \Robject{bxpseeding} and \Robject{bxpecho} are variables
+where \Robject{bxpseeding} and \Robject{bxpecho} are variables 
 created by \Rcmd{boxplot} in Figure~\ref{MLR-rainfall-boxplot}.
-For the time being we shall not remove these observations but bear
+For the time being we shall not remove these observations but bear 
 in mind during the modelling process that they may cause problems.
+
 \subsection{Fitting a Linear Model}
-In this example it is sensible to assume that the effect that
-some of the other explanatory variables is modified by seeding
-and therefore consider a model that allows interaction terms
+
+In this example it is sensible to assume that the effect that 
+some of the other explanatory variables is modified by seeding 
+and therefore consider a model that allows interaction terms 
 \index{Interaction}
 for \Robject{seeding} with each of the covariates except \Robject{time}.
 This model can be described by the \Rclass{formula}
@@ -269,12 +290,8 @@ attr(Xstar, "contrasts")
 @
 The default contrasts can be changed via the \Rarg{contrasts.arg}
 argument to \Rcmd{model.matrix} or the \Robject{contrasts} argument to the
-fitting function, for example \Rcmd{lm} or \Rcmd{aov} as shown in
-
+fitting function, for example \Rcmd{lm} or \Rcmd{aov} as shown in 
 Chapter~4.
-
-
-
 
 However, such internals are hidden and performed by high-level model fitting
 functions such as \Rcmd{lm} which will be used to fit the linear model
@@ -288,7 +305,7 @@ a \Rcmd{summary} method showing the conventional regression analysis
 output is available. The output in Figure~\ref{MLR-clouds-summary}
 shows the estimates $\hat{\beta}^\star$ with corresponding standard errors
 and $t$-statistics as well as the $F$-statistic with associated $p$-value.
-\renewcommand{\nextcaption}{\R{} output of the linear model fit
+\renewcommand{\nextcaption}{\R{} output of the linear model fit  
                             for the \Robject{clouds} data.
                             \label{MLR-clouds-summary}}
 \SchunkLabel
@@ -313,45 +330,53 @@ shown in Figure~\ref{MLR-clouds-summary}
 <<MLR-clouds-sd, echo = TRUE>>=
 sqrt(diag(Vbetastar))
 @
+
+
 \begin{figure}
 \begin{center}
 <<MLR-clouds-lmplot, echo = TRUE, fig = TRUE>>=
 psymb <- as.numeric(clouds$seeding)
-plot(rainfall ~ sne, data = clouds, pch = psymb,
+plot(rainfall ~ sne, data = clouds, pch = psymb, 
      xlab = "S-Ne criterion")
-abline(lm(rainfall ~ sne, data = clouds,
+abline(lm(rainfall ~ sne, data = clouds, 
           subset = seeding == "no"))
-abline(lm(rainfall ~ sne, data = clouds,
-          subset = seeding == "yes"), lty = 2)
-legend("topright", legend = c("No seeding", "Seeding"),
+abline(lm(rainfall ~ sne, data = clouds, 
+          subset = seeding == "yes"), lty = 2)  
+legend("topright", legend = c("No seeding", "Seeding"), 
        pch = 1:2, lty = 1:2, bty = "n")
 @
 \caption{Regression relationship between S-Ne criterion and rainfall with
 and without seeding. \label{MLR-rel}}
 \end{center}
 \end{figure}
+
+
+
 \subsection{Regression Diagnostics}
+
+
 In order to investigate the quality of the model fit, we need access to the
-residuals and the fitted values. The residuals can be found by the
-\Rcmd{residuals} method and the fitted values of the response
+residuals and the fitted values. The residuals can be found by the 
+\Rcmd{residuals} method and the fitted values of the response 
 from the \Rcmd{fitted} (or \Rcmd{predict}) method
 <<MLR-clouds-residfitted, echo = TRUE>>=
 clouds_resid <- residuals(clouds_lm)
 clouds_fitted <- fitted(clouds_lm)
 @
-Now the residuals and the fitted values
+Now the residuals and the fitted values 
 can be used to construct diagnostic plots; for example the residual
 plot in Figure~\ref{MLR-resid} where each observation is labelled by its
 number. Observations $1$ and $15$ give rather large residual values and the
 data should perhaps be reanalysed after these two observations are removed.
-The normal probability plot of the residuals shown in Figure~\ref{MLR-qqplot}
+The normal probability plot of the residuals shown in Figure~\ref{MLR-qqplot} 
 shows a reasonable agreement between theoretical and sample
 quantiles, however, observations $1$ and $15$ are extreme again.
+
 \begin{figure}
 \begin{center}
 <<MLR-clouds-residplot, echo = TRUE, fig = TRUE>>=
-plot(clouds_fitted, clouds_resid, xlab = "Fitted values",
-     ylab = "Residuals", type = "n",
+plot(clouds_fitted, clouds_resid, xlab = "Fitted values", 
+     ylab = "Residuals", type = "n", 
      ylim = max(abs(clouds_resid)) * c(-1, 1))
 abline(h = 0, lty = 2)
 text(clouds_fitted, clouds_resid, labels = rownames(clouds))
@@ -360,6 +385,7 @@ text(clouds_fitted, clouds_resid, labels = rownames(clouds))
 \label{MLR-resid}}
 \end{center}
 \end{figure}
+
 \begin{figure}
 \begin{center}
 <<MLR-clouds-qqplot, echo = TRUE, fig = TRUE>>=
@@ -370,11 +396,13 @@ qqline(clouds_resid)
          \Robject{clouds\_lm}. \label{MLR-qqplot}}
 \end{center}
 \end{figure}
+
+
 An index plot of the Cook's distances for each observation %'
 (and many other plots including those constructed above from
-using the basic functions) can be found from applying the \Rcmd{plot} method
+using the basic functions) can be found from applying the \Rcmd{plot} method 
 to the object that results from the application
-of the \Rcmd{lm} function.
+of the \Rcmd{lm} function. 
 \begin{figure}
 \begin{center}
 <<MLR-clouds-cook, echo = TRUE, eval = FALSE>>=
@@ -388,13 +416,14 @@ plot(clouds_lm, which = 4, sub.caption = NULL)
 \end{center}
 \end{figure}
 Figure~\ref{MLR-cook} suggests that observations 2 and 18 have undue
-influence on the
+influence on the 
 estimated regression coefficients, but the two outliers identified
 previously do not. Again it may be useful to look at the results
 after these two observations have been removed (see Exercise
 5.2).
 %% \ref{MLR-ex2})
 \index{Regression diagnostics|)}
-%%\bibliographystyle{../LaTeXBibTeX/refstyle}
-%%\bibliography{../LaTeXBibTeX/HSAUR}
+
+%%\bibliographystyle{LaTeXBibTeX/refstyle}
+%%\bibliography{LaTeXBibTeX/HSAUR}   
 \end{document}
