@@ -1082,17 +1082,10 @@ plot(log(marketvalue) ~ log(sales), data = Forbes2000,
 
 \begin{figure}
 \begin{center}
-<<<<<<< .mine
 <<AItR-Forbes2000-marketvalue-sales-shading, echo = TRUE, fig = TRUE, pdf = FALSE, png = TRUE>>=
 plot(log(marketvalue) ~ log(sales), data = Forbes2000, 
      col = rgb(0,0,0,0.1), pch = 16)
 @
-=======
-<<AItR-Forbes2000-marketvalue-sales-shading, echo = TRUE, fig = TRUE>>=
-plot(log(marketvalue) ~ log(sales), data = Forbes2000, 
-     col = rgb(0,0,0,0.1), pch = 16)
-@
->>>>>>> .r851
 \caption{Scatterplot with transparent shading of points 
          of the logarithms of market value and sales.
 \label{AItR:scatter}}

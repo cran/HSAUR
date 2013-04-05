@@ -1,4 +1,8 @@
 
+		Changes in version 1.3-1
+
+    o    .find.package() -> system.file()
+
 		Changes in version 1.3-0
 
     o    put vignettes in HSAUR/vignettes together
