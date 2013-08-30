@@ -252,7 +252,7 @@ fit <- function(x, indx) {
 ###################################################
 ### code chunk number 24: DE-faithful-bootrun
 ###################################################
-bootparafile <- system.file("cache", "DE-bootpara.rda", package = "HSAUR2")
+bootparafile <- system.file("cache", "DE-bootpara.rda", package = "HSAUR")
 if (file.exists(bootparafile)) {
     load(bootparafile)
 } else {
