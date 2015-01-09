@@ -1,4 +1,10 @@
 
+		Changes in version 1.3-6
+
+    o    make clear that this package is for the 1st edition
+
+    o    remove defunct publisher URL
+
 		Changes in version 1.3-5
 
     o    don't ship Makefiles
