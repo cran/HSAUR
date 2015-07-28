@@ -1,6 +1,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -184,6 +197,10 @@
 
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
+s <- search()[-1]
+s <- s[-match(c("package:base", "package:stats", "package:graphics", "package:grDevices",
+                "package:utils", "package:datasets", "package:methods", "Autoloads"), s)]
+if (length(s) > 0) sapply(s, detach, character.only = TRUE)
 if (!file.exists("tables")) dir.create("tables")
 if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
@@ -214,7 +231,6 @@ ch <- function(x, book = TRUE) {
 <<ALDI-setup, echo = FALSE, results = hide>>=
 library("Matrix")
 library("lme4")
-residuals <- function(object) object@y - fitted(object)
 @
 
 \chapter[Analysing Longitudinal Data I]{Analysing Longitudinal Data I: 
@@ -299,10 +315,10 @@ appropriate using
 library("lme4")
 BtheB_lmer1 <- lmer(bdi ~ bdi.pre + time + treatment + drug + 
     length + (1 | subject), data = BtheB_long, 
-    method = "ML", na.action = na.omit)
+    REML = FALSE, na.action = na.omit)
 BtheB_lmer2 <- lmer(bdi ~ bdi.pre + time + treatment + drug + 
     length + (time | subject), data = BtheB_long, 
-    method = "ML", na.action = na.omit)   
+    REML = FALSE, na.action = na.omit)   
 anova(BtheB_lmer1, BtheB_lmer2)
 @
 

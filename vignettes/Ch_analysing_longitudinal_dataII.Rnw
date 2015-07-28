@@ -1,6 +1,19 @@
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 \documentclass{chapman}
 
 %%% copy Sweave.sty definitions
@@ -184,6 +197,10 @@
 
 <<setup, echo = FALSE, results = hide>>=
 rm(list = ls())
+s <- search()[-1]
+s <- s[-match(c("package:base", "package:stats", "package:graphics", "package:grDevices",
+                "package:utils", "package:datasets", "package:methods", "Autoloads"), s)]
+if (length(s) > 0) sapply(s, detach, character.only = TRUE)
 if (!file.exists("tables")) dir.create("tables")
 if (!file.exists("figures")) dir.create("figures")
 set.seed(290875)
@@ -243,9 +260,6 @@ we will fit an independence structure and then an exchangeable
 structure. The \R{} code for fitting generalised estimation equations to the
 \Robject{BtheB\_long} data (as constructed in 
 Chapter 10,
-
-
-
 with
 idenity working correlation matrix is as follows (note that the \Rcmd{gee} function
 assumes the rows of the \Rclass{data.frame} \Robject{BtheB\_long} to be
